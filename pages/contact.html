@@ -1,0 +1,402 @@
+<!-- 
+    Armour Technologies Website - Contact Page
+    Author: Curtis Goddard
+    Last Updated: 02/01/2025
+    
+    Contact form and information for reaching
+    Armour Technologies.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us | Armour Technologies Limited</title>
+    <meta name="description" content="Get in touch with Armour Technologies Limited for all your managed IT service needs.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="../images/OIP.ico" type="image/x-icon">
+    <meta name="keywords" content="contact IT support, IT services contact, managed services contact, UK IT support">
+    <link rel="canonical" href="https://www.armourtechnologies.co.uk/contact.html" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Armour Technologies Limited",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+447777777777",
+          "email": "info@armourtechnologies.co.uk",
+          "contactType": "customer service"
+        }
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header role="banner">
+        <div class="logo">
+            <a href="index.html"><img src="../images/logo.jpeg" alt="Armour Technologies Logo" aria-label="Armour Technologies Logo"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" aria-label="Home">Home</a></li>
+                <li><a href="servicespricing.html" aria-label="Services and Pricing">Services & Pricing</a></li>
+                <li><a href="about.html" aria-label="About Us">About Us</a></li>
+                <li><a href="contact.html" class="active" aria-label="Contact Us">Contact Us</a></li>
+            </ul>
+            <a href="tel:07777777777" class="call-us-btn" aria-label="Call Us">Call Us</a>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero animate-on-scroll" role="region" aria-label="Page Header" style="height: 50vh; background-image: url('../images/hero-bg.jpg'); background-size: cover; background-position: center;">
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section role="region" aria-label="Contact Form">
+        <div class="container">
+            <h2 class="animate-on-scroll">We're Here to Help</h2>
+            
+            <!-- Add this new contact info section -->
+            <div class="contact-details">
+                <div class="contact-card">
+                    <h3>Contact Information</h3>
+                    <ul>
+                        <li>
+                            <i class="icon">📞</i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p><a href="tel:07777 777777">07777 777777</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon">📧</i>
+                            <div>
+                                <strong>Email</strong>
+                                <p><a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a></p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="icon">🏢</i>
+                            <div>
+                                <strong>Office</strong>
+                                <p>123 Business Street<br>City, County<br>POST CODE</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Business Hours</h3>
+                    <ul class="hours-list">
+                        <li>
+                            <span>Monday - Friday</span>
+                            <span>9:00 AM - 5:00 PM</span>
+                        </li>
+                        <li>
+                            <span>Saturday</span>
+                            <span>Closed</span>
+                        </li>
+                        <li>
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                    <p class="support-note">24/7 Emergency Support Available for Managed Service Clients</p>
+                </div>
+            </div>
+
+            <div class="contact-intro">
+                <p class="animate-on-scroll">Have questions about our services or need assistance? Fill out the form below, and we'll get back to you promptly.</p>
+                <p class="email-notice">Note: Submitting this form will open your default email client. If you don't have an email client installed, you can email us directly at <a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a></p>
+            </div>
+            <form class="contact-form centered-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <div class="error-message" id="nameError"></div>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <div class="error-message" id="emailError"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    <div class="error-message" id="subjectError"></div>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
+                    <div class="error-message" id="messageError"></div>
+                </div>
+                <div class="form-group captcha-group">
+                    <label id="captcha-question"></label>
+                    <input type="number" id="captcha-answer" placeholder="Enter the answer" required>
+                    <div class="error-message" id="captchaError"></div>
+                </div>
+                <button type="submit">Send Message</button>
+                <div id="formStatus" class="form-status"></div>
+                <p class="email-fallback" style="margin-top: 1rem; font-size: 0.9em;">
+                    Or email us directly at: 
+                    <a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a>
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Chat Widget Placeholder -->
+    <div id="chat-widget" class="chat-widget" style="left: 20px; right: auto;">
+        <button class="chat-toggle" aria-label="Toggle chat">
+            <span class="chat-icon">💬</span>
+            <span class="chat-text">Chat with us</span>
+        </button>
+        <div class="chat-popup">
+            <div class="chat-header">
+                <h3>Live Chat</h3>
+                <button class="close-chat">×</button>
+            </div>
+            <div class="chat-body">
+                <p>Chat coming soon! For now, please email or call us.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p>At Armour Technologies Limited, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information.</p>
+            <h3>Information We Collect</h3>
+            <p>We may collect the following types of information:</p>
+            <ul>
+                <li>Contact details (e.g., name, email address, phone number)</li>
+                <li>Business information (e.g., company name, job title)</li>
+                <li>Technical data (e.g., IP address, browser type, operating system)</li>
+                <li>Usage data (e.g., pages visited, time spent on the website)</li>
+            </ul>
+            <br>
+            <h3>How We Use Your Information</h3>
+            <p>We use your information for the following purposes:</p>
+            <ul>
+                <li>To provide and improve our services</li>
+                <li>To communicate with you about our services and offers</li>
+                <li>To personalise your experience on our website</li>
+                <li>To comply with legal obligations</li>
+            </ul>
+            <br>
+            <h3>Sharing Your Information</h3>
+            <p>We do not sell or rent your personal information to third parties. We may share your information with:</p>
+            <ul>
+                <li>Service providers who assist us in operating our business</li>
+                <li>Legal authorities if required by law</li>
+            </ul>
+            <br>
+            <h3>Your Rights</h3>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Access the personal information we hold about you</li>
+                <li>Request correction of inaccurate information</li>
+                <li>Request deletion of your personal information</li>
+                <li>Object to the processing of your personal information</li>
+            </ul>
+            <br>
+            <h3>Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a>.</p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-of-service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Terms of Service</h2>
+            <p>Welcome to Armour Technologies Limited. These terms and conditions outline the rules and regulations for the use of our website and services.</p>
+            <h3>Introduction</h3>
+            <p>By accessing this website, we assume you accept these terms and conditions in full. Do not continue to use Armour Technologies Limited's website if you do not accept all of the terms and conditions stated on this page.</p>
+            <h3>Licence</h3>
+            <p>Unless otherwise stated, Armour Technologies Limited and/or its licensors own the intellectual property rights for all material on Armour Technologies Limited. All intellectual property rights are reserved. You may view and/or print pages from https://www.armourtechnologies.co.uk for your own personal use subject to restrictions set in these terms and conditions.</p>
+            <h3>User Comments</h3>
+            <p>Certain parts of this website offer the opportunity for users to post and exchange opinions, information, material, and data ('Comments'). Armour Technologies Limited does not screen, edit, publish, or review Comments prior to their appearance on the website and Comments do not reflect the views or opinions of Armour Technologies Limited, its agents, or affiliates. Comments reflect the view and opinion of the person who posts such view or opinion. To the extent permitted by applicable laws, Armour Technologies Limited shall not be responsible or liable for the Comments or for any loss, cost, liability, damages, or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</p>
+            <h3>Hyperlinking to our Content</h3>
+            <p>The following organisations may link to our website without prior written approval:</p>
+            <ul>
+                <li>Government agencies;</li>
+                <li>Search engines;</li>
+                <li>News organisations;</li>
+                <li>Online directory distributors when they list us in the directory may link to our website in the same manner as they hyperlink to the websites of other listed businesses; and</li>
+                <li>System-wide Accredited Businesses except soliciting non-profit organisations, charity shopping malls, and charity fundraising groups which may not hyperlink to our website.</li>
+            </ul>
+            <h3>Content Liability</h3>
+            <p>We shall have no responsibility or liability for any content appearing on your website. You agree to indemnify and defend us against all claims arising out of or based upon your website. No link(s) may appear on any page on your website or within any context containing content or materials that may be interpreted as libellous, obscene, or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.</p>
+            <h3>Reservation of Rights</h3>
+            <p>We reserve the right at any time and in its sole discretion to request that you remove all links or any particular link to our website. You agree to immediately remove all links to our website upon such request. We also reserve the right to amend these terms and conditions and our linking policy at any time. By continuing to link to our website, you agree to be bound to and abide by these linking terms and conditions.</p>
+            <h3>Disclaimer</h3>
+            <p>To the maximum extent permitted by applicable law, we exclude all representations, warranties, and conditions relating to our website and the use of this website (including, without limitation, any warranties implied by law in respect of satisfactory quality, fitness for purpose, and/or the use of reasonable care and skill). Nothing in this disclaimer will:</p>
+            <ul>
+                <li>limit or exclude our or your liability for death or personal injury resulting from negligence;</li>
+                <li>limit or exclude our or your liability for fraud or fraudulent misrepresentation;</li>
+                <li>limit any of our or your liabilities in any way that is not permitted under applicable law; or</li>
+                <li>exclude any of our or your liabilities that may not be excluded under applicable law.</li>
+            </ul>
+            <h3>Governing Law</h3>
+            <p>These terms and conditions are governed by and construed in accordance with the laws of the United Kingdom, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container footer-grid">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <img src="../images/logo.jpeg" alt="Armour Technologies Logo" class="footer-logo">
+                <p>Providing expert IT services and cybersecurity solutions to businesses across the UK.</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="servicespricing.html">Services & Pricing</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="servicespricing.html#managed-it">Managed IT Support</a></li>
+                    <li><a href="servicespricing.html#cybersecurity">Cybersecurity</a></li>
+                    <li><a href="servicespricing.html#cloud">Cloud Solutions</a></li>
+                    <li><a href="servicespricing.html#consulting">IT Consulting</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:07777777777">07777 777777</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <address>123 Business Street<br>City, County<br>POST CODE</address>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Armour Technologies Limited. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" id="privacy-policy-link">Privacy Policy</a>
+                    <a href="#" id="terms-of-service-link">Terms of Service</a>
+                    <a href="#" id="cookie-policy-link">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/scripts.js"></script>
+    <script>
+        // Privacy Policy Modal
+        const privacyPolicyLink = document.getElementById('privacy-policy-link');
+        const privacyPolicyModal = document.getElementById('privacy-policy-modal');
+        const termsOfServiceLink = document.getElementById('terms-of-service-link');
+        const termsOfServiceModal = document.getElementById('terms-of-service-modal');
+        const cookiePolicyLink = document.getElementById('cookie-policy-link');
+        const cookiePolicyModal = document.getElementById('cookie-policy-modal');
+        const closeBtns = document.querySelectorAll('.modal .close-btn');
+
+        privacyPolicyLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            privacyPolicyModal.style.display = 'block';
+        });
+
+        termsOfServiceLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            termsOfServiceModal.style.display = 'block';
+        });
+
+        cookiePolicyLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            cookiePolicyModal.style.display = 'block';
+        });
+
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                btn.closest('.modal').style.display = 'none';
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === privacyPolicyModal) {
+                privacyPolicyModal.style.display = 'none';
+            }
+            if (event.target === termsOfServiceModal) {
+                termsOfServiceModal.style.display = 'none';
+            }
+            if (event.target === cookiePolicyModal) {
+                cookiePolicyModal.style.display = 'none';
+            }
+        });
+    </script>
+
+    <!-- Cookie Policy Modal -->
+    <div id="cookie-policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Cookie Policy</h2>
+            <div class="modal-body">
+                <p>This website uses cookies to enhance your browsing experience. By using our website, you agree to our use of cookies.</p>
+                
+                <h3>What are cookies?</h3>
+                <p>Cookies are small text files that are stored on your device when you visit a website. They help make websites work more efficiently and provide information to website owners.</p>
+                
+                <h3>How we use cookies</h3>
+                <ul>
+                    <li>Essential cookies: Required for basic website functionality</li>
+                    <li>Analytics cookies: Help us understand how visitors use our website</li>
+                    <li>Preference cookies: Remember your settings and preferences</li>
+                    <li>Marketing cookies: Used to deliver relevant advertisements</li>
+                </ul>
+                
+                <h3>Managing cookies</h3>
+                <p>You can control and/or delete cookies as you wish. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

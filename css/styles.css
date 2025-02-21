@@ -1,0 +1,3112 @@
+/**
+ * Project: Armour Technologies Website
+ * Author: Curtis Goddard
+ * Last Updated: 02/01/2025
+ *
+ * Main stylesheet for the Armour Technologies website.
+ * Features:
+ * - Responsive design
+ * - Dark mode support
+ * - CSS variables for theming
+ * - Flexbox layouts
+ * - Animations
+ */
+
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Typography - Font settings and basic text styles */
+h1, h2, h3 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+/* Link Styles */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Layout - Container and grid systems */
+.container {
+    /* Flexbox container for responsive layouts */
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Component Styles */
+/* Header - Main navigation and branding */
+header {
+    /* Fixed header with responsive navigation */
+    background: var(--header-background);
+    padding: 10px 40px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--header-text-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px; /* Adjust the height to fit within the white space */
+    width: auto;
+    transition: transform 0.3s ease; /* Add transition for smooth grow effect */
+}
+
+header .logo img:hover {
+    transform: scale(1.1); /* Grow the logo on hover */
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header ul {
+    list-style: none;
+    display: flex; /* Use flexbox for horizontal alignment */
+    gap: 20px; /* Add gap between nav items */
+    margin: 0; /* Remove default margin */
+}
+
+header li {
+    display: inline-block;
+}
+
+header a {
+    font-weight: bold;
+    color: var(--header-text-color);
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: #007BFF;
+}
+
+header ul li a {
+    transition: color 0.3s ease; /* Only transition color */
+}
+
+header ul li a:hover {
+    color: #007BFF; /* Change color on hover */
+}
+
+header nav ul li a {
+    transition: color 0.3s ease; /* Only transition color */
+}
+
+header nav ul li a:hover {
+    color: #007BFF; /* Change color on hover */
+}
+
+header .call-us-btn {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #007BFF, #0056b3);
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    margin-left: 20px; /* Add margin to separate from nav items */
+    box-shadow: 0 2px 4px rgba(0,123,255,0.2);
+}
+
+header .call-us-btn:hover {
+    background: #0056b3; /* Change to a darker shade of blue within the same color scheme */
+}
+
+/* Dark Mode Toggle Switch */
+.dark-mode-toggle {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 20px;
+    cursor: pointer;
+    user-select: none;
+    gap: 8px;
+}
+
+.dark-mode-toggle input {
+    display: none;
+}
+
+.toggle-slider {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    background: #e4e4e4;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.toggle-slider::after {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.toggle-slider::before {
+    content: '☼';
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #666;
+}
+
+.dark-mode-toggle input:checked + .toggle-slider {
+    background: #007BFF;
+}
+
+.dark-mode-toggle input:checked + .toggle-slider::before {
+    content: '☾';
+    left: 7px;
+    right: auto;
+    color: #fff;
+}
+
+.dark-mode-toggle input:checked + .toggle-slider::after {
+    transform: translateX(24px);
+}
+
+.dark-mode-toggle:focus-within .toggle-slider {
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+/* Hero Section - Main banner area */
+.hero {
+    background-image: url('images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    height: 100vh;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0); /* Removed the overlay by setting opacity to 0 */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    top: 20%; /* Move the content near the top */
+    transform: translateY(-20%); /* Adjust the vertical alignment */
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.hero-content .btn {
+    padding: 15px 30px;
+    background: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.hero-content .btn:hover {
+    background: #0056b3;
+}
+
+/* Sections */
+section {
+    padding: 80px 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+section:nth-of-type(even) {
+    background: var(--section-alt-background);
+}
+
+section:nth-of-type(odd) {
+    background: var(--card-background);
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--link-color);
+    transition: width 0.8s ease-in-out;
+}
+
+section p {
+    color: var(--text-color);
+}
+
+section .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+
+section .content .text {
+    flex: 1;
+    margin-right: 20px;
+    max-width: 600px;
+}
+
+section .content .image {
+    flex: 1;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    /* Removed box-shadow */
+}
+
+section .content .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Changed from cover to contain */
+    object-position: center;
+    padding: 20px; /* Add some padding around the image */
+    background-color: transparent; /* Changed from var(--card-background) to transparent */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    section .content .image {
+        margin-left: 0;
+        margin-top: 2rem;
+        min-height: 250px;
+        height: 300px;
+    }
+    
+    section .content .text {
+        padding-right: 0;
+    }
+    
+    section .content {
+        gap: 2rem;
+    }
+}
+
+section .content .image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Services Section - Service cards and layouts */
+.services .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1400px;
+}
+
+.services .service-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Changed from space-between */
+    width: 100%;
+    height: 280px; /* Fixed height for all boxes */
+    padding: 2rem;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services .service-item h3 {
+    margin: 1rem 0;
+    height: 50px; /* Fixed height for titles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.services .service-item p {
+    flex-grow: 1;
+    margin: 0;
+    display: -webkit-box;
+    display: box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 80px; /* Fixed height for description */
+}
+
+.services .service-icon {
+    height: 60px; /* Fixed height for icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: var(--link-color);
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .services .service-item {
+        height: 260px; /* Slightly smaller on mobile */
+    }
+    
+    .services .service-item h3 {
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .services .service-item p {
+        height: 70px;
+    }
+    
+    .services .service-icon {
+        height: 50px;
+    }
+}
+
+/* Pricing Table */
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 800px;
+    animation: glowPulse 3s ease-in-out infinite;
+    animation-delay: 0s;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+}
+
+.pricing-table th, .pricing-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid var(--card-border);
+}
+
+.pricing-table th {
+    background: var(--link-color);
+    color: white;
+    padding: 20px;
+    font-size: 1.1em;
+}
+
+.pricing-table td {
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.pricing-table tr:hover td {
+    background-color: rgba(0,123,255,0.1);
+}
+
+pricing-table th {
+    background: #007BFF;
+    color: #fff;
+}
+
+.pricing-table tr:nth-child(even) {
+    background: var(--table-stripe);
+}
+
+/* Form Styles - Contact and interactive elements */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto 6rem; /* Increased bottom margin from default to 6rem */
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--card-border);
+    border-radius: 5px;
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+.contact-form button {
+    padding: 15px 30px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #0056b3;
+}
+
+/* Utility Classes - Reusable utility classes */
+/* Shared Floating Button Style */
+.floating-btn {
+    position: fixed;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    width: 45px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px; /* Default size for the up arrow */
+}
+
+.floating-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Back-to-Top Button */
+#back-to-top {
+    display: none; /* Initially hidden */
+    bottom: 20px;
+}
+
+/* Remove old dark mode button styles */
+/* Delete the .dark-mode-toggle and related styles */
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Lazy Loading Images */
+img[loading="lazy"] {
+    opacity: 1; /* Changed from 0 to 1 to ensure images are visible by default */
+    transition: opacity 0.3s ease-in;
+}
+
+/* Image containers to prevent layout shift */
+.image {
+    position: relative;
+    min-height: 200px; /* Adjust based on your needs */
+}
+
+social-icons img {
+    min-height: 24px;
+    min-width: 24px;
+}
+
+/* Footer */
+footer {
+    background: var(--footer-background);
+    color: var(--footer-text-color);
+    padding: 4rem 0 0;
+    margin-top: 0; /* Changed from 4rem to 0 since we're using bottom margin on contact form */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-section h4 {
+    color: var(--footer-text-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background: var(--link-color);
+}
+
+.footer-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-section ul li a {
+    color: var(--footer-text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--link-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-icons a {
+    color: var(--footer-text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--link-color);
+}
+
+.contact-info li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem; /* Increased from 0.75rem */
+    word-break: break-word; /* Allow long emails to break */
+}
+
+.contact-info i {
+    color: var(--link-color);
+    margin-top: 0.25rem;
+}
+
+.contact-info li a {
+    word-wrap: break-word; /* Enable word wrapping for long text */
+    overflow-wrap: break-word; /* Modern browsers */
+    max-width: 100%; /* Ensure text doesn't overflow container */
+    display: inline-block; /* Allow the text to wrap */
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--footer-text-color);
+}
+
+.newsletter-form button {
+    padding: 0.75rem 1.5rem;
+    background: var(--link-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #0056b3;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+.footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: var(--footer-text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--link-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .footer-bottom .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+/* Animations - Scroll animations and transitions */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media Queries - Responsive design breakpoints */
+@media (max-width: 768px) {
+    header .logo, header nav {
+        float: none;
+        text-align: center;
+    }
+
+    header nav {
+        margin-top: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    section .content {
+        flex-direction: column;
+    }
+
+    section .content .text, section .content .image {
+        margin: 0;
+    }
+
+    .services .service-item {
+        flex-basis: 100%;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .hero-content .btn {
+        padding: 10px 20px;
+    }
+}
+
+/* Theme Configuration - Light and dark mode variables */
+:root {
+    --background-color: #ffffff; /* Changed from #f5f6f7 to pure white */
+    --text-color: #333333;
+    --link-color: #007BFF;
+    --header-background: #ffffff;
+    --header-text-color: #333333;
+    --footer-background: #222222;
+    --footer-text-color: #ffffff;
+    --card-background: #ffffff; /* Changed from #f5f6f7 to pure white */
+    --card-border: #e5e7eb;
+    --table-stripe: #f1f3f5;
+    --secondary-text-color: #666666;
+    --section-alt-background: #f0f2f5; /* Keep this color for alternating sections */
+    --modal-background: #ffffff;
+    --transition-speed: 0.3s;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --link-color: #1e90ff;
+    --header-background: #1f1f1f;
+    --header-text-color: #ffffff;
+    --footer-background: #1f1f1f;
+    --footer-text-color: #ffffff;
+    --card-background: #1f1f1f;
+    --card-border: #333333;
+    --table-stripe: #2d2d2d;
+    --secondary-text-color: #999999;
+    --section-alt-background: #161616; /* Added darker background for alternating sections */
+}
+
+/* [data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --link-color: #1e90ff;
+    --header-background: #1f1f1f;
+    --header-text-color: #ffffff;
+    --footer-background: #1f1f1f;
+    --footer-text-color: #ffffff;
+} */
+
+/* Navigation Active State */
+header nav ul li a.active {
+    color: #007BFF;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature {
+    padding: 1.5rem;
+    background: var(--card-background);
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* Testimonials */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.testimonial {
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 10px;
+    border: 2px solid var(--card-border);
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.3s ease;
+    position: relative;
+    text-align: center; /* Center align the content */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    will-change: transform;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+    border-color: var(--link-color);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.testimonial blockquote {
+    margin-bottom: 1rem;
+}
+
+.testimonial cite {
+    display: block;
+    margin-top: 1rem;
+    font-style: normal;
+    font-weight: bold;
+    color: var(--link-color);
+}
+
+.testimonial-logo {
+    max-width: 200px; /* Increased from 150px to 200px */
+    height: auto;
+    margin-top: 1.5rem;
+    filter: grayscale(100%);
+    opacity: 1;
+    transition: filter 0.3s ease;
+    display: block; /* Add this to ensure the image is displayed */
+    margin-left: auto; /* Center the logo */
+    margin-right: auto; /* Center the logo */
+}
+
+.testimonial:hover .testimonial-logo {
+    filter: grayscale(0%); /* Add this back to restore color on hover */
+}
+
+/* CTA Section */
+.cta {
+    background: var(--card-background);
+    text-align: center;
+    padding: 4rem 0;
+}
+
+/* Elevate IT Infrastructure Section */
+.elevate-it-infrastructure {
+    background: var(--card-background);
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.elevate-it-infrastructure .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem auto 0;
+    padding: 0 20px;
+}
+
+.elevate-it-infrastructure .cta-item {
+    flex: 1;
+    min-width: 300px;
+    max-width: 350px;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 220px; /* Set fixed height for all boxes */
+}
+
+.elevate-it-infrastructure .cta-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.elevate-it-infrastructure .cta-item h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.4em;
+}
+
+.elevate-it-infrastructure .cta-item p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .elevate-it-infrastructure .content {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .elevate-it-infrastructure .cta-item {
+        min-width: 100%;
+        max-width: 100%;
+        margin: 0 0 20px 0;
+        height: auto; /* Reset height on mobile */
+        min-height: 180px; /* Set minimum height for mobile */
+    }
+}
+
+.elevate-it-infrastructure .cta-button {
+    margin-top: 2rem;
+}
+
+.elevate-it-infrastructure .btn-primary {
+    padding: 15px 30px;
+    background: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.elevate-it-infrastructure .btn-primary:hover {
+    background: #0056b3;
+}
+
+/* Testimonials Carousel */
+.testimonials-carousel {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 60px; /* Increased padding to prevent cut-off */
+}
+
+.testimonials-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.testimonials-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 2rem;
+}
+
+.testimonial {
+    width: calc((100% - 4rem) / 3); /* Width for three items */
+    min-width: calc((100% - 4rem) / 3); /* Ensure minimum width */
+    margin-right: 0; /* Remove margin, using gap instead */
+    flex: 0 0 auto; /* Prevent shrinking */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .testimonial {
+        width: calc((100% - 2rem) / 2); /* Show 2 items */
+        min-width: calc((100% - 2rem) / 2);
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial {
+        width: 100%; /* Show 1 item */
+        min-width: 100%;
+    }
+    
+    .testimonials-carousel {
+        padding: 0 40px;
+    }
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.carousel-button:hover {
+    background: var(--link-color);
+    color: white;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--card-border);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background: var(--link-color);
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+}
+
+/* Skip navigation for accessibility */
+.skip-nav {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    padding: 1rem;
+    background: var(--link-color);
+    color: white;
+    z-index: 1001;
+}
+
+.skip-nav:focus {
+    top: 0;
+}
+
+/* ...existing code... */
+
+/* Mobile Menu Styles */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* Header adjustments */
+    header {
+        padding: 10px 20px;
+        flex-direction: column;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    header nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--header-background);
+        box-shadow: var(--shadow-md);
+        padding: 1rem;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    header .call-us-btn {
+        margin: 1rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Container and Section adjustments */
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    /* Typography adjustments */
+    h1 { font-size: 2em !important; }
+    h2 { font-size: 1.8em !important; }
+    h3 { font-size: 1.4em !important; }
+
+    /* Grid and Layout adjustments */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .service-item,
+    .elevate-it-infrastructure .cta-item {
+        flex-basis: 100%;
+        margin: 10px 0;
+    }
+
+    /* Footer adjustments */
+    footer .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* Mobile-friendly carousel adjustments */
+    .testimonials-carousel {
+        padding: 0 30px; /* Reduced padding */
+    }
+
+    .carousel-button {
+        width: 30px; /* Smaller buttons */
+        height: 30px;
+        padding: 0.5rem;
+        background: var(--link-color);
+        color: white;
+        border: none;
+        opacity: 0.8;
+    }
+
+    .testimonial {
+        padding: 1rem;
+        min-width: calc(100% - 2rem); /* Full width with gap consideration */
+        margin: 0 1rem;
+    }
+
+    .testimonials-track {
+        gap: 0; /* Remove gap on mobile */
+    }
+
+    .carousel-dots {
+        margin-top: 0.5rem;
+    }
+
+    .dot {
+        width: 8px; /* Smaller dots */
+        height: 8px;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .hero {
+        min-height: 60vh;
+    }
+
+    .hero-content {
+        padding: 0 15px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .testimonial {
+        padding: 1.5rem;
+    }
+
+    .testimonial-logo {
+        max-width: 150px;
+    }
+}
+
+/* Tablet Devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 95%;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-item {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .service-item:hover,
+    .feature:hover,
+    .testimonial:hover {
+        transform: none;
+    }
+
+    .btn:active,
+    .service-item:active,
+    .feature:active {
+        transform: scale(0.98);
+    }
+}
+
+/* ...existing code... */
+
+/* Loading States */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(2px);
+}
+
+.loading-spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--link-color);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Improve readability */
+body {
+    font-size: var(--text-md);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+/* Service Icons */
+.service-icon {
+    margin-top: 1.5rem;
+    font-size: 2.5rem;
+    color: var(--link-color);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover .service-icon {
+    transform: scale(1.1);
+}
+
+/* Service Item Glow Animation */
+@keyframes glowPulse {
+     0%, 100% {
+        box-shadow: 0 0 5px rgba(0,123,255,0.1),
+                    0 0 10px rgba(0,123,255,0.1),
+                    0 0 15px rgba(0,123,255,0.1);
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(0,123,255,0.2),
+                    0 0 20px rgba(0,123,255,0.2),
+                    0 0 30px rgba(0,123,255,0.2);
+    }
+}
+
+/* Dark theme adjustments for glow */
+[data-theme="dark"] .service-item {
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+[data-theme="dark"] .service-item:hover {
+    box-shadow: 0 10px 20px rgba(30,144,255,0.2),
+                0 0 15px rgba(30,144,255,0.3),
+                0 0 30px rgba(30,144,255,0.2);
+}
+
+/* Services Overview specific styling */
+.services-overview .service-item {
+    /* Remove animation and glow effects from overview section */
+    animation: none;
+    box-shadow: none;
+}
+
+.services-overview .service-item:hover {
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* Core Services specific styling */
+.services .service-item {
+    /* ...existing properties... */
+    animation: glowPulse 3s ease-in-out infinite;
+    animation-delay: 0s; /* Ensure all animations start at the same time */
+    cursor: pointer !important; /* Force pointer cursor */
+}
+
+/* Shared Glow Animation */
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(0,123,255,0.1),
+                    0 0 10px rgba(0,123,255,0.1),
+                    0 0 15px rgba(0,123,255,0.1);
+    }
+    50% {
+        box-shadow: 0 0 10px rgba(0,123,255,0.2),
+                    0 0 20px rgba(0,123,255,0.2),
+                    0 0 30px rgba(0,123,255,0.2);
+    }
+}
+
+/* Apply glow to all card-like elements */
+.services .service-item,
+.feature,
+.elevate-it-infrastructure .cta-item {
+    animation: glowPulse 3s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+/* Hover states */
+.services .service-item:hover,
+.feature:hover,
+.elevate-it-infrastructure .cta-item:hover {
+    animation: none;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,123,255,0.2),
+                0 0 15px rgba(0,123,255,0.3),
+                0 0 30px rgba(0,123,255,0.2);
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .services .service-item,
+[data-theme="dark"] .feature,
+[data-theme="dark"] .elevate-it-infrastructure .cta-item {
+    animation: glowPulse 3s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+[data-theme="dark"] .services .service-item:hover,
+[data-theme="dark"] .feature:hover,
+[data-theme="dark"] .elevate-it-infrastructure .cta-item:hover {
+    box-shadow: 0 10px 20px rgba(30,144,255,0.2),
+                0 0 15px rgba(30,144,255,0.3),
+                0 0 30px rgba(30,144,255,0.2);
+}
+
+/* Services Overview - still no glow */
+.services-overview .service-item {
+    animation: none;
+    box-shadow: none;
+}
+
+.services-overview .service-item:hover {
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .services .service-item {
+    animation: glowPulse 3s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+/* Services Page Specific Styles */
+.services .service-item,
+.pricing-section .pricing-table {
+    animation: glowPulse 3s ease-in-out infinite;
+    animation-delay: 0s;
+}
+
+.pricing-table {
+    animation: glowPulse 3s ease-in-out infinite;
+    animation-delay: 0s;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+}
+
+.pricing-table th {
+    background: var(--link-color);
+    color: white;
+    padding: 20px;
+    font-size: 1.1em;
+}
+
+.pricing-table td {
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.pricing-table tr:hover td {
+    background-color: rgba(0,123,255,0.1);
+}
+
+/* Services Page Specific Styles */
+.services-page {
+    padding-top: 120px; /* Account for fixed header */
+}
+
+.services-page h2,
+.pricing-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.services-page h2::after,
+.pricing-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--link-color);
+    margin: 1rem auto 0;
+}
+
+.services-page .container,
+.pricing-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.pricing-section {
+    margin-top: 4rem;
+    padding-bottom: 6rem;
+}
+
+.pricing-section p {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.pricing-section .btn {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto 0;
+}
+
+/* Section Headings with Underline */
+section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--link-color);
+    transition: width 0.8s ease-in-out;
+}
+
+/* Expanded underline when section is in view */
+section.in-view h2::after {
+    width: 100%;
+}
+
+/* Specific section heading adjustments */
+.hero-content h1::after {
+    display: none; /* Don't show underline for hero heading */
+}
+
+.services-overview h2::after,
+.services h2::after,
+.why-choose-us h2::after,
+.testimonials h2::after,
+.elevate-it-infrastructure h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--link-color);
+    margin: 1rem auto 0;
+}
+
+.cta-button {
+    text-align: center;
+    width: 100%;
+    margin: 2rem 0;
+}
+
+/* Service Info Panel */
+.service-info-panel {
+    position: fixed;
+    top: 0;
+    right: -500px; /* Start offscreen */
+    width: 500px;
+    height: 100vh;
+    background: var(--card-background);
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    padding: 2.5rem;
+    overflow-y: auto;
+    transition: right 0.3s ease-out;
+    z-index: 1000;
+    visibility: visible;
+}
+
+.service-info-panel.active {
+    right: 0;
+}
+
+/* Content shift when panel is active */
+body.panel-active .services .container {
+    width: calc(100% - 500px);
+    padding-right: 40px; /* Add some spacing */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .service-info-panel {
+        width: 400px;
+        right: -400px;
+    }
+    
+    body.panel-active .services .container {
+        width: calc(100% - 400px);
+    }
+}
+
+@media (max-width: 768px) {
+    .service-info-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    body.panel-active .services .container {
+        width: 100%;
+        padding-right: 20px;
+    }
+}
+
+/* Service Panel Layout Adjustments */
+.services .container {
+    transition: all 0.3s ease-out;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow: visible; /* Allow boxes to be fully visible */
+}
+
+.services .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    transition: all 0.3s ease-out;
+    margin-right: 0; /* Reset margin */
+}
+
+.service-info-panel .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.service-info-panel .panel-content {
+    margin-top: 2rem;
+    max-width: 440px; /* Adjusted for new panel width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Dark theme adjustment */
+[data-theme="dark"] .service-info-panel {
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2),
+                -5px 0 15px rgba(30,144,255,0.1),
+                -10px 0 30px rgba(30,144,255,0.1);
+    border-left: 1px solid rgba(30,144,255,0.3);
+}
+
+[data-theme="dark"] .service-info-panel.active {
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2),
+                -5px 0 20px rgba(30,144,255,0.2),
+                -10px 0 30px rgba(30,144,255,0.15);
+}
+
+@media (max-width: 768px) {
+    .service-info-panel {
+        width: 100%;
+        right: -100%;
+        padding: 2rem; /* Slightly reduced padding on mobile */
+        transition: right 0.3s ease; /* Slightly slower on mobile for touch */
+    }
+}
+
+/* Add hover effect to service items */
+.services .service-item {
+    cursor: default; /* Change cursor since it's now hover-based */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .services .service-item {
+        cursor: pointer; /* Keep pointer on mobile for click interaction */
+    }
+}
+
+/* Service Info Panel and Layout Shift */
+.services .content {
+    transition: margin-right 0.3s ease-out;
+}
+
+.service-info-panel {
+    width: 600px; /* Increased width */
+    right: -600px;
+    /* ...existing panel properties... */
+}
+
+/* Layout shift when panel is active */
+.service-info-panel.active {
+    right: 0;
+    /* ...existing active properties... */
+}
+
+.service-info-panel.active + .services .content,
+body:has(.service-info-panel.active) .services .content {
+    margin-right: 600px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+    .service-info-panel {
+        width: 500px;
+        right: -500px;
+    }
+    
+    .service-info-panel.active + .services .content,
+    body:has(.service-info-panel.active) .services .content {
+        margin-right: 500px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .service-info-panel {
+        width: 400px;
+        right: -400px;
+    }
+    
+    .service-info-panel.active + .services .content,
+    body:has(.service-info-panel.active) .services .content {
+        margin-right: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-info-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .service-info-panel.active + .services .content,
+    body:has(.service-info-panel.active) .services .content {
+        margin-right: 0;
+    }
+}
+
+/* Service Panel Layout Adjustments */
+.services .container {
+    transition: transform 0.3s ease-out, width 0.3s ease-out;
+    transform-origin: left;
+    position: relative;
+}
+
+/* Move content left when panel is active */
+body.panel-active .services .container,
+body.panel-active .pricing-section .container {
+    transform: translateX(-250px); /* Half the panel width */
+    width: calc(100% - 500px); /* Adjust container width */
+}
+
+/* Adjust grid layout to maintain box sizes */
+.services .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    transition: all 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .service-info-panel.active {
+        width: 400px;
+    }
+    
+    body.panel-active .services .container,
+    body.panel-active .pricing-section .container {
+        transform: translateX(-200px);
+        width: calc(100% - 400px);
+    }
+}
+
+@media (max-width: 768px) {
+    .service-info-panel {
+        width: 100%;
+        left: 100%; /* Start from right edge */
+        right: auto;
+    }
+
+    .service-info-panel.active {
+        width: 100%;
+        left: 0;
+    }
+    
+    body.panel-active .services .container,
+    body.panel-active .pricing-section .container {
+        transform: translateX(0);
+        width: 100%;
+    }
+}
+
+/* ...existing code... */
+
+/* Core Services Section on Index Page */
+.services:not(.services-page):not(.services-overview) .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Changed from 3 to 4 columns */
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1400px; /* Increased from 1200px to accommodate 4 columns */
+    justify-content: center;
+}
+
+/* Services Page Grid Layout */
+.services-page .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1400px;
+}
+
+/* Shared Service Item Styles */
+.service-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    height: 280px;
+    padding: 2rem;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Responsive adjustments for index page */
+@media (max-width: 1200px) {
+    .services:not(.services-page):not(.services-overview) .content {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services:not(.services-page):not(.services-overview) .content,
+    .services-page .content {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+}
+
+/* ...existing code... */
+
+/* Services Overview Section (Vision, Amplified by Technology) */
+.services-overview .content {
+    display: block; /* Change to block layout */
+    max-width: 1000px; /* Limit text width for readability */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.services-overview .service-item {
+    text-align: left;
+    margin-bottom: 2.5rem;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+    animation: none;
+}
+
+.services-overview .service-item h3 {
+    color: var(--text-color);
+    font-size: 1.6em;
+    margin-bottom: 1rem;
+    height: auto;
+}
+
+.services-overview .service-item p {
+    color: var(--text-color);
+    font-size: 1.1em;
+    line-height: 1.6;
+    height: auto;
+    max-width: 800px;
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .services-overview .content {
+        padding: 0 15px;
+    }
+    
+    .services-overview .service-item {
+        margin-bottom: 2rem;
+    }
+    
+    .services-overview .service-item h3 {
+        font-size: 1.4em;
+    }
+    
+    .services-overview .service-item p {
+        font-size: 1em;
+    }
+}
+
+/* ...existing code... */
+
+/* Services Overview Section (Vision, Amplified by Technology) */
+.services-overview .content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1400px;
+}
+
+/* Core Services Section on Index Page */
+.services:not(.services-page):not(.services-overview) .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Changed from 3 to 4 columns */
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1400px; /* Increased from 1200px to accommodate 4 columns */
+    justify-content: center;
+}
+
+/* Services Page Grid Layout */
+.services-page .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1400px;
+}
+
+/* Responsive adjustments for services overview */
+@media (max-width: 1200px) {
+    .services-overview .content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .services-overview .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-overview .content {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+}
+
+/* ...existing code... */
+
+/* Values Section */
+.values-section .container {
+    width: 90%;
+    max-width: 1200px; /* Match the main container max-width */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.values-section .section-intro {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    text-align: left; /* Change back to left alignment */
+}
+
+.values-section h2 {
+    text-align: left; /* Keep text aligned left */
+    position: relative;
+    display: inline-block; /* Change back to inline-block */
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+}
+
+.values-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%; /* Center the underline */
+    transform: translateX(-50%); /* Center the underline */
+    width: 60px;
+    height: 3px;
+    background: var (--link-color);
+    transition: width 0.8s ease-in-out;
+}
+
+.values-section.in-view h2::after {
+    width: 100%;
+}
+
+.values-section .heading-wrapper {
+    display: block;
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: left; /* Ensure wrapper is left-aligned */
+}
+
+.values-section .content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.values-section .text-block {
+    text-align: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .values-section .container {
+        padding: 0 15px;
+    }
+    
+    .values-section .section-intro {
+        font-size: 1.1em;
+        margin-bottom: 2rem;
+    }
+    
+    .values-section .content {
+        gap: 2rem;
+    }
+    
+    .values-section .text-block h3 {
+        font-size: 1.4em;
+    }
+    
+    .values-section .text-block p {
+        font-size: 1em;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.service-item .service-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.service-item .service-link:hover {
+    color: var(--text-color);
+}
+
+.service-item .service-link h3,
+.service-item .service-link p,
+.service-item .service-link .service-icon {
+    pointer-events: none;
+}
+
+/* ...existing code... */
+
+/* Header Nav Links */
+header nav ul li a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--link-color);
+    transition: width 0.3s ease;
+}
+
+header nav ul li a:hover::after,
+header nav ul li a.active::after {
+    width: 100%;
+}
+
+/* Adjust active state color to match underline */
+header nav ul li a.active {
+    color: var(--link-color);
+}
+
+/* ...existing code... */
+
+/* About Page Specific Styles */
+.story-section .content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.story-section .text {
+    flex: 1;
+}
+
+.story-section .image {
+    flex: 1;
+    max-width: 500px;
+}
+
+.team-section .section-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.team-placeholder {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Responsive adjustments for about page */
+@media (max-width: 768px) {
+    .story-section .content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .story-section .image {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+/* ...existing code... */
+
+/* About Page Heading Adjustments */
+.story-section h2,
+.team-section h2 {
+    text-align: center !important;
+    display: block !important;
+    padding-bottom: 1rem;
+}
+
+.story-section h2::after,
+.team-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50% !important;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--link-color);
+    transition: width 0.8s ease-in-out;
+}
+
+.story-section.in-view h2::after,
+.team-section.in-view h2::after {
+    width: 100%;
+}
+
+/* Override values-section styles for about page */
+.values-section:not(.story-section):not(.team-section) h2 {
+    text-align: left;
+    display: inline-block;
+}
+
+.values-section:not(.story-section):not(.team-section) h2::after {
+    left: 0;
+    transform: none;
+}
+
+/* ...existing code... */
+
+/* About Page Specific Heading Styles */
+.story-section h2,
+.values-section h2,
+.team-section h2 {
+    position: relative;
+    display: block;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.story-section h2::after,
+.values-section h2::after,
+.team-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--link-color);
+    transition: width 0.8s ease-in-out;
+}
+
+.story-section.in-view h2::after,
+.values-section.in-view h2::after,
+.team-section.in-view h2::after {
+    width: 100%;
+}
+
+/* Override any inherited styles */
+.values-section .heading-wrapper {
+    text-align: center;
+}
+
+.values-section .heading-wrapper h2 {
+    display: inline-block;
+    text-align: center;
+}
+
+.values-section .heading-wrapper h2::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+/* Ensure other pages aren't affected */
+.values-section:not(.about-page) h2,
+.values-section:not(.about-page) .heading-wrapper {
+    text-align: left;
+}
+
+.values-section:not(.about-page) h2::after {
+    left: 0;
+    transform: none;
+}
+
+/* ...existing code... */
+
+/* About Page Specific Heading Styles - Higher Specificity */
+body .story-section h2,
+body .values-section.about-page h2,
+body .team-section h2 {
+    position: relative;
+    display: block;
+    text-align: center !important;
+    width: 100%;
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+}
+
+body .story-section h2::after,
+body .values-section.about-page h2::after,
+body .team-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 60px;
+    height: 3px;
+    background: var(--link-color);
+    transition: width 0.8s ease-in-out;
+}
+
+/* Override any conflicting styles with higher specificity */
+.values-section.about-page .heading-wrapper {
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.values-section.about-page .heading-wrapper h2 {
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+/* Ensure section in-view animations work */
+body .story-section.in-view h2::after,
+body .values-section.about-page.in-view h2::after,
+body .team-section.in-view h2::after {
+    width: 100%;
+}
+
+/* ...existing code... */
+
+/* Standardized Section Headings */
+section h2,
+.heading-wrapper h2 {
+    position: relative;
+    display: block;
+    text-align: center !important;
+    width: 100%;
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+section h2::after,
+.heading-wrapper h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--link-color) 20%,
+        var(--link-color) 80%,
+        transparent 100%
+    );
+    box-shadow: 
+        0 0 10px rgba(0,123,255,0.2),
+        0 0 20px rgba(0,123,255,0.1);
+    transition: width 0.8s ease-in-out;
+}
+
+section.in-view h2::after,
+.heading-wrapper.in-view h2::after {
+    width: 100%;
+}
+
+/* Override any specific section styles that might conflict */
+.values-section h2,
+.services h2,
+.story-section h2,
+.team-section h2,
+.testimonials h2,
+.elevate-it-infrastructure h2,
+.pricing-section h2 {
+    text-align: center !important;
+    display: block !important;
+}
+
+.values-section h2::after,
+.services h2::after,
+.story-section h2::after,
+.team-section h2::after,
+.testimonials h2::after,
+.elevate-it-infrastructure h2::after,
+.pricing-section h2::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+/* Dark theme adjustment for the glow */
+[data-theme="dark"] section h2::after,
+[data-theme="dark"] .heading-wrapper h2::after {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--link-color) 20%,
+        var(--link-color) 80%,
+        transparent 100%
+    );
+    box-shadow: 
+        0 0 10px rgba(30,144,255,0.3),
+        0 0 20px rgba(30,144,255,0.2);
+}
+
+/* Hero section heading exception */
+.hero-content h1 {
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.hero-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        #fff 20%,
+        #fff 80%,
+        transparent 100%
+    );
+    box-shadow: 
+        0 0 10px rgba(255,255,255,0.2),
+        0 0 20px rgba(255,255,255,0.1);
+    transition: width 0.8s ease-in-out;
+}
+
+.hero.in-view h1::after {
+    width: 100%;
+}
+
+/* Remove any conflicting or overridden styles */
+/* Remove any section-specific heading alignments */
+.values-section .heading-wrapper,
+.services .heading-wrapper,
+.story-section .heading-wrapper,
+.team-section .heading-wrapper {
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* ...existing code... */
+
+/* Updated Section Headings with Elliptical Underline */
+section h2,
+.heading-wrapper h2 {
+    position: relative;
+    display: block;
+    text-align: center !important;
+    width: 100%;
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+section h2::after,
+.heading-wrapper h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px; /* Slightly thicker for better glow effect */
+    border-radius: 50%/2px; /* Creates elliptical shape */
+    background: var(--link-color);
+    box-shadow: 
+        0 0 5px var(--link-color),
+        0 0 10px var(--link-color),
+        0 0 15px rgba(0,123,255,0.5);
+    filter: blur(0.3px);
+    opacity: 0.95;
+    transition: all 0.8s ease-in-out;
+}
+
+section.in-view h2::after,
+.heading-wrapper.in-view h2::after {
+    width: 100%;
+    border-radius: 50%/3px; /* Adjust ellipse as it expands */
+    filter: blur(0.5px);
+}
+
+/* Dark theme enhanced glow */
+[data-theme="dark"] section h2::after,
+[data-theme="dark"] .heading-wrapper h2::after {
+    box-shadow: 
+        0 0 5px var(--link-color),
+        0 0 10px var(--link-color),
+        0 0 20px var(--link-color),
+        0 0 30px rgba(30,144,255,0.4);
+    opacity: 1;
+}
+
+/* Hero heading underline with white glow */
+.hero-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    border-radius: 50%/2px;
+    background: #fff;
+    box-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px rgba(255,255,255,0.8);
+    filter: blur(0.3px);
+    opacity: 0.95;
+    transition: all 0.8s ease-in-out;
+}
+
+.hero.in-view h1::after {
+    width: 100%;
+    border-radius: 50%/3px;
+    filter: blur(0.5px);
+}
+
+/* ...existing code... */
+
+/* Values Feature Icons - Updated without glow */
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--link-color);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover .feature-icon {
+    transform: scale(1.1);
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+[data-theme="dark"] .feature-icon {
+    color: var(--link-color);
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+.services .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.services .content {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.services .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--link-color);
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.services .btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ...existing code... */
+
+.services .container,
+.pricing-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.services .content,
+.pricing-section .content {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.services .btn,
+.pricing-section .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--link-color);
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.services .btn:hover,
+.pricing-section .btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ...existing code... */
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.form-status {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    display: none;
+}
+
+.form-status.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-status.error {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .form-status.success {
+    background-color: #1e4731;
+    color: #d4edda;
+    border-color: #2f6146;
+}
+
+[data-theme="dark"] .form-status.error {
+    background-color: #472130;
+    color: #f8d7da;
+    border-color: #612f44;
+}
+
+/* ...existing code... */
+
+/* Form Validation Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #dc3545;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.captcha-group {
+    background: var(--card-background);
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--card-border);
+}
+
+.captcha-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-status {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    display: none;
+}
+
+.form-status.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-status.error {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .form-status.success {
+    background-color: #1e4731;
+    color: #d4edda;
+    border-color: #2f6146;
+}
+
+[data-theme="dark"] .form-status.error {
+    background-color: #472130;
+    color: #f8d7da;
+    border-color: #612f44;
+}
+
+/* ...existing code... */
+
+/* Contact Form Styles */
+.contact-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.email-notice {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--card-background);
+    border-radius: 5px;
+    border: 1px solid var(--card-border);
+    font-size: 0.95em;
+    color: var(--secondary-text-color);
+}
+
+.centered-form {
+    max-width: 600px;
+    margin: 3rem auto 0;
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Dark theme adjustment */
+[data-theme="dark"] .email-notice {
+    background: var(--card-background);
+    border-color: var(--card-border);
+}
+
+/* ...existing code... */
+
+/* Contact Details Styles */
+.contact-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+    max-width: 1000px;
+    margin: 0 auto 4rem;
+}
+
+.contact-card {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-card h3 {
+    margin-bottom: 1.5rem;
+    color: var(--link-color);
+}
+
+.contact-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-card ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-card .icon {
+    font-size: 1.5rem;
+    color: var(--link-color);
+}
+
+.contact-card strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.hours-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.hours-list li:last-child {
+    border-bottom: none;
+}
+
+.support-note {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--card-border);
+    color: var(--link-color);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-card {
+        padding: 1.5rem;
+    }
+}
+
+/* ...existing code... */
+
+/* ...existing code... */
+
+/* FAQ Section Styles */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.faq-item {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.faq-item h3 {
+    color: var(--link-color);
+    margin-bottom: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ...existing code... */
+
+/* Department Selection Styles */
+.department-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.department-card {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.department-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.department-card h3 {
+    color: var(--link-color);
+    margin-bottom: 1rem;
+}
+
+.department-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 1rem;
+    background: var(--link-color);
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.department-card .btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Chat Widget Styles - Updated for left side positioning */
+.chat-widget {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Changed from right to left */
+    right: auto; /* Remove right positioning */
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Changed from flex-end */
+}
+
+.chat-toggle {
+    padding: 12px 24px;
+    background: var(--link-color);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.chat-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.chat-icon {
+    font-size: 1.2em;
+}
+
+.chat-popup {
+    position: fixed; /* Changed from absolute */
+    bottom: 80px; /* Height of chat button + some spacing */
+    left: 20px; /* Changed from right to left */
+    right: auto; /* Remove right positioning */
+    width: 300px;
+    max-width: calc(100vw - 40px); /* Ensure it stays within viewport */
+    max-height: calc(100vh - 100px); /* Keep within viewport height */
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    display: none;
+    overflow: auto; /* Allow scrolling if content is too long */
+}
+
+.chat-popup.active {
+    display: block;
+    animation: slideUp 0.3s ease;
+}
+
+.chat-header {
+    padding: 1rem;
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-body {
+    padding: 1rem;
+}
+
+.close-chat {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chat-widget {
+        bottom: 10px;
+        left: 10px; /* Changed from right to left */
+    }
+
+    .chat-popup {
+        bottom: 70px;
+        left: 10px; /* Changed from right to left */
+        width: calc(100vw - 20px);
+        max-width: 300px;
+    }
+}
+
+/* ...existing code... */
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Dark mode adjustments for modal */
+[data-theme="dark"] .modal-content {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    border: 1px solid #444;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .close-btn {
+    color: #ccc;
+}
+
+[data-theme="dark"] .close-btn:hover,
+[data-theme="dark"] .close-btn:focus {
+    color: #fff;
+}
+
+/* ...existing code... */
+
+.footer-section p {
+    color: var(--footer-text-color);
+}
+
+.footer-bottom p {
+    color: var(--footer-text-color);
+}
+
+/* ...existing code... */

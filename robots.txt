@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.armourtechnologies.co.uk/sitemap.xml
