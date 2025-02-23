@@ -3101,6 +3101,36 @@ section.in-view h2::after,
 
 /* ...existing code... */
 
+/* Updated Contact Form Styles */
+.hubspot-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Ensure HubSpot form inherits container width */
+.hubspot-form-container .hs-form {
+    width: 100%;
+    max-width: 100%;
+}
+
+.hubspot-form-container .hs-form input,
+.hubspot-form-container .hs-form textarea {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Adjust contact details layout */
+.contact-details {
+    margin-top: 2rem;
+}
+
+/* ...existing code... */
+
 .footer-section p {
     color: var(--footer-text-color);
 }
