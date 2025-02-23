@@ -69,90 +69,25 @@
     <!-- Contact Form -->
     <section role="region" aria-label="Contact Form">
         <div class="container">
-            <h2 class="animate-on-scroll">We're Here to Help</h2>
-            
-            <!-- Add this new contact info section -->
-            <div class="contact-details">
-                <div class="contact-card">
-                    <h3>Contact Information</h3>
-                    <ul>
-                        <li>
-                            <i class="icon">📞</i>
-                            <div>
-                                <strong>Phone</strong>
-                                <p><a href="tel:07777 777777">07777 777777</a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon">📧</i>
-                            <div>
-                                <strong>Email</strong>
-                                <p><a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="icon">🏢</i>
-                            <div>
-                                <strong>Office</strong>
-                                <p>123 Business Street<br>City, County<br>POST CODE</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="contact-card">
-                    <h3>Business Hours</h3>
-                    <ul class="hours-list">
-                        <li>
-                            <span>Monday - Friday</span>
-                            <span>9:00 AM - 5:00 PM</span>
-                        </li>
-                        <li>
-                            <span>Saturday</span>
-                            <span>Closed</span>
-                        </li>
-                        <li>
-                            <span>Sunday</span>
-                            <span>Closed</span>
-                        </li>
-                    </ul>
-                    <p class="support-note">24/7 Emergency Support Available for Managed Service Clients</p>
-                </div>
-            </div>
-
+            <h2 class="animate-on-scroll">Get in Touch</h2>
             <div class="contact-intro">
-                <p class="animate-on-scroll">Have questions about our services or need assistance? Fill out the form below, and we'll get back to you promptly.</p>
-                <p class="email-notice">Note: Submitting this form will open your default email client. If you don't have an email client installed, you can email us directly at <a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a></p>
+                <p class="animate-on-scroll">Have questions about our services or need assistance? Fill out the form below, and our team will get back to you promptly.</p>
             </div>
-            <form class="contact-form centered-form" id="contactForm">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    <div class="error-message" id="nameError"></div>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    <div class="error-message" id="emailError"></div>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                    <div class="error-message" id="subjectError"></div>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
-                    <div class="error-message" id="messageError"></div>
-                </div>
-                <div class="form-group captcha-group">
-                    <label id="captcha-question"></label>
-                    <input type="number" id="captcha-answer" placeholder="Enter the answer" required>
-                    <div class="error-message" id="captchaError"></div>
-                </div>
-                <button type="submit">Send Message</button>
-                <div id="formStatus" class="form-status"></div>
-                <p class="email-fallback" style="margin-top: 1rem; font-size: 0.9em;">
-                    Or email us directly at: 
-                    <a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a>
-                </p>
-            </form>
+            
+            <!-- HubSpot Contact Form -->
+            <div class="hubspot-form-container centered-form animate-on-scroll">
+                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+                <script>
+                    window.addEventListener('load', function() {
+                        hbspt.forms.create({
+                            portalId: "49380791",
+                            formId: "e782fd10-33f8-4430-9a62-46a84222049d",
+                            region: "na1",
+                            target: ".hubspot-form-container"
+                        });
+                    });
+                </script>
+            </div>
         </div>
     </section>
 
@@ -398,5 +333,17 @@
         </div>
     </div>
 
+    <!-- Start of HubSpot Embed Code -->
+    <script>
+        window.addEventListener('load', function() {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.id = 'hs-script-loader';
+            script.async = true;
+            script.defer = true;
+            script.src = '//js.hs-scripts.com/49380791.js';
+            document.body.appendChild(script);
+        });
+    </script>
 </body>
 </html>

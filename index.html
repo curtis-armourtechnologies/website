@@ -551,5 +551,22 @@
             </div>
         </div>
     </div>
+
+    <!-- Optimized HubSpot Loading -->
+    <script>
+        // Defer HubSpot loading until after page load
+        window.addEventListener('load', function() {
+            // Create HubSpot script element
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.id = 'hs-script-loader';
+            script.async = true;
+            script.defer = true;
+            script.src = '//js.hs-scripts.com/49380791.js';
+            
+            // Add to bottom of body
+            document.body.appendChild(script);
+        });
+    </script>
 </body>
 </html>
