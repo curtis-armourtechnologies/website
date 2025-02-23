@@ -3190,6 +3190,38 @@ section.in-view h2::after,
 
 /* ...existing code... */
 
+/* HubSpot Form Styles */
+.hubspot-form-container .hs-form input,
+.hubspot-form-container .hs-form textarea,
+.hubspot-form-container .hs-form select {
+    color: var(--text-color) !important;
+    background-color: var(--card-background) !important;
+    border-color: var(--card-border) !important;
+}
+
+.hubspot-form-container .hs-form label {
+    color: var(--text-color) !important;
+}
+
+/* HubSpot Form Dark Mode Adjustments */
+[data-theme="dark"] .hubspot-form-container .hs-form input,
+[data-theme="dark"] .hubspot-form-container .hs-form textarea,
+[data-theme="dark"] .hubspot-form-container .hs-form select {
+    color: #ffffff !important;
+    background-color: var(--card-background) !important;
+    border-color: var(--card-border) !important;
+}
+
+[data-theme="dark"] .hubspot-form-container .hs-form label {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .hubspot-form-container .hs-form .hs-error-msg {
+    color: #ff6b6b !important;
+}
+
+/* ...existing code... */
+
 .footer-section p {
     color: var(--footer-text-color);
 }
