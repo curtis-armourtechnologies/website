@@ -3131,6 +3131,65 @@ section.in-view h2::after,
 
 /* ...existing code... */
 
+/* HubSpot Form Container Styles */
+.hubspot-form-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Override HubSpot Default Styles */
+.hubspot-form-container .hs-form {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+}
+
+.hubspot-form-container .hs-form .hs-input {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.hubspot-form-container .hs-form .hs-fieldtype-text,
+.hubspot-form-container .hs-form .hs-fieldtype-textarea,
+.hubspot-form-container .hs-form .hs-fieldtype-select,
+.hubspot-form-container .hs-form .form-columns-1,
+.hubspot-form-container .hs-form .form-columns-2 {
+    max-width: 100% !important;
+}
+
+/* Form field styling */
+.hubspot-form-container .hs-form input[type="text"],
+.hubspot-form-container .hs-form input[type="email"],
+.hubspot-form-container .hs-form input[type="tel"],
+.hubspot-form-container .hs-form textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px !important;
+    border: 1px solid var(--card-border) !important;
+    border-radius: 5px !important;
+    margin-bottom: 15px !important;
+}
+
+/* Submit button styling */
+.hubspot-form-container .hs-form .hs-button {
+    width: 100% !important;
+    padding: 12px 20px !important;
+    background: var(--link-color) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: background 0.3s ease !important;
+}
+
+.hubspot-form-container .hs-form .hs-button:hover {
+    background: #0056b3 !important;
+}
+
+/* ...existing code... */
+
 .footer-section p {
     color: var(--footer-text-color);
 }
