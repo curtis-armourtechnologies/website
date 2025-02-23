@@ -3222,6 +3222,38 @@ section.in-view h2::after,
 
 /* ...existing code... */
 
+/* HubSpot Form Dark Mode Adjustments - Enhanced Specificity */
+[data-theme="dark"] .hubspot-form-container .hs-form .input input,
+[data-theme="dark"] .hubspot-form-container .hs-form .input textarea,
+[data-theme="dark"] .hubspot-form-container .hs-form .input select {
+    color: #ffffff !important;
+    background-color: var(--card-background) !important;
+    border-color: var(--card-border) !important;
+}
+
+[data-theme="dark"] .hubspot-form-container .hs-form .hs-input {
+    color: #ffffff !important;
+    background-color: var(--card-background) !important;
+}
+
+[data-theme="dark"] .hubspot-form-container .hs-form .hs-form-field label {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .hubspot-form-container .hs-form .hs-form-field label span {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .hubspot-form-container .hs-form .legal-consent-container {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .hubspot-form-container .hs-form .legal-consent-container .hs-richtext p {
+    color: #ffffff !important;
+}
+
+/* ...existing code... */
+
 .footer-section p {
     color: var(--footer-text-color);
 }
