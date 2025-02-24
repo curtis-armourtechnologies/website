@@ -847,3 +847,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Header transparency on scroll
+function updateHeaderBackground() {
+    const header = document.querySelector('header');
+    if (window.scrollY === 0) {
+        header.classList.add('at-top');
+        header.style.backgroundColor = 'transparent';
+        header.style.boxShadow = 'none';
+    } else {
+        header.classList.remove('at-top');
+        header.style.backgroundColor = 'var(--header-background)';
+        header.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+    }
+}
+
+// Force scroll to top on page load
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+    updateHeaderBackground();
+});
+
+// Add scroll event listener
+window.addEventListener('scroll', updateHeaderBackground);
+
+// Initialize header state
+updateHeaderBackground();

@@ -57,30 +57,46 @@ a:hover {
     /* Flexbox container for responsive layouts */
     width: 90%;
     max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Component Styles */
 /* Header - Main navigation and branding */
 header {
-    /* Fixed header with responsive navigation */
     background: var(--header-background);
     padding: 10px 40px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid #eaeaea;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid rgba(234, 234, 234, 0.1); /* Make border more subtle */
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--header-text-color);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease; /* Smooth transition for background changes */
+}
+
+/* Add this new class for when header is at top */
+header.at-top {
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+/* Ensure text is visible on transparent background */
+header.at-top a {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+header.at-top .call-us-btn {
+    background: rgba(0, 123, 255, 0.8);
+    backdrop-filter: blur(5px);
 }
 
 header .logo {
@@ -223,12 +239,30 @@ header .call-us-btn:hover {
 
 /* Hero Section - Main banner area */
 .hero {
-    background-image: url('images/hero-background.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    height: 100vh;
     position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: #000; /* Fallback color */
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 20vh;
+    width: 100%;
+    color: #fff; /* Ensure text is visible */
 }
 
 .hero::after {
@@ -236,39 +270,22 @@ header .call-us-btn:hover {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0); /* Removed the overlay by setting opacity to 0 */
-}
-
-.hero-content {
-    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Add slight overlay for better text visibility */
     z-index: 1;
-    text-align: center;
-    top: 20%; /* Move the content near the top */
-    transform: translateY(-20%); /* Adjust the vertical alignment */
 }
 
-.hero-content h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
+/* Remove any background image styles if they exist */
+.hero {
+    background-image: none !important;
 }
 
-.hero-content p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-}
-
-.hero-content .btn {
-    padding: 15px 30px;
-    background: #007BFF;
-    color: #fff;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.hero-content .btn:hover {
-    background: #0056b3;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 60vh;
+    }
 }
 
 /* Sections */
@@ -310,6 +327,7 @@ section p {
 }
 
 section .content {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -362,6 +380,16 @@ section .content .image img {
 section .content .image img {
     width: 100%;
     border-radius: 10px;
+}
+
+/* Services Section Fix */
+.services:not(.services-page):not(.services-overview) .content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1400px;
 }
 
 /* Services Section - Service cards and layouts */
@@ -1907,8 +1935,8 @@ body.panel-active .pricing-section .container {
 
 /* Services Overview Section (Vision, Amplified by Technology) */
 .services-overview .content {
-    display: block; /* Change to block layout */
-    max-width: 1000px; /* Limit text width for readability */
+    display: block; /* Change back to block layout */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -1938,37 +1966,6 @@ body.panel-active .pricing-section .container {
     height: auto;
     max-width: 800px;
     margin-bottom: 0;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .services-overview .content {
-        padding: 0 15px;
-    }
-    
-    .services-overview .service-item {
-        margin-bottom: 2rem;
-    }
-    
-    .services-overview .service-item h3 {
-        font-size: 1.4em;
-    }
-    
-    .services-overview .service-item p {
-        font-size: 1em;
-    }
-}
-
-/* ...existing code... */
-
-/* Services Overview Section (Vision, Amplified by Technology) */
-.services-overview .content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin: 0 auto;
-    padding: 0 20px;
-    max-width: 1400px;
 }
 
 /* Core Services Section on Index Page */
@@ -2921,7 +2918,7 @@ section.in-view h2::after,
 }
 
 .department-card h3 {
-    color: var(--link-color);
+    color: var (--link-color);
     margin-bottom: 1rem;
 }
 
