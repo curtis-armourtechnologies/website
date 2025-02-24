@@ -68,7 +68,7 @@ a:hover {
 /* Header - Main navigation and branding */
 header {
     background: var(--header-background);
-    padding: 10px 40px;
+    padding: 5px 40px; /* Reduced from 10px to 5px */
     position: fixed;
     width: 100%;
     top: 0;
@@ -105,7 +105,7 @@ header .logo {
 }
 
 header .logo img {
-    height: 50px; /* Adjust the height to fit within the white space */
+    height: 40px; /* Reduced from 50px to 40px */
     width: auto;
     transition: transform 0.3s ease; /* Add transition for smooth grow effect */
 }
@@ -122,7 +122,7 @@ header nav {
 header ul {
     list-style: none;
     display: flex; /* Use flexbox for horizontal alignment */
-    gap: 20px; /* Add gap between nav items */
+    gap: 15px; /* Reduced from 20px to 15px */
     margin: 0; /* Remove default margin */
 }
 
@@ -157,7 +157,7 @@ header nav ul li a:hover {
 }
 
 header .call-us-btn {
-    padding: 10px 20px;
+    padding: 8px 16px; /* Reduced from 10px 20px to 8px 16px */
     background: linear-gradient(45deg, #007BFF, #0056b3);
     color: #fff;
     border-radius: 5px;
