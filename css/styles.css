@@ -12,73 +12,162 @@
  * - Animations
  */
 
-/* CSS Reset and Base Styles */
+/*------------------------------------*\
+  #VARIABLES AND CONFIGURATION
+\*------------------------------------*/
+
+:root {
+    /* Colors */
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #007BFF;
+    --link-hover: #0056b3;
+    --header-background: #ffffff;
+    --header-text-color: #333333;
+    --footer-background: #222222;
+    --footer-text-color: #ffffff;
+    --card-background: #ffffff;
+    --card-border: #e5e7eb;
+    --table-stripe: #f1f3f5;
+    --secondary-text-color: #666666;
+    --section-alt-background: #f0f2f5;
+    
+    /* Layout */
+    --container-width: 90%;
+    --max-width: 1200px;
+    --section-padding: 80px;
+    --card-padding: 2rem;
+    --border-radius: 10px;
+    
+    /* Typography */
+    --font-main: 'Roboto', sans-serif;
+    --line-height: 1.7;
+    --letter-spacing: -0.02em;
+    
+    /* Breakpoints */
+    --breakpoint-xs: 375px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    
+    /* Effects */
+    --transition-speed: 0.3s;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --link-color: #1e90ff;
+    --header-background: #1f1f1f;
+    --header-text-color: #ffffff;
+    --footer-background: #1f1f1f;
+    --footer-text-color: #ffffff;
+    --card-background: #1f1f1f;
+    --card-border: #333333;
+    --table-stripe: #2d2d2d;
+    --secondary-text-color: #999999;
+    --section-alt-background: #161616;
+}
+
+/*------------------------------------*\
+  #BASE STYLES
+\*------------------------------------*/
+
+/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+/* Base elements */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-main);
     color: var(--text-color);
     background-color: var(--background-color);
-    line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: var(--line-height);
+    transition: background-color var(--transition-speed) ease,
+                color var(--transition-speed) ease;
 }
 
-/* Typography - Font settings and basic text styles */
+/* Typography */
 h1, h2, h3 {
     color: var(--text-color);
+    line-height: 1.2;
+    letter-spacing: var(--letter-spacing);
     margin-bottom: 20px;
 }
 
-p {
-    margin-bottom: 15px;
-    color: var(--text-color);
-}
-
-/* Link Styles */
+/* Links */
 a {
     color: var(--link-color);
     text-decoration: none;
+    transition: color var(--transition-speed) ease;
 }
 
 a:hover {
-    color: #0056b3;
+    color: var(--link-hover);
 }
 
-/* Layout - Container and grid systems */
+/*------------------------------------*\
+  #LAYOUT
+\*------------------------------------*/
+
 .container {
-    /* Flexbox container for responsive layouts */
-    width: 90%;
-    max-width: 1200px;
+    width: var(--container-width);
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 0 var(--container-padding);
 }
 
-/* Component Styles */
-/* Header - Main navigation and branding */
+/* Grid layouts */
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Common grid patterns */
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/*------------------------------------*\
+  #COMPONENTS
+\*------------------------------------*/
+
+/* Header */
 header {
     background: var(--header-background);
-    padding: 5px 40px; /* Reduced from 10px to 5px */
+    padding: 5px 40px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(234, 234, 234, 0.1); /* Make border more subtle */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* Single header styles */
+header .logo { /* Keep existing logo styles */ }
+header nav { /* Keep existing nav styles */ }
+
+/* Remove duplicate nav styles */
+header a {
+    font-weight: bold;
     color: var(--header-text-color);
-    transition: all 0.3s ease; /* Smooth transition for background changes */
+    transition: color 0.3s ease;
+}
+
+header a:hover,
+header nav ul li a:hover {
+    color: var(--link-color);
 }
 
 /* Add this new class for when header is at top */
@@ -105,13 +194,13 @@ header .logo {
 }
 
 header .logo img {
-    height: 40px; /* Reduced from 50px to 40px */
+    height: 40px;
     width: auto;
-    transition: transform 0.3s ease; /* Add transition for smooth grow effect */
+    transition: transform 0.3s ease;
 }
 
 header .logo img:hover {
-    transform: scale(1.1); /* Grow the logo on hover */
+    transform: scale(1.1);
 }
 
 header nav {
@@ -121,57 +210,58 @@ header nav {
 
 header ul {
     list-style: none;
-    display: flex; /* Use flexbox for horizontal alignment */
-    gap: 15px; /* Reduced from 20px to 15px */
-    margin: 0; /* Remove default margin */
+    display: flex;
+    gap: 15px;
+    margin: 0;
 }
 
 header li {
     display: inline-block;
 }
 
-header a {
-    font-weight: bold;
-    color: var(--header-text-color);
+header ul li a {
     transition: color 0.3s ease;
 }
 
-header a:hover {
-    color: #007BFF;
-}
-
-header ul li a {
-    transition: color 0.3s ease; /* Only transition color */
-}
-
-header ul li a:hover {
-    color: #007BFF; /* Change color on hover */
-}
-
-header nav ul li a {
-    transition: color 0.3s ease; /* Only transition color */
-}
-
-header nav ul li a:hover {
-    color: #007BFF; /* Change color on hover */
-}
-
 header .call-us-btn {
-    padding: 8px 16px; /* Reduced from 10px 20px to 8px 16px */
+    padding: 8px 16px;
     background: linear-gradient(45deg, #007BFF, #0056b3);
     color: #fff;
     border-radius: 5px;
     text-decoration: none;
     transition: background 0.3s ease;
-    margin-left: 20px; /* Add margin to separate from nav items */
+    margin-left: 20px;
     box-shadow: 0 2px 4px rgba(0,123,255,0.2);
 }
 
 header .call-us-btn:hover {
-    background: #0056b3; /* Change to a darker shade of blue within the same color scheme */
+    background: #0056b3;
 }
 
-/* Dark Mode Toggle Switch */
+/* Card Component */
+.card {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: var(--card-padding);
+    transition: transform var(--transition-speed) ease,
+                box-shadow var(--transition-speed) ease;
+}
+
+/* Button Component */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--link-color);
+    color: white;
+    border-radius: 5px;
+    transition: all var(--transition-speed) ease;
+}
+
+/*------------------------------------*\
+  #DARK MODE TOGGLE
+\*------------------------------------*/
+
 .dark-mode-toggle {
     display: inline-flex;
     align-items: center;
@@ -237,16 +327,18 @@ header .call-us-btn:hover {
     box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
 }
 
-/* Hero Section - Handle both video and image backgrounds */
+/*------------------------------------*\
+  #HERO SECTION
+\*------------------------------------*/
+
 .hero {
     position: relative;
     height: 100vh;
     width: 100%;
     overflow: hidden;
-    background: #000; /* Fallback color */
+    background: #000;
 }
 
-/* Video-specific hero styles */
 .hero-video {
     position: absolute;
     top: 0;
@@ -257,12 +349,11 @@ header .call-us-btn:hover {
     z-index: 1;
 }
 
-/* Image-specific hero styles */
 .hero[style*="background-image"] {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 50vh; /* Specific height for image heroes */
+    height: 50vh;
 }
 
 .hero::after {
@@ -272,7 +363,7 @@ header .call-us-btn:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Add slight overlay for better text visibility */
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
@@ -282,7 +373,7 @@ header .call-us-btn:hover {
     text-align: center;
     padding-top: 20vh;
     width: 100%;
-    color: #fff; /* Ensure text is visible */
+    color: #fff;
 }
 
 /* Responsive adjustments */
@@ -292,11 +383,14 @@ header .call-us-btn:hover {
     }
     
     .hero[style*="background-image"] {
-        height: 50vh; /* Specific height for image heroes on services page */
+        height: 50vh;
     }
 }
 
-/* Sections */
+/*------------------------------------*\
+  #SECTIONS
+\*------------------------------------*/
+
 section {
     padding: 80px 0;
     background-color: var(--background-color);
@@ -355,16 +449,15 @@ section .content .image {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    /* Removed box-shadow */
 }
 
 section .content .image img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Changed from cover to contain */
+    object-fit: contain;
     object-position: center;
-    padding: 20px; /* Add some padding around the image */
-    background-color: transparent; /* Changed from var(--card-background) to transparent */
+    padding: 20px;
+    background-color: transparent;
 }
 
 /* Responsive adjustments */
@@ -390,7 +483,10 @@ section .content .image img {
     border-radius: 10px;
 }
 
-/* Services Section Fix */
+/*------------------------------------*\
+  #SERVICES
+\*------------------------------------*/
+
 .services:not(.services-page):not(.services-overview) .content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -400,7 +496,6 @@ section .content .image img {
     max-width: 1400px;
 }
 
-/* Services Section - Service cards and layouts */
 .services .content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -413,20 +508,20 @@ section .content .image img {
 .services .service-item {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Changed from space-between */
-    width: 100%;
-    height: 280px; /* Fixed height for all boxes */
+    justify-content: flex-start;
+    height: 280px;
     padding: 2rem;
     background: var(--card-background);
     border: 1px solid var(--card-border);
     border-radius: 10px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    animation: glowPulse 3s ease-in-out infinite;
 }
 
 .services .service-item h3 {
     margin: 1rem 0;
-    height: 50px; /* Fixed height for titles */
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -443,11 +538,11 @@ section .content .image img {
     box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    height: 80px; /* Fixed height for description */
+    height: 80px;
 }
 
 .services .service-icon {
-    height: 60px; /* Fixed height for icon */
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -459,7 +554,7 @@ section .content .image img {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .services .service-item {
-        height: 260px; /* Slightly smaller on mobile */
+        height: 260px;
     }
     
     .services .service-item h3 {
@@ -476,7 +571,10 @@ section .content .image img {
     }
 }
 
-/* Pricing Table */
+/*------------------------------------*\
+  #PRICING TABLE
+\*------------------------------------*/
+
 .pricing-table {
     width: 100%;
     border-collapse: collapse;
@@ -521,10 +619,13 @@ pricing-table th {
     background: var(--table-stripe);
 }
 
-/* Form Styles - Contact and interactive elements */
+/*------------------------------------*\
+  #FORMS
+\*------------------------------------*/
+
 .contact-form {
     max-width: 600px;
-    margin: 0 auto 6rem; /* Increased bottom margin from default to 6rem */
+    margin: 0 auto 6rem;
 }
 
 .contact-form input, .contact-form textarea {
@@ -561,8 +662,10 @@ pricing-table th {
     background: #0056b3;
 }
 
-/* Utility Classes - Reusable utility classes */
-/* Shared Floating Button Style */
+/*------------------------------------*\
+  #UTILITY CLASSES
+\*------------------------------------*/
+
 .floating-btn {
     position: fixed;
     right: 20px;
@@ -579,21 +682,17 @@ pricing-table th {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px; /* Default size for the up arrow */
+    font-size: 16px;
 }
 
 .floating-btn:hover {
     background-color: #0056b3;
 }
 
-/* Back-to-Top Button */
 #back-to-top {
-    display: none; /* Initially hidden */
+    display: none;
     bottom: 20px;
 }
-
-/* Remove old dark mode button styles */
-/* Delete the .dark-mode-toggle and related styles */
 
 /* Responsive Images */
 img {
@@ -603,14 +702,14 @@ img {
 
 /* Lazy Loading Images */
 img[loading="lazy"] {
-    opacity: 1; /* Changed from 0 to 1 to ensure images are visible by default */
+    opacity: 1;
     transition: opacity 0.3s ease-in;
 }
 
 /* Image containers to prevent layout shift */
 .image {
     position: relative;
-    min-height: 200px; /* Adjust based on your needs */
+    min-height: 200px;
 }
 
 social-icons img {
@@ -618,12 +717,31 @@ social-icons img {
     min-width: 24px;
 }
 
-/* Footer */
+/* Display utilities */
+.hidden { display: none; }
+.block { display: block; }
+.flex { display: flex; }
+.grid { display: grid; }
+
+/* Spacing utilities */
+.m-0 { margin: 0; }
+.p-0 { padding: 0; }
+/* ...more spacing utilities... */
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/*------------------------------------*\
+  #FOOTER
+\*------------------------------------*/
+
 footer {
     background: var(--footer-background);
     color: var(--footer-text-color);
     padding: 4rem 0 0;
-    margin-top: 0; /* Changed from 4rem to 0 since we're using bottom margin on contact form */
+    margin-top: 0;
 }
 
 .footer-grid {
@@ -696,8 +814,8 @@ footer {
     display: flex;
     align-items: flex-start;
     gap: 0.5rem;
-    margin-bottom: 1rem; /* Increased from 0.75rem */
-    word-break: break-word; /* Allow long emails to break */
+    margin-bottom: 1rem;
+    word-break: break-word;
 }
 
 .contact-info i {
@@ -706,10 +824,10 @@ footer {
 }
 
 .contact-info li a {
-    word-wrap: break-word; /* Enable word wrapping for long text */
-    overflow-wrap: break-word; /* Modern browsers */
-    max-width: 100%; /* Ensure text doesn't overflow container */
-    display: inline-block; /* Allow the text to wrap */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    display: inline-block;
 }
 
 .newsletter-form {
@@ -789,7 +907,10 @@ footer {
     }
 }
 
-/* Animations - Scroll animations and transitions */
+/*------------------------------------*\
+  #ANIMATIONS
+\*------------------------------------*/
+
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(20px);
@@ -801,101 +922,74 @@ footer {
     transform: translateY(0);
 }
 
-/* Media Queries - Responsive design breakpoints */
+/* Consolidated animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: var(--glow-sm);
+    }
+    50% {
+        box-shadow: var(--glow-lg);
+    }
+}
+
+/*------------------------------------*\
+  #MEDIA QUERIES
+\*------------------------------------*/
+
+@media (max-width: 1200px) {
+    /* ...existing styles... */
+}
+
+@media (max-width: 992px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* ...existing styles... */
+}
+
 @media (max-width: 768px) {
-    header .logo, header nav {
-        float: none;
-        text-align: center;
+    .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
     }
-
-    header nav {
-        margin-top: 15px;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5em;
-    }
-
-    section .content {
-        flex-direction: column;
-    }
-
-    section .content .text, section .content .image {
-        margin: 0;
-    }
-
-    .services .service-item {
-        flex-basis: 100%;
-        margin: 10px 0;
-    }
+    /* ...existing mobile styles... */
 }
 
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 2em;
+/* Touch device optimizations */
+@media (hover: none) {
+    .hover-effect {
+        display: none;
     }
-
-    .hero-content p {
-        font-size: 1em;
-    }
-
-    .hero-content .btn {
-        padding: 10px 20px;
-    }
+    /* ...existing touch styles... */
 }
 
-/* Theme Configuration - Light and dark mode variables */
-:root {
-    --background-color: #ffffff; /* Changed from #f5f6f7 to pure white */
-    --text-color: #333333;
-    --link-color: #007BFF;
-    --header-background: #ffffff;
-    --header-text-color: #333333;
-    --footer-background: #222222;
-    --footer-text-color: #ffffff;
-    --card-background: #ffffff; /* Changed from #f5f6f7 to pure white */
-    --card-border: #e5e7eb;
-    --table-stripe: #f1f3f5;
-    --secondary-text-color: #666666;
-    --section-alt-background: #f0f2f5; /* Keep this color for alternating sections */
-    --modal-background: #ffffff;
-    --transition-speed: 0.3s;
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
-    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-}
+/*------------------------------------*\
+  #NAVIGATION
+\*------------------------------------*/
 
-[data-theme="dark"] {
-    --background-color: #121212;
-    --text-color: #ffffff;
-    --link-color: #1e90ff;
-    --header-background: #1f1f1f;
-    --header-text-color: #ffffff;
-    --footer-background: #1f1f1f;
-    --footer-text-color: #ffffff;
-    --card-background: #1f1f1f;
-    --card-border: #333333;
-    --table-stripe: #2d2d2d;
-    --secondary-text-color: #999999;
-    --section-alt-background: #161616; /* Added darker background for alternating sections */
-}
-
-/* [data-theme="dark"] {
-    --background-color: #121212;
-    --text-color: #ffffff;
-    --link-color: #1e90ff;
-    --header-background: #1f1f1f;
-    --header-text-color: #ffffff;
-    --footer-background: #1f1f1f;
-    --footer-text-color: #ffffff;
-} */
-
-/* Navigation Active State */
 header nav ul li a.active {
     color: #007BFF;
 }
 
-/* Features Grid */
+/*------------------------------------*\
+  #FEATURES GRID
+\*------------------------------------*/
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -917,7 +1011,10 @@ header nav ul li a.active {
     box-shadow: 0 10px 15px rgba(0,0,0,0.1);
 }
 
-/* Testimonials */
+/*------------------------------------*\
+  #TESTIMONIALS
+\*------------------------------------*/
+
 .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -932,7 +1029,7 @@ header nav ul li a.active {
     border: 2px solid var(--card-border);
     transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.3s ease;
     position: relative;
-    text-align: center; /* Center align the content */
+    text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     will-change: transform;
 }
@@ -956,29 +1053,35 @@ header nav ul li a.active {
 }
 
 .testimonial-logo {
-    max-width: 200px; /* Increased from 150px to 200px */
+    max-width: 200px;
     height: auto;
     margin-top: 1.5rem;
     filter: grayscale(100%);
     opacity: 1;
     transition: filter 0.3s ease;
-    display: block; /* Add this to ensure the image is displayed */
-    margin-left: auto; /* Center the logo */
-    margin-right: auto; /* Center the logo */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .testimonial:hover .testimonial-logo {
-    filter: grayscale(0%); /* Add this back to restore color on hover */
+    filter: grayscale(0%);
 }
 
-/* CTA Section */
+/*------------------------------------*\
+  #CTA SECTION
+\*------------------------------------*/
+
 .cta {
     background: var(--card-background);
     text-align: center;
     padding: 4rem 0;
 }
 
-/* Elevate IT Infrastructure Section */
+/*------------------------------------*\
+  #ELEVATE IT INFRASTRUCTURE
+\*------------------------------------*/
+
 .elevate-it-infrastructure {
     background: var(--card-background);
     text-align: center;
@@ -1007,7 +1110,7 @@ header nav ul li a.active {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 220px; /* Set fixed height for all boxes */
+    height: 220px;
 }
 
 .elevate-it-infrastructure .cta-item:hover {
@@ -1036,8 +1139,8 @@ header nav ul li a.active {
         min-width: 100%;
         max-width: 100%;
         margin: 0 0 20px 0;
-        height: auto; /* Reset height on mobile */
-        min-height: 180px; /* Set minimum height for mobile */
+        height: auto;
+        min-height: 180px;
     }
 }
 
@@ -1058,13 +1161,16 @@ header nav ul li a.active {
     background: #0056b3;
 }
 
-/* Testimonials Carousel */
+/*------------------------------------*\
+  #TESTIMONIALS CAROUSEL
+\*------------------------------------*/
+
 .testimonials-carousel {
     position: relative;
     width: 100%;
     margin: 0 auto;
     overflow: hidden;
-    padding: 0 60px; /* Increased padding to prevent cut-off */
+    padding: 0 60px;
 }
 
 .testimonials-container {
@@ -1080,23 +1186,23 @@ header nav ul li a.active {
 }
 
 .testimonial {
-    width: calc((100% - 4rem) / 3); /* Width for three items */
-    min-width: calc((100% - 4rem) / 3); /* Ensure minimum width */
-    margin-right: 0; /* Remove margin, using gap instead */
-    flex: 0 0 auto; /* Prevent shrinking */
+    width: calc((100% - 4rem) / 3);
+    min-width: calc((100% - 4rem) / 3);
+    margin-right: 0;
+    flex: 0 0 auto;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
     .testimonial {
-        width: calc((100% - 2rem) / 2); /* Show 2 items */
+        width: calc((100% - 2rem) / 2);
         min-width: calc((100% - 2rem) / 2);
     }
 }
 
 @media (max-width: 768px) {
     .testimonial {
-        width: 100%; /* Show 1 item */
+        width: 100%;
         min-width: 100%;
     }
     
@@ -1157,14 +1263,16 @@ header nav ul li a.active {
     background: var(--link-color);
 }
 
-/* Focus styles for accessibility */
+/*------------------------------------*\
+  #ACCESSIBILITY
+\*------------------------------------*/
+
 a:focus-visible,
 button:focus-visible {
     outline: 2px solid var(--link-color);
     outline-offset: 2px;
 }
 
-/* Skip navigation for accessibility */
 .skip-nav {
     position: absolute;
     top: -100px;
@@ -1179,9 +1287,10 @@ button:focus-visible {
     top: 0;
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #MOBILE MENU
+\*------------------------------------*/
 
-/* Mobile Menu Styles */
 .mobile-menu-toggle {
     display: none;
     background: none;
@@ -1194,7 +1303,6 @@ button:focus-visible {
 
 /* Enhanced Mobile Responsiveness */
 @media (max-width: 768px) {
-    /* Header adjustments */
     header {
         padding: 10px 20px;
         flex-direction: column;
@@ -1235,7 +1343,6 @@ button:focus-visible {
         text-align: center;
     }
 
-    /* Container and Section adjustments */
     .container {
         width: 95%;
         padding: 0 10px;
@@ -1245,12 +1352,10 @@ button:focus-visible {
         padding: 40px 0;
     }
 
-    /* Typography adjustments */
     h1 { font-size: 2em !important; }
     h2 { font-size: 1.8em !important; }
     h3 { font-size: 1.4em !important; }
 
-    /* Grid and Layout adjustments */
     .features-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -1262,19 +1367,17 @@ button:focus-visible {
         margin: 10px 0;
     }
 
-    /* Footer adjustments */
     footer .container {
         flex-direction: column;
         gap: 1rem;
     }
 
-    /* Mobile-friendly carousel adjustments */
     .testimonials-carousel {
-        padding: 0 30px; /* Reduced padding */
+        padding: 0 30px;
     }
 
     .carousel-button {
-        width: 30px; /* Smaller buttons */
+        width: 30px;
         height: 30px;
         padding: 0.5rem;
         background: var(--link-color);
@@ -1285,12 +1388,12 @@ button:focus-visible {
 
     .testimonial {
         padding: 1rem;
-        min-width: calc(100% - 2rem); /* Full width with gap consideration */
+        min-width: calc(100% - 2rem);
         margin: 0 1rem;
     }
 
     .testimonials-track {
-        gap: 0; /* Remove gap on mobile */
+        gap: 0;
     }
 
     .carousel-dots {
@@ -1298,7 +1401,7 @@ button:focus-visible {
     }
 
     .dot {
-        width: 8px; /* Smaller dots */
+        width: 8px;
         height: 8px;
     }
 }
@@ -1358,9 +1461,10 @@ button:focus-visible {
     }
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #LOADING STATES
+\*------------------------------------*/
 
-/* Loading States */
 .loading {
     position: relative;
     pointer-events: none;
@@ -1391,7 +1495,10 @@ button:focus-visible {
     to { transform: rotate(360deg); }
 }
 
-/* Improve readability */
+/*------------------------------------*\
+  #READABILITY
+\*------------------------------------*/
+
 body {
     font-size: var(--text-md);
     line-height: 1.7;
@@ -1404,7 +1511,10 @@ h1, h2, h3 {
     letter-spacing: -0.02em;
 }
 
-/* Service Icons */
+/*------------------------------------*\
+  #SERVICE ICONS
+\*------------------------------------*/
+
 .service-icon {
     margin-top: 1.5rem;
     font-size: 2.5rem;
@@ -1416,7 +1526,10 @@ h1, h2, h3 {
     transform: scale(1.1);
 }
 
-/* Service Item Glow Animation */
+/*------------------------------------*\
+  #GLOW ANIMATION
+\*------------------------------------*/
+
 @keyframes glowPulse {
      0%, 100% {
         box-shadow: 0 0 5px rgba(0,123,255,0.1),
@@ -1441,9 +1554,11 @@ h1, h2, h3 {
                 0 0 30px rgba(30,144,255,0.2);
 }
 
-/* Services Overview specific styling */
+/*------------------------------------*\
+  #SERVICES OVERVIEW
+\*------------------------------------*/
+
 .services-overview .service-item {
-    /* Remove animation and glow effects from overview section */
     animation: none;
     box-shadow: none;
 }
@@ -1454,10 +1569,9 @@ h1, h2, h3 {
 
 /* Core Services specific styling */
 .services .service-item {
-    /* ...existing properties... */
     animation: glowPulse 3s ease-in-out infinite;
-    animation-delay: 0s; /* Ensure all animations start at the same time */
-    cursor: pointer !important; /* Force pointer cursor */
+    animation-delay: 0s;
+    cursor: pointer !important;
 }
 
 /* Shared Glow Animation */
@@ -1525,7 +1639,10 @@ h1, h2, h3 {
     animation-delay: 0s;
 }
 
-/* Services Page Specific Styles */
+/*------------------------------------*\
+  #SERVICES PAGE
+\*------------------------------------*/
+
 .services .service-item,
 .pricing-section .pricing-table {
     animation: glowPulse 3s ease-in-out infinite;
@@ -1559,7 +1676,7 @@ h1, h2, h3 {
 
 /* Services Page Specific Styles */
 .services-page {
-    padding-top: 120px; /* Account for fixed header */
+    padding-top: 120px;
 }
 
 .services-page h2,
@@ -1602,7 +1719,10 @@ h1, h2, h3 {
     margin: 2rem auto 0;
 }
 
-/* Section Headings with Underline */
+/*------------------------------------*\
+  #SECTION HEADINGS
+\*------------------------------------*/
+
 section h2 {
     text-align: center;
     margin-bottom: 3rem;
@@ -1622,14 +1742,12 @@ section h2::after {
     transition: width 0.8s ease-in-out;
 }
 
-/* Expanded underline when section is in view */
 section.in-view h2::after {
     width: 100%;
 }
 
-/* Specific section heading adjustments */
 .hero-content h1::after {
-    display: none; /* Don't show underline for hero heading */
+    display: none;
 }
 
 .services-overview h2::after,
@@ -1651,11 +1769,14 @@ section.in-view h2::after {
     margin: 2rem 0;
 }
 
-/* Service Info Panel */
+/*------------------------------------*\
+  #SERVICE INFO PANEL
+\*------------------------------------*/
+
 .service-info-panel {
     position: fixed;
     top: 0;
-    right: -500px; /* Start offscreen */
+    right: -500px;
     width: 500px;
     height: 100vh;
     background: var(--card-background);
@@ -1671,10 +1792,9 @@ section.in-view h2::after {
     right: 0;
 }
 
-/* Content shift when panel is active */
 body.panel-active .services .container {
     width: calc(100% - 500px);
-    padding-right: 40px; /* Add some spacing */
+    padding-right: 40px;
 }
 
 /* Responsive adjustments */
@@ -1701,13 +1821,12 @@ body.panel-active .services .container {
     }
 }
 
-/* Service Panel Layout Adjustments */
 .services .container {
     transition: all 0.3s ease-out;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
-    overflow: visible; /* Allow boxes to be fully visible */
+    overflow: visible;
 }
 
 .services .content {
@@ -1715,7 +1834,7 @@ body.panel-active .services .container {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
     transition: all 0.3s ease-out;
-    margin-right: 0; /* Reset margin */
+    margin-right: 0;
 }
 
 .service-info-panel .close-btn {
@@ -1732,7 +1851,7 @@ body.panel-active .services .container {
 
 .service-info-panel .panel-content {
     margin-top: 2rem;
-    max-width: 440px; /* Adjusted for new panel width */
+    max-width: 440px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1755,38 +1874,33 @@ body.panel-active .services .container {
     .service-info-panel {
         width: 100%;
         right: -100%;
-        padding: 2rem; /* Slightly reduced padding on mobile */
-        transition: right 0.3s ease; /* Slightly slower on mobile for touch */
+        padding: 2rem;
+        transition: right 0.3s ease;
     }
 }
 
-/* Add hover effect to service items */
 .services .service-item {
-    cursor: default; /* Change cursor since it's now hover-based */
+    cursor: default;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 @media (max-width: 768px) {
     .services .service-item {
-        cursor: pointer; /* Keep pointer on mobile for click interaction */
+        cursor: pointer;
     }
 }
 
-/* Service Info Panel and Layout Shift */
 .services .content {
     transition: margin-right 0.3s ease-out;
 }
 
 .service-info-panel {
-    width: 600px; /* Increased width */
+    width: 600px;
     right: -600px;
-    /* ...existing panel properties... */
 }
 
-/* Layout shift when panel is active */
 .service-info-panel.active {
     right: 0;
-    /* ...existing active properties... */
 }
 
 .service-info-panel.active + .services .content,
@@ -1831,21 +1945,18 @@ body:has(.service-info-panel.active) .services .content {
     }
 }
 
-/* Service Panel Layout Adjustments */
 .services .container {
     transition: transform 0.3s ease-out, width 0.3s ease-out;
     transform-origin: left;
     position: relative;
 }
 
-/* Move content left when panel is active */
 body.panel-active .services .container,
 body.panel-active .pricing-section .container {
-    transform: translateX(-250px); /* Half the panel width */
-    width: calc(100% - 500px); /* Adjust container width */
+    transform: translateX(-250px);
+    width: calc(100% - 500px);
 }
 
-/* Adjust grid layout to maintain box sizes */
 .services .content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1853,7 +1964,6 @@ body.panel-active .pricing-section .container {
     transition: all 0.3s ease-out;
 }
 
-/* Responsive adjustments */
 @media (max-width: 1200px) {
     .service-info-panel.active {
         width: 400px;
@@ -1869,7 +1979,7 @@ body.panel-active .pricing-section .container {
 @media (max-width: 768px) {
     .service-info-panel {
         width: 100%;
-        left: 100%; /* Start from right edge */
+        left: 100%;
         right: auto;
     }
 
@@ -1885,20 +1995,20 @@ body.panel-active .pricing-section .container {
     }
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #CORE SERVICES
+\*------------------------------------*/
 
-/* Core Services Section on Index Page */
 .services:not(.services-page):not(.services-overview) .content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Changed from 3 to 4 columns */
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin: 0 auto;
     padding: 0 20px;
-    max-width: 1400px; /* Increased from 1200px to accommodate 4 columns */
+    max-width: 1400px;
     justify-content: center;
 }
 
-/* Services Page Grid Layout */
 .services-page .content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1906,21 +2016,6 @@ body.panel-active .pricing-section .container {
     margin: 0 auto;
     padding: 0 20px;
     max-width: 1400px;
-}
-
-/* Shared Service Item Styles */
-.service-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 100%;
-    height: 280px;
-    padding: 2rem;
-    background: var(--card-background);
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Responsive adjustments for index page */
@@ -1939,11 +2034,12 @@ body.panel-active .pricing-section .container {
     }
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #SERVICES OVERVIEW
+\*------------------------------------*/
 
-/* Services Overview Section (Vision, Amplified by Technology) */
 .services-overview .content {
-    display: block; /* Change back to block layout */
+    display: block;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
@@ -1976,18 +2072,16 @@ body.panel-active .pricing-section .container {
     margin-bottom: 0;
 }
 
-/* Core Services Section on Index Page */
 .services:not(.services-page):not(.services-overview) .content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Changed from 3 to 4 columns */
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin: 0 auto;
     padding: 0 20px;
-    max-width: 1400px; /* Increased from 1200px to accommodate 4 columns */
+    max-width: 1400px;
     justify-content: center;
 }
 
-/* Services Page Grid Layout */
 .services-page .content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -2017,12 +2111,13 @@ body.panel-active .pricing-section .container {
     }
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #VALUES SECTION
+\*------------------------------------*/
 
-/* Values Section */
 .values-section .container {
     width: 90%;
-    max-width: 1200px; /* Match the main container max-width */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
@@ -2033,13 +2128,13 @@ body.panel-active .pricing-section .container {
     font-size: 1.2em;
     line-height: 1.8;
     margin-bottom: 3rem;
-    text-align: left; /* Change back to left alignment */
+    text-align: left;
 }
 
 .values-section h2 {
-    text-align: left; /* Keep text aligned left */
+    text-align: left;
     position: relative;
-    display: inline-block; /* Change back to inline-block */
+    display: inline-block;
     margin-bottom: 3rem;
     padding-bottom: 1rem;
 }
@@ -2048,8 +2143,8 @@ body.panel-active .pricing-section .container {
     content: '';
     position: absolute;
     bottom: -1rem;
-    left: 50%; /* Center the underline */
-    transform: translateX(-50%); /* Center the underline */
+    left: 50%;
+    transform: translateX(-50%);
     width: 60px;
     height: 3px;
     background: var (--link-color);
@@ -2064,7 +2159,7 @@ body.panel-active .pricing-section .container {
     display: block;
     width: 100%;
     margin-bottom: 2rem;
-    text-align: left; /* Ensure wrapper is left-aligned */
+    text-align: left;
 }
 
 .values-section .content {
@@ -2101,9 +2196,9 @@ body.panel-active .pricing-section .container {
     }
 }
 
-/* ...existing code... */
-
-/* ...existing code... */
+/*------------------------------------*\
+  #SERVICE LINK
+\*------------------------------------*/
 
 .service-item .service-link {
     display: flex;
@@ -2123,9 +2218,10 @@ body.panel-active .pricing-section .container {
     pointer-events: none;
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #HEADER NAV LINKS
+\*------------------------------------*/
 
-/* Header Nav Links */
 header nav ul li a {
     position: relative;
     transition: color 0.3s ease;
@@ -2147,14 +2243,14 @@ header nav ul li a.active::after {
     width: 100%;
 }
 
-/* Adjust active state color to match underline */
 header nav ul li a.active {
     color: var(--link-color);
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #ABOUT PAGE
+\*------------------------------------*/
 
-/* About Page Specific Styles */
 .story-section .content {
     display: flex;
     align-items: center;
@@ -2177,12 +2273,76 @@ header nav ul li a.active {
 }
 
 .team-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    width: 100%;
+    text-align: center;
+    grid-column: 1 / -1;
+    background: var(--card-background);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    margin: 2rem auto;
+    max-width: 600px;
+    transition: all 0.3s ease;
+}
+
+.team-placeholder:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.team-placeholder i {
+    font-size: 3rem;
+    color: var(--link-color);
+    margin-bottom: 1rem;
+}
+
+.team-placeholder p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text-color);
+}
+
+/* Dark theme adjustment */
+[data-theme="dark"] .team-placeholder {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+}
+
+.team-placeholder {
     background: var(--card-background);
     border: 1px solid var(--card-border);
     border-radius: 10px;
     padding: 2rem;
     text-align: center;
+    transition: all 0.3s ease;
     animation: glowPulse 3s ease-in-out infinite;
+}
+
+.team-placeholder:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.team-placeholder i {
+    font-size: 3rem;
+    color: var(--link-color);
+    margin-bottom: 1rem;
+}
+
+.team-placeholder p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text-color);
+}
+
+/* Dark theme adjustment */
+[data-theme="dark"] .team-placeholder {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
 }
 
 /* Responsive adjustments for about page */
@@ -2199,9 +2359,6 @@ header nav ul li a.active {
     }
 }
 
-/* ...existing code... */
-
-/* About Page Heading Adjustments */
 .story-section h2,
 .team-section h2 {
     text-align: center !important;
@@ -2227,7 +2384,6 @@ header nav ul li a.active {
     width: 100%;
 }
 
-/* Override values-section styles for about page */
 .values-section:not(.story-section):not(.team-section) h2 {
     text-align: left;
     display: inline-block;
@@ -2238,9 +2394,6 @@ header nav ul li a.active {
     transform: none;
 }
 
-/* ...existing code... */
-
-/* About Page Specific Heading Styles */
 .story-section h2,
 .values-section h2,
 .team-section h2 {
@@ -2270,7 +2423,6 @@ header nav ul li a.active {
     width: 100%;
 }
 
-/* Override any inherited styles */
 .values-section .heading-wrapper {
     text-align: center;
 }
@@ -2285,7 +2437,6 @@ header nav ul li a.active {
     transform: translateX(-50%) !important;
 }
 
-/* Ensure other pages aren't affected */
 .values-section:not(.about-page) h2,
 .values-section:not(.about-page) .heading-wrapper {
     text-align: left;
@@ -2296,9 +2447,6 @@ header nav ul li a.active {
     transform: none;
 }
 
-/* ...existing code... */
-
-/* About Page Specific Heading Styles - Higher Specificity */
 body .story-section h2,
 body .values-section.about-page h2,
 body .team-section h2 {
@@ -2324,7 +2472,6 @@ body .team-section h2::after {
     transition: width 0.8s ease-in-out;
 }
 
-/* Override any conflicting styles with higher specificity */
 .values-section.about-page .heading-wrapper {
     text-align: center !important;
     width: 100% !important;
@@ -2336,16 +2483,16 @@ body .team-section h2::after {
     display: block !important;
 }
 
-/* Ensure section in-view animations work */
 body .story-section.in-view h2::after,
 body .values-section.about-page.in-view h2::after,
 body .team-section.in-view h2::after {
     width: 100%;
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #STANDARDIZED SECTION HEADINGS
+\*------------------------------------*/
 
-/* Standardized Section Headings */
 section h2,
 .heading-wrapper h2 {
     position: relative;
@@ -2384,7 +2531,6 @@ section.in-view h2::after,
     width: 100%;
 }
 
-/* Override any specific section styles that might conflict */
 .values-section h2,
 .services h2,
 .story-section h2,
@@ -2454,8 +2600,6 @@ section.in-view h2::after,
     width: 100%;
 }
 
-/* Remove any conflicting or overridden styles */
-/* Remove any section-specific heading alignments */
 .values-section .heading-wrapper,
 .services .heading-wrapper,
 .story-section .heading-wrapper,
@@ -2464,9 +2608,10 @@ section.in-view h2::after,
     width: 100% !important;
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #UPDATED SECTION HEADINGS
+\*------------------------------------*/
 
-/* Updated Section Headings with Elliptical Underline */
 section h2,
 .heading-wrapper h2 {
     position: relative;
@@ -2486,8 +2631,8 @@ section h2::after,
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
-    height: 4px; /* Slightly thicker for better glow effect */
-    border-radius: 50%/2px; /* Creates elliptical shape */
+    height: 4px;
+    border-radius: 50%/2px;
     background: var(--link-color);
     box-shadow: 
         0 0 5px var(--link-color),
@@ -2501,7 +2646,7 @@ section h2::after,
 section.in-view h2::after,
 .heading-wrapper.in-view h2::after {
     width: 100%;
-    border-radius: 50%/3px; /* Adjust ellipse as it expands */
+    border-radius: 50%/3px;
     filter: blur(0.5px);
 }
 
@@ -2542,9 +2687,10 @@ section.in-view h2::after,
     filter: blur(0.5px);
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #VALUES FEATURE ICONS
+\*------------------------------------*/
 
-/* Values Feature Icons - Updated without glow */
 .feature-icon {
     font-size: 2.5rem;
     color: var(--link-color);
@@ -2568,9 +2714,9 @@ section.in-view h2::after,
     color: var(--link-color);
 }
 
-/* ...existing code... */
-
-/* ...existing code... */
+/*------------------------------------*\
+  #SERVICES CONTAINER
+\*------------------------------------*/
 
 .services .container {
     display: flex;
@@ -2600,8 +2746,6 @@ section.in-view h2::after,
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-
-/* ...existing code... */
 
 .services .container,
 .pricing-section .container {
@@ -2636,9 +2780,10 @@ section.in-view h2::after,
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #FORM STYLES
+\*------------------------------------*/
 
-/* Form Styles */
 .form-group {
     margin-bottom: 1.5rem;
     position: relative;
@@ -2685,9 +2830,10 @@ section.in-view h2::after,
     border-color: #612f44;
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #FORM VALIDATION
+\*------------------------------------*/
 
-/* Form Validation Styles */
 .form-group {
     margin-bottom: 1.5rem;
     position: relative;
@@ -2751,9 +2897,10 @@ section.in-view h2::after,
     border-color: #612f44;
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #CONTACT FORM
+\*------------------------------------*/
 
-/* Contact Form Styles */
 .contact-intro {
     text-align: center;
     max-width: 800px;
@@ -2786,9 +2933,10 @@ section.in-view h2::after,
     border-color: var(--card-border);
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #CONTACT DETAILS
+\*------------------------------------*/
 
-/* Contact Details Styles */
 .contact-details {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -2864,11 +3012,10 @@ section.in-view h2::after,
     }
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #FAQ SECTION
+\*------------------------------------*/
 
-/* ...existing code... */
-
-/* FAQ Section Styles */
 .faq-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -2901,9 +3048,10 @@ section.in-view h2::after,
     }
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #DEPARTMENT SELECTION
+\*------------------------------------*/
 
-/* Department Selection Styles */
 .department-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -2945,16 +3093,19 @@ section.in-view h2::after,
     transform: translateY(-2px);
 }
 
-/* Chat Widget Styles - Updated for left side positioning */
+/*------------------------------------*\
+  #CHAT WIDGET
+\*------------------------------------*/
+
 .chat-widget {
     position: fixed;
     bottom: 20px;
-    left: 20px; /* Changed from right to left */
-    right: auto; /* Remove right positioning */
+    left: 20px;
+    right: auto;
     z-index: 1000;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Changed from flex-end */
+    align-items: flex-start;
 }
 
 .chat-toggle {
@@ -2981,19 +3132,19 @@ section.in-view h2::after,
 }
 
 .chat-popup {
-    position: fixed; /* Changed from absolute */
-    bottom: 80px; /* Height of chat button + some spacing */
-    left: 20px; /* Changed from right to left */
-    right: auto; /* Remove right positioning */
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    right: auto;
     width: 300px;
-    max-width: calc(100vw - 40px); /* Ensure it stays within viewport */
-    max-height: calc(100vh - 100px); /* Keep within viewport height */
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 100px);
     background: var(--card-background);
     border: 1px solid var(--card-border);
     border-radius: 10px;
     box-shadow: var(--shadow-md);
     display: none;
-    overflow: auto; /* Allow scrolling if content is too long */
+    overflow: auto;
 }
 
 .chat-popup.active {
@@ -3036,20 +3187,21 @@ section.in-view h2::after,
 @media (max-width: 768px) {
     .chat-widget {
         bottom: 10px;
-        left: 10px; /* Changed from right to left */
+        left: 10px;
     }
 
     .chat-popup {
         bottom: 70px;
-        left: 10px; /* Changed from right to left */
+        left: 10px;
         width: calc(100vw - 20px);
         max-width: 300px;
     }
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #MODAL
+\*------------------------------------*/
 
-/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -3104,9 +3256,10 @@ section.in-view h2::after,
     color: #fff;
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #HUBSPOT FORM
+\*------------------------------------*/
 
-/* Updated Contact Form Styles */
 .hubspot-form-container {
     max-width: 800px;
     margin: 0 auto;
@@ -3117,7 +3270,6 @@ section.in-view h2::after,
     box-shadow: var(--shadow-sm);
 }
 
-/* Ensure HubSpot form inherits container width */
 .hubspot-form-container .hs-form {
     width: 100%;
     max-width: 100%;
@@ -3129,14 +3281,10 @@ section.in-view h2::after,
     max-width: 100%;
 }
 
-/* Adjust contact details layout */
 .contact-details {
     margin-top: 2rem;
 }
 
-/* ...existing code... */
-
-/* HubSpot Form Container Styles */
 .hubspot-form-container {
     width: 100%;
     max-width: 800px;
@@ -3144,7 +3292,6 @@ section.in-view h2::after,
     padding: 2rem;
 }
 
-/* Override HubSpot Default Styles */
 .hubspot-form-container .hs-form {
     width: 100% !important;
     max-width: 100% !important;
@@ -3164,7 +3311,6 @@ section.in-view h2::after,
     max-width: 100% !important;
 }
 
-/* Form field styling */
 .hubspot-form-container .hs-form input[type="text"],
 .hubspot-form-container .hs-form input[type="email"],
 .hubspot-form-container .hs-form input[type="tel"],
@@ -3177,7 +3323,6 @@ section.in-view h2::after,
     margin-bottom: 15px !important;
 }
 
-/* Submit button styling */
 .hubspot-form-container .hs-form .hs-button {
     width: 100% !important;
     padding: 12px 20px !important;
@@ -3193,9 +3338,6 @@ section.in-view h2::after,
     background: #0056b3 !important;
 }
 
-/* ...existing code... */
-
-/* HubSpot Form Styles */
 .hubspot-form-container .hs-form input,
 .hubspot-form-container .hs-form textarea,
 .hubspot-form-container .hs-form select {
@@ -3208,7 +3350,6 @@ section.in-view h2::after,
     color: var(--text-color) !important;
 }
 
-/* HubSpot Form Dark Mode Adjustments */
 [data-theme="dark"] .hubspot-form-container .hs-form input,
 [data-theme="dark"] .hubspot-form-container .hs-form textarea,
 [data-theme="dark"] .hubspot-form-container .hs-form select {
@@ -3225,9 +3366,6 @@ section.in-view h2::after,
     color: #ff6b6b !important;
 }
 
-/* ...existing code... */
-
-/* HubSpot Form Dark Mode Adjustments - Enhanced Specificity */
 [data-theme="dark"] .hubspot-form-container .hs-form .input input,
 [data-theme="dark"] .hubspot-form-container .hs-form .input textarea,
 [data-theme="dark"] .hubspot-form-container .hs-form .input select {
@@ -3257,7 +3395,213 @@ section.in-view h2::after,
     color: #ffffff !important;
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #RESPONSIVE BREAKPOINTS
+\*------------------------------------*/
+
+:root {
+    --breakpoint-xs: 375px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --container-padding: 20px;
+}
+
+/*------------------------------------*\
+  #MOBILE MENU STYLES
+\*------------------------------------*/
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+/* Base Mobile Styles (375px and up) */
+@media (min-width: 375px) {
+    .container {
+        padding: 0 var(--container-padding);
+        width: 100%;
+    }
+
+    header {
+        padding: 10px var(--container-padding);
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .service-item {
+        width: 100%;
+    }
+}
+
+/* Small tablets and large phones (576px and up) */
+@media (min-width: 576px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .services .content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium devices (768px and up) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .mobile-menu-toggle {
+        display: none;
+    }
+
+    header nav {
+        display: flex !important;
+    }
+
+    .services .content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Large devices (992px and up) */
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .services .content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Extra large devices (1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 767px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--header-background);
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header nav.active {
+        display: block;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    header nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    header .call-us-btn {
+        width: 100%;
+        margin: 15px 0 0 0;
+        text-align: center;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .image {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .testimonial {
+        width: 100%;
+        margin: 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-bottom .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}
+
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive Typography */
+@media (max-width: 767px) {
+    h1 { font-size: 2rem !important; }
+    h2 { font-size: 1.75rem !important; }
+    h3 { font-size: 1.5rem !important; }
+    p { font-size: 1rem !important; }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .service-item:hover,
+    .feature:hover,
+    .btn:hover {
+        transform: none;
+    }
+
+    .service-item:active,
+    .feature:active,
+    .btn:active {
+        transform: scale(0.98);
+    }
+}
 
 .footer-section p {
     color: var(--footer-text-color);
@@ -3265,6 +3609,44 @@ section.in-view h2::after,
 
 .footer-bottom p {
     color: var(--footer-text-color);
+}
+
+
+.team-grid {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+}
+
+.team-placeholder {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.placeholder-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.team-placeholder i {
+    font-size: 3.5rem;
+    color: var(--link-color);
+    margin-bottom: 0.5rem;
+}
+
+.team-placeholder p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text-color);
 }
 
 /* ...existing code... */

@@ -1,29 +1,38 @@
-<!-- 
-    Armour Technologies Website - Contact Page
-    Author: Curtis Goddard
-    Last Updated: 02/01/2025
-    
-    Contact form and information for reaching
-    Armour Technologies.
+<!--
+/**
+ * Armour Technologies - Contact Page
+ * @author Curtis Goddard
+ * @version 2.0.0
+ * @lastModified 2025-01-02
+ *
+ * Contact page with form integration and business information.
+ * Features:
+ * - HubSpot form integration
+ * - Interactive contact details
+ * - Live chat widget
+ * - Privacy policy/terms modals
+ * - Responsive design
+ * - WAI-ARIA compliance
+ */
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Document Metadata -->
     <meta charset="UTF-8">
     <title>Contact Us | Armour Technologies Limited</title>
     <meta name="description" content="Get in touch with Armour Technologies Limited for all your managed IT service needs.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="../css/styles.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="icon" href="../images/OIP.ico" type="image/x-icon">
     <meta name="keywords" content="contact IT support, IT services contact, managed services contact, UK IT support">
-    <link rel="canonical" href="https://www.armourtechnologies.co.uk/contact.html" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="canonical" href="https://www.armourtechnologies.co.uk/contact.html">
     
-    <!-- Structured Data -->
+    <!-- Stylesheets and Resources -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../images/OIP.ico" type="image/x-icon">
+    
+    <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,8 +51,7 @@
     </script>
 </head>
 <body>
-
-    <!-- Header -->
+    <!-- Navigation Header -->
     <header role="banner">
         <div class="logo">
             <a href="../index.html"><img src="../images/logo.jpeg" alt="Armour Technologies Logo" aria-label="Armour Technologies Logo"></a>
@@ -59,14 +67,14 @@
         </nav>
     </header>
 
-    <!-- Page Header -->
+    <!-- Hero Section -->
     <section class="hero animate-on-scroll" role="region" aria-label="Page Header" style="height: 50vh; background-image: url('../images/hero-bg.jpg'); background-size: cover; background-position: center;">
         <div class="hero-content">
             <h1>Contact Us</h1>
         </div>
     </section>
 
-    <!-- Contact Information -->
+    <!-- Contact Information Section -->
     <section role="region" aria-label="Contact Information">
         <div class="container">
             <h2 class="animate-on-scroll">Information</h2>
@@ -120,7 +128,7 @@
         </div>
     </section>
 
-    <!-- Contact Form -->
+    <!-- Contact Form Section -->
     <section role="region" aria-label="Contact Form">
         <div class="container">
             <h2 class="animate-on-scroll">Get in Touch</h2>
@@ -128,10 +136,11 @@
                 <p class="animate-on-scroll">Have questions about our services or need assistance? Fill out the form below, and our team will get back to you promptly.</p>
             </div>
             
-            <!-- HubSpot Contact Form -->
+            <!-- HubSpot Form Integration -->
             <div class="hubspot-form-container animate-on-scroll">
                 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                 <script>
+                    // Initialize HubSpot form when page loads
                     window.addEventListener('load', function() {
                         hbspt.forms.create({
                             portalId: "49380791",
@@ -146,7 +155,7 @@
         </div>
     </section>
 
-    <!-- Chat Widget Placeholder -->
+    <!-- Live Chat Widget -->
     <div id="chat-widget" class="chat-widget" style="left: 20px; right: auto;">
         <button class="chat-toggle" aria-label="Toggle chat">
             <span class="chat-icon">💬</span>
@@ -163,6 +172,7 @@
         </div>
     </div>
 
+    <!-- Modal Components -->
     <!-- Privacy Policy Modal -->
     <div id="privacy-policy-modal" class="modal">
         <div class="modal-content">
@@ -246,7 +256,32 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Cookie Policy Modal -->
+    <div id="cookie-policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Cookie Policy</h2>
+            <div class="modal-body">
+                <p>This website uses cookies to enhance your browsing experience. By using our website, you agree to our use of cookies.</p>
+                
+                <h3>What are cookies?</h3>
+                <p>Cookies are small text files that are stored on your device when you visit a website. They help make websites work more efficiently and provide information to website owners.</p>
+                
+                <h3>How we use cookies</h3>
+                <ul>
+                    <li>Essential cookies: Required for basic website functionality</li>
+                    <li>Analytics cookies: Help us understand how visitors use our website</li>
+                    <li>Preference cookies: Remember your settings and preferences</li>
+                    <li>Marketing cookies: Used to deliver relevant advertisements</li>
+                </ul>
+                
+                <h3>Managing cookies</h3>
+                <p>You can control and/or delete cookies as you wish. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Footer -->
     <footer role="contentinfo">
         <div class="container footer-grid">
             <div class="footer-section">
@@ -317,79 +352,61 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Scripts -->
+    <!-- Core JavaScript -->
     <script src="../js/scripts.js"></script>
+
+    <!-- Modal Handling -->
     <script>
-        // Privacy Policy Modal
-        const privacyPolicyLink = document.getElementById('privacy-policy-link');
-        const privacyPolicyModal = document.getElementById('privacy-policy-modal');
-        const termsOfServiceLink = document.getElementById('terms-of-service-link');
-        const termsOfServiceModal = document.getElementById('terms-of-service-modal');
-        const cookiePolicyLink = document.getElementById('cookie-policy-link');
-        const cookiePolicyModal = document.getElementById('cookie-policy-modal');
-        const closeBtns = document.querySelectorAll('.modal .close-btn');
+        /**
+         * Modal Management
+         * Handles the display and interaction of policy modals
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal triggers setup
+            const modalConfig = {
+                'privacy-policy-link': 'privacy-policy-modal',
+                'terms-of-service-link': 'terms-of-service-modal',
+                'cookie-policy-link': 'cookie-policy-modal'
+            };
 
-        privacyPolicyLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            privacyPolicyModal.style.display = 'block';
-        });
+            // Initialize modal triggers
+            Object.entries(modalConfig).forEach(([triggerId, modalId]) => {
+                const trigger = document.getElementById(triggerId);
+                const modal = document.getElementById(modalId);
+                const closeBtn = modal?.querySelector('.close-btn');
 
-        termsOfServiceLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            termsOfServiceModal.style.display = 'block';
-        });
+                if (trigger && modal) {
+                    // Modal open handler
+                    trigger.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        modal.style.display = 'block';
+                    });
 
-        cookiePolicyLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            cookiePolicyModal.style.display = 'block';
-        });
+                    // Modal close handler
+                    if (closeBtn) {
+                        closeBtn.addEventListener('click', () => {
+                            modal.style.display = 'none';
+                        });
+                    }
 
-        closeBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                btn.closest('.modal').style.display = 'none';
+                    // Outside click handler
+                    window.addEventListener('click', (e) => {
+                        if (e.target === modal) {
+                            modal.style.display = 'none';
+                        }
+                    });
+                }
             });
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target === privacyPolicyModal) {
-                privacyPolicyModal.style.display = 'none';
-            }
-            if (event.target === termsOfServiceModal) {
-                termsOfServiceModal.style.display = 'none';
-            }
-            if (event.target === cookiePolicyModal) {
-                cookiePolicyModal.style.display = 'none';
-            }
         });
     </script>
 
-    <!-- Cookie Policy Modal -->
-    <div id="cookie-policy-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Cookie Policy</h2>
-            <div class="modal-body">
-                <p>This website uses cookies to enhance your browsing experience. By using our website, you agree to our use of cookies.</p>
-                
-                <h3>What are cookies?</h3>
-                <p>Cookies are small text files that are stored on your device when you visit a website. They help make websites work more efficiently and provide information to website owners.</p>
-                
-                <h3>How we use cookies</h3>
-                <ul>
-                    <li>Essential cookies: Required for basic website functionality</li>
-                    <li>Analytics cookies: Help us understand how visitors use our website</li>
-                    <li>Preference cookies: Remember your settings and preferences</li>
-                    <li>Marketing cookies: Used to deliver relevant advertisements</li>
-                </ul>
-                
-                <h3>Managing cookies</h3>
-                <p>You can control and/or delete cookies as you wish. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Start of HubSpot Embed Code -->
+    <!-- HubSpot Integration -->
     <script>
+        /**
+         * HubSpot Tracking Code
+         * Initializes HubSpot tracking and integration
+         */
         window.addEventListener('load', function() {
             var script = document.createElement('script');
             script.type = 'text/javascript';

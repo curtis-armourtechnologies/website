@@ -1,88 +1,35 @@
 <!DOCTYPE html>
-<!-- 
-/**
- * @file index.html
- * @description Main landing page for Armour Technologies website
- * @author Curtis Goddard
- * @version 1.0.0
- * @lastModified 02/01/2025
- *
- * Page sections:
- * - Header/Navigation
- * - Hero Section
- * - About Section
- * - Services Overview
- * - Core Services
- * - Why Choose Us
- * - Testimonials
- * - Call to Action
- * - Footer
- */
--->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html lang="en">
 <head>
+    <!-- Document Metadata -->
     <meta charset="UTF-8">
-    <title>Armour Technologies Limited</title>
-    <meta name="description" content="Professional Managed IT Services by Armour Technologies Limited.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="icon" href="images/OIP.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Professional Managed IT Services by Armour Technologies Limited.">
     <meta name="keywords" content="managed IT services, cybersecurity, cloud computing, IT support, UK IT services, IT consultancy">
+    
+    <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Armour Technologies - Professional IT Services">
     <meta property="og:description" content="Professional Managed IT Services by Armour Technologies Limited. Expert cybersecurity, cloud computing, and IT support solutions.">
-    <meta property="og:image" content="https://www.armourtechnologies.co.uk/images/og-image.jpg">
     <meta property="og:url" content="https://www.armourtechnologies.co.uk/">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.armourtechnologies.co.uk/" />
     
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Armour Technologies Limited",
-      "description": "Professional IT services provider specialising in managed services, cybersecurity, and cloud solutions",
-      "url": "https://www.armourtechnologies.co.uk",
-      "logo": "https://www.armourtechnologies.co.uk/images/logo.jpeg",
-      "sameAs": [
-        "https://www.linkedin.com/company/armour-technologies",
-        "https://twitter.com/armourtechuk",
-        "https://facebook.com/armourtechnologies"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+44-7777-777777",
-        "contactType": "customer service",
-        "areaServed": "GB",
-        "availableLanguage": "en"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "GB",
-        "addressRegion": "[Your Region]"
-      }
-    }
-    </script>
+    <!-- Resources -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/OIP.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    
+    <title>Armour Technologies Limited</title>
 </head>
 <body>
-    <!-- 
-    * Skip Navigation Link
-    * Accessibility feature for keyboard users
-    -->
+    <!-- Accessibility Skip Link -->
     <a href="#main-content" class="skip-nav">Skip to main content</a>
-    <!-- Header -->
-    <!-- 
-    * Header Section
-    * Contains logo and main navigation
-    * Fixed position with scroll effect
-    -->
+
+    <!-- Header Navigation -->
     <header>
         <div class="logo">
             <a href="index.html"><img src="images/logo.jpeg" alt="Armour Technologies Logo" aria-label="Armour Technologies Logo"></a>
@@ -98,22 +45,12 @@
         </nav>
     </header>
 
-    <!-- 
-    * Main Content Area
-    * Contains all primary page sections
-    * @role main - Identifies the main content area of the document
-    -->
+    <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section -->
-        <!-- 
-        * Hero Section
-        * Full-width banner with main value proposition
-        * Background image with overlay text
-        -->
         <section class="hero animate-on-scroll">
             <video class="hero-video" autoplay muted loop playsinline>
                 <source src="images/video/Herovideo.webm" type="video/mp4">
-                <!-- Fallback for browsers that don't support video -->
                 <img src="images/hero-bg.jpg" alt="Hero Background">
             </video>
             <div class="hero-content">
@@ -123,11 +60,6 @@
         </section>
 
         <!-- About Section -->
-        <!-- 
-        * About Section
-        * Company introduction and mission statement
-        * Contains text and image layout
-        -->
         <section>
             <div class="container">
                 <h2 class="animate-on-scroll">Welcome to Armour Technologies Limited</h2>
@@ -169,11 +101,6 @@
         </section>
 
         <!-- Services Section -->
-        <!-- 
-        * Core Services Section
-        * Detailed service cards with icons
-        * Each card features hover animations
-        -->
         <section class="services">
             <div class="container">
                 <h2 class="animate-on-scroll">Our Core Services</h2>
@@ -220,11 +147,6 @@
         </section>
 
         <!-- Why Choose Us -->
-        <!-- 
-        * Why Choose Us Section
-        * Company differentiators and unique value props
-        * Features grid layout with hover effects
-        -->
         <section class="why-choose-us">
             <div class="container">
                 <h2 class="animate-on-scroll">Why Armour Technologies Stands Out</h2>
@@ -252,12 +174,6 @@
         </section>
 
         <!-- Testimonials -->
-        <!-- 
-        * Testimonials Section
-        * Client reviews and feedback
-        * Interactive carousel with navigation
-        * @includes Schema.org review markup
-        -->
         <section class="testimonials">
             <div class="container">
                 <h2 class="animate-on-scroll">What Our Clients Say</h2>
@@ -294,182 +210,132 @@
             </div>
         </section>
 
-        <!-- 
-        * Structured Data
-        * JSON-LD markup for testimonials
-        * Enhances SEO and rich snippets
-        -->
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Review",
-            "reviewBody": "Armour Technologies transformed our IT infrastructure...",
-            "author": {
-                "@type": "Person",
-                "name": "Luke Dalton"
-            },
-            "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5"
-            }
-        }
-        </script>
+        <!-- Call To Action Section -->
+        <section class="elevate-it-infrastructure">
+            <div class="container">
+                <h2 class="animate-on-scroll">Ready to Amplify Your Vision with Technology?</h2>
+                <p class="animate-on-scroll">Your journey towards innovation starts here. At Armour Technologies, we're committed to transforming your vision into reality through cutting-edge IT solutions tailored to your unique needs. Now is the time to elevate your business and stay ahead in the digital landscape.</p>
+                <div class="content">
+                    <div class="cta-item animate-on-scroll">
+                        <h3>Let's Connect and Propel Your Business Forward</h3>
+                        <p>Contact us today to discuss how we can empower your business with personalised technology solutions.</p>
+                    </div>
+                    <div class="cta-item animate-on-scroll">
+                        <h3>Schedule a Free Consultation</h3>
+                        <p>Discover how our expertise can unlock new opportunities and drive growth.</p>
+                    </div>
+                    <div class="cta-item animate-on-scroll">
+                        <h3>Partner with a Client-Centric Business</h3>
+                        <p>Join the many businesses that have achieved success by leveraging our innovative services.</p>
+                    </div>
+                </div>
+                <div class="cta-button animate-on-scroll">
+                    <a href="pages/contact.html" class="btn btn-primary" aria-label="Get Started Now">Get Started Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer role="contentinfo">
+            <div class="container footer-grid">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <img src="images/logo.jpeg" alt="Armour Technologies Logo" class="footer-logo">
+                    <p>Providing expert IT services and cybersecurity solutions to businesses across the UK.</p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/servicespricing.html">Services & Pricing</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="pages/servicespricing.html#managed-it">Managed IT Support</a></li>
+                        <li><a href="pages/servicespricing.html#cybersecurity">Cybersecurity</a></li>
+                        <li><a href="pages/servicespricing.html#cloud">Cloud Solutions</a></li>
+                        <li><a href="pages/servicespricing.html#consulting">IT Consulting</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:07777777777">07777 777777</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <address>123 Business Street<br>City, County<br>POST CODE</address>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="container">
+                    <p>&copy; 2025 Armour Technologies Limited. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#" id="privacy-policy-link">Privacy Policy</a>
+                        <a href="#" id="terms-of-service-link">Terms of Service</a>
+                        <a href="#" id="cookie-policy-link">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </main>
 
-    <!-- 
-    * Call To Action Section
-    * Final conversion point
-    * Features three value proposition boxes
-    * Centered primary action button
-    -->
-    <section class="elevate-it-infrastructure">
-        <div class="container">
-            <h2 class="animate-on-scroll">Ready to Amplify Your Vision with Technology?</h2>
-            <p class="animate-on-scroll">Your journey towards innovation starts here. At Armour Technologies, we're committed to transforming your vision into reality through cutting-edge IT solutions tailored to your unique needs. Now is the time to elevate your business and stay ahead in the digital landscape.</p>
-            <div class="content">
-                <div class="cta-item animate-on-scroll">
-                    <h3>Let's Connect and Propel Your Business Forward</h3>
-                    <p>Contact us today to discuss how we can empower your business with personalised technology solutions.</p>
-                </div>
-                <div class="cta-item animate-on-scroll">
-                    <h3>Schedule a Free Consultation</h3>
-                    <p>Discover how our expertise can unlock new opportunities and drive growth.</p>
-                </div>
-                <div class="cta-item animate-on-scroll">
-                    <h3>Partner with a Client-Centric Business</h3>
-                    <p>Join the many businesses that have achieved success by leveraging our innovative services.</p>
-                </div>
-            </div>
-            <div class="cta-button animate-on-scroll">
-                <a href="pages/contact.html" class="btn btn-primary" aria-label="Get Started Now">Get Started Now</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 
-    * Footer Section
-    * Contains copyright, contact info, and social links
-    * @role contentinfo - Identifies the footer content
-    -->
-    <footer role="contentinfo">
-        <div class="container footer-grid">
-            <div class="footer-section">
-                <h4>About Us</h4>
-                <img src="images/logo.jpeg" alt="Armour Technologies Logo" class="footer-logo">
-                <p>Providing expert IT services and cybersecurity solutions to businesses across the UK.</p>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="pages/servicespricing.html">Services & Pricing</a></li>
-                    <li><a href="pages/about.html">About Us</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="pages/servicespricing.html#managed-it">Managed IT Support</a></li>
-                    <li><a href="pages/servicespricing.html#cybersecurity">Cybersecurity</a></li>
-                    <li><a href="pages/servicespricing.html#cloud">Cloud Solutions</a></li>
-                    <li><a href="pages/servicespricing.html#consulting">IT Consulting</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <ul class="contact-info">
-                    <li>
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:07777777777">07777 777777</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a>
-                    </li>
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <address>123 Business Street<br>City, County<br>POST CODE</address>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2025 Armour Technologies Limited. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#" id="privacy-policy-link">Privacy Policy</a>
-                    <a href="#" id="terms-of-service-link">Terms of Service</a>
-                    <a href="#" id="cookie-policy-link">Cookie Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- 
-    * JavaScript Dependencies
-    * Main script file for interactive features
-    * @see ../js/scripts.js for implementation details
-    -->
+    <!-- Core Scripts -->
     <script src="js/scripts.js"></script>
 
-    <!-- Add inline modal scripts -->
+    <!-- Modal Scripts -->
     <script>
-        // Privacy Policy Modal
-        const privacyPolicyLink = document.getElementById('privacy-policy-link');
-        const privacyPolicyModal = document.getElementById('privacy-policy-modal');
-        const termsOfServiceLink = document.getElementById('terms-of-service-link');
-        const termsOfServiceModal = document.getElementById('terms-of-service-modal');
-        const cookiePolicyLink = document.getElementById('cookie-policy-link');
-        const cookiePolicyModal = document.getElementById('cookie-policy-modal');
-        const closeBtns = document.querySelectorAll('.modal .close-btn');
-
-        privacyPolicyLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            privacyPolicyModal.style.display = 'block';
-        });
-
-        termsOfServiceLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            termsOfServiceModal.style.display = 'block';
-        });
-
-        cookiePolicyLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            cookiePolicyModal.style.display = 'block';
-        });
-
-        closeBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                btn.closest('.modal').style.display = 'none';
+        // Simplified modal handling
+        document.querySelectorAll('[id$="-link"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modalId = link.id.replace('-link', '-modal');
+                document.getElementById(modalId).style.display = 'block';
             });
         });
 
-        window.addEventListener('click', function(event) {
-            if (event.target === privacyPolicyModal) {
-                privacyPolicyModal.style.display = 'none';
-            }
-            if (event.target === termsOfServiceModal) {
-                termsOfServiceModal.style.display = 'none';
-            }
-            if (event.target === cookiePolicyModal) {
-                cookiePolicyModal.style.display = 'none';
-            }
+        document.querySelectorAll('.close-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.modal').style.display = 'none';
+            });
+        });
+    </script>
+
+    <!-- HubSpot Integration -->
+    <script>
+        window.addEventListener('load', () => {
+            const script = document.createElement('script');
+            script.src = '//js.hs-scripts.com/49380791.js';
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
         });
     </script>
 
@@ -556,22 +422,5 @@
             </div>
         </div>
     </div>
-
-    <!-- Optimized HubSpot Loading -->
-    <script>
-        // Defer HubSpot loading until after page load
-        window.addEventListener('load', function() {
-            // Create HubSpot script element
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.id = 'hs-script-loader';
-            script.async = true;
-            script.defer = true;
-            script.src = '//js.hs-scripts.com/49380791.js';
-            
-            // Add to bottom of body
-            document.body.appendChild(script);
-        });
-    </script>
 </body>
 </html>

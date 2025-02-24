@@ -1,27 +1,35 @@
-<!-- 
-    Armour Technologies Website - About Page
-    Author: Curtis Goddard
-    Last Updated: 02/01/2025
-    
-    This page provides information about the company,
-    our values, and our team.
+<!--
+/**
+ * Armour Technologies - About Page
+ * Author: Curtis Goddard
+ * @version 2.0.0
+ * @lastModified 2025-01-02
+ *
+ * Company information and values presentation page
+ * Features:
+ * - Responsive design
+ * - Animated sections
+ * - Core values presentation
+ * - Team overview
+ * - WAI-ARIA compliance
+ */
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Document Metadata -->
     <meta charset="UTF-8">
     <title>About Us | Armour Technologies Limited</title>
-    <meta name="description" content="Learn more about Armour Technologies Limited and our commitment to excellence.">
+    <meta name="description" content="Learn more about Armour Technologies Limited and our commitment to excellence in IT services.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Add this line before your main CSS -->
+    <meta name="keywords" content="IT company, managed services provider, IT professionals, IT expertise, UK IT company">
+    <link rel="canonical" href="https://www.armourtechnologies.co.uk/about.html">
+
+    <!-- Resource Links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-    <!-- Favicon -->
     <link rel="icon" href="../images/OIP.ico" type="image/x-icon">
-    <meta name="keywords" content="IT company, managed services provider, IT professionals, IT expertise, UK IT company">
-    <link rel="canonical" href="https://www.armourtechnologies.co.uk/about.html" />
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -42,8 +50,7 @@
     </script>
 </head>
 <body>
-
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header role="banner">
         <div class="logo">
             <a href="../index.html"><img src="../images/logo.jpeg" alt="Armour Technologies Logo" aria-label="Armour Technologies Logo"></a>
@@ -59,14 +66,14 @@
         </nav>
     </header>
 
-    <!-- Page Header -->
+    <!-- Hero Section -->
     <section class="hero animate-on-scroll" role="region" aria-label="Page Header" style="height: 50vh; background-image: url('../images/hero-bg.jpg'); background-size: cover; background-position: center;">
         <div class="hero-content">
             <h1>About Armour Technologies</h1>
         </div>
     </section>
 
-    <!-- Our Story -->
+    <!-- Company Story Section -->
     <section class="story-section" role="region" aria-label="Our Story">
         <div class="container">
             <h2 class="animate-on-scroll">Our Story</h2>
@@ -84,13 +91,14 @@
         </div>
     </section>
 
-    <!-- Our Values -->
+    <!-- Core Values Section -->
     <section class="values-section about-page" role="region" aria-label="Our Values">
         <div class="container">
             <div class="heading-wrapper">
                 <h2 class="animate-on-scroll">Our Core Values</h2>
             </div>
             <div class="features-grid">
+                <!-- Value Items -->
                 <div class="feature animate-on-scroll">
                     <div class="feature-icon">
                         <i class="fas fa-users"></i>
@@ -123,23 +131,25 @@
         </div>
     </section>
 
-    <!-- Our Team -->
+    <!-- Team Section -->
     <section class="team-section" role="region" aria-label="Our Team">
         <div class="container">
             <h2 class="animate-on-scroll">Meet Our Expert Team</h2>
             <div class="content">
                 <p class="section-intro animate-on-scroll">Our dedicated team comprises skilled professionals with diverse backgrounds in IT, cybersecurity, cloud computing, and more. We work collaboratively to deliver optimal results for our clients.</p>
-                <div class="features-grid">
-                    <!-- Add team member cards here when ready -->
+                <div class="features-grid team-grid">
                     <div class="team-placeholder animate-on-scroll">
-                        <p>Team member profiles coming soon...</p>
+                        <div class="placeholder-content">
+                            <i class="fas fa-users"></i>
+                            <p>Team member profiles coming soon...</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
+    <!-- Call to Action Section -->
     <section class="elevate-it-infrastructure">
         <div class="container">
             <h2 class="animate-on-scroll">Ready to Transform Your IT Infrastructure?</h2>
@@ -221,6 +231,7 @@
         </div>
     </footer>
 
+    <!-- Modal Components -->
     <!-- Privacy Policy Modal -->
     <div id="privacy-policy-modal" class="modal">
         <div class="modal-content">
@@ -329,54 +340,60 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- Scripts -->
     <script src="../js/scripts.js"></script>
     <script>
-        // Update existing script to include cookie policy modal
-        const privacyPolicyLink = document.getElementById('privacy-policy-link');
-        const privacyPolicyModal = document.getElementById('privacy-policy-modal');
-        const termsOfServiceLink = document.getElementById('terms-of-service-link');
-        const termsOfServiceModal = document.getElementById('terms-of-service-modal');
-        const cookiePolicyLink = document.getElementById('cookie-policy-link');
-        const cookiePolicyModal = document.getElementById('cookie-policy-modal');
-        const closeBtns = document.querySelectorAll('.modal .close-btn');
+        /**
+         * Modal Management
+         * Handles the initialization and events for policy modals
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal configuration
+            const modalConfig = {
+                'privacy-policy-link': 'privacy-policy-modal',
+                'terms-of-service-link': 'terms-of-service-modal',
+                'cookie-policy-link': 'cookie-policy-modal'
+            };
 
-        privacyPolicyLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            privacyPolicyModal.style.display = 'block';
-        });
-
-        termsOfServiceLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            termsOfServiceModal.style.display = 'block';
-        });
-
-        cookiePolicyLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            cookiePolicyModal.style.display = 'block';
-        });
-
-        closeBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                btn.closest('.modal').style.display = 'none';
+            // Initialize modals
+            Object.entries(modalConfig).forEach(([triggerId, modalId]) => {
+                initializeModal(triggerId, modalId);
             });
         });
 
-        window.addEventListener('click', function(event) {
-            if (event.target === privacyPolicyModal) {
-                privacyPolicyModal.style.display = 'none';
+        function initializeModal(triggerId, modalId) {
+            const trigger = document.getElementById(triggerId);
+            const modal = document.getElementById(modalId);
+            const closeBtn = modal?.querySelector('.close-btn');
+
+            if (!trigger || !modal) return;
+
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.style.display = 'block';
+            });
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
             }
-            if (event.target === termsOfServiceModal) {
-                termsOfServiceModal.style.display = 'none';
-            }
-            if (event.target === cookiePolicyModal) {
-                cookiePolicyModal.style.display = 'none';
-            }
-        });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
     </script>
+
+    <!-- HubSpot Integration -->
     <script>
+        /**
+         * HubSpot Tracking Integration
+         */
         window.addEventListener('load', function() {
-            var script = document.createElement('script');
+            const script = document.createElement('script');
             script.type = 'text/javascript';
             script.id = 'hs-script-loader';
             script.async = true;
