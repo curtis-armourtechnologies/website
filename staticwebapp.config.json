@@ -1,7 +1,37 @@
 {
   "routes": [
     {
-      "route": "/*",
+      "route": "/images/*",
+      "headers": {
+        "Cache-Control": "public, max-age=604800"
+      }
+    },
+    {
+      "route": "/css/*",
+      "headers": {
+        "Cache-Control": "public, max-age=604800"
+      }
+    },
+    {
+      "route": "/js/*",
+      "headers": {
+        "Cache-Control": "public, max-age=604800"
+      }
+    },
+    {
+      "route": "/fonts/*",
+      "headers": {
+        "Cache-Control": "public, max-age=604800"
+      }
+    },
+    {
+      "route": "/*.html",
+      "headers": {
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
+      "route": "/",
       "serve": "/index.html",
       "statusCode": 200,
       "headers": {
@@ -13,9 +43,15 @@
       }
     },
     {
-      "route": "/images/*",
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200,
       "headers": {
-        "Cache-Control": "public, max-age=604800"
+        "Cache-Control": "public, max-age=3600",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Content-Security-Policy": "default-src 'self' https:; script-src 'self' https://js.hs-scripts.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com 'unsafe-inline';"
       }
     },
     {
@@ -29,6 +65,10 @@
   "mimeTypes": {
     ".json": "text/json",
     ".txt": "text/plain",
-    ".xml": "application/xml"
+    ".xml": "application/xml",
+    ".ico": "image/x-icon",
+    ".svg": "image/svg+xml",
+    ".woff": "font/woff",
+    ".woff2": "font/woff2"
   }
 }
