@@ -3649,4 +3649,322 @@ img {
     color: var(--text-color);
 }
 
-/* ...existing code... */
+/*------------------------------------*\
+  #ORDER CONFIRMATION PAGE
+\*------------------------------------*/
+
+.celebration-hero {
+    background: linear-gradient(135deg, #007BFF, #00E5FF);
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.celebration-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/pattern.png');
+    opacity: 0.1;
+}
+
+.check-mark {
+    font-size: 4rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.order-details {
+    background: var(--card-background);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    animation: confirmationGlow 3s ease-in-out infinite;
+}
+
+@keyframes confirmationGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0,123,255,0.3),
+                    0 0 20px rgba(0,123,255,0.2),
+                    0 0 30px rgba(0,123,255,0.1);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(0,123,255,0.5),
+                    0 0 30px rgba(0,123,255,0.3),
+                    0 0 50px rgba(0,123,255,0.2),
+                    0 0 70px rgba(0,123,255,0.1);
+    }
+}
+
+/* Dark theme enhancement */
+[data-theme="dark"] .order-details {
+    animation: confirmationGlowDark 3s ease-in-out infinite;
+}
+
+@keyframes confirmationGlowDark {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(30,144,255,0.4),
+                    0 0 30px rgba(30,144,255,0.3),
+                    0 0 45px rgba(30,144,255,0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(30,144,255,0.6),
+                    0 0 40px rgba(30,144,255,0.4),
+                    0 0 60px rgba(30,144,255,0.3),
+                    0 0 80px rgba(30,144,255,0.2);
+    }
+}
+
+.next-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.step-card {
+    background: var(--card-background);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--card-border);
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+}
+
+.step-number {
+    background: var(--link-color);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+.support-section {
+    background: var(--section-alt-background);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.contact-options {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact-option {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.contact-option i {
+    color: var(--link-color);
+    margin-bottom: 1rem;
+}
+
+/*------------------------------------*\
+  #ORDER CONFIRMATION PAGE ADDITIONS
+\*------------------------------------*/
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    display: none; /* Remove the blue timeline */
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.timeline-marker {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--card-background);
+    border: 2px solid var(--link-color);
+    margin: 0 2rem;
+}
+
+.timeline-item.active .timeline-marker {
+    background: var(--link-color);
+    box-shadow: 0 0 10px var(--link-color);
+}
+
+.timeline-content {
+    flex: 1;
+    max-width: 300px;
+    padding: 1rem;
+    background: var(--card-background);
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+}
+
+.timeline-date {
+    font-size: 0.9em;
+    color: var(--link-color);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+}
+
+.info-card i {
+    font-size: 2.5rem;
+    color: var(--link-color);
+    margin-bottom: 1rem;
+}
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--card-background);
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+}
+
+.contact-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.contact-avatar-icon {
+    font-size: 3.5rem;
+    color: var(--link-color);
+    margin: 1rem 0;
+}
+
+.contact-email {
+    margin-top: 1rem;
+}
+
+.contact-email a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.contact-email a:hover {
+    text-decoration: underline;
+}
+
+@media print {
+    .action-buttons {
+        display: none;
+    }
+    
+    header, footer, .related-services {
+        display: none;
+    }
+    
+    .order-details {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}
+
+/* ...existing styles... */
+
+.timeline-icon {
+    font-size: 2rem;
+    color: var(--link-color);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.timeline-item.active .timeline-icon {
+    color: var(--link-color);
+    transform: scale(1.1);
+}
+
+.timeline-content {
+    text-align: center;
+}
+
+.related-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.related-services-grid .service-item {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.related-services-grid .service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ...rest of existing styles... */
