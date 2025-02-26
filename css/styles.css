@@ -470,94 +470,6 @@ section .content .image img {
 }
 
 /*------------------------------------*\
-  #SERVICES
-\*------------------------------------*/
-
-.services:not(.services-page):not(.services-overview) .content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin: 0 auto;
-    padding: 0 20px;
-    max-width: 1400px;
-}
-
-.services .content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin: 0 auto;
-    padding: 0 20px;
-    max-width: 1400px;
-}
-
-.services .service-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 280px;
-    padding: 2rem;
-    background: var(--card-background);
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
-    text-align: center;
-    transition: all 0.3s ease;
-    animation: glowPulse 3s ease-in-out infinite;
-}
-
-.services .service-item h3 {
-    margin: 1rem 0;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.services .service-item p {
-    flex-grow: 1;
-    margin: 0;
-    display: -webkit-box;
-    display: box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    -webkit-box-orient: vertical;
-    box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 80px;
-}
-
-.services .service-icon {
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: var(--link-color);
-    margin-top: auto;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .services .service-item {
-        height: 260px;
-    }
-    
-    .services .service-item h3 {
-        height: 40px;
-        font-size: 1.2rem;
-    }
-    
-    .services .service-item p {
-        height: 70px;
-    }
-    
-    .services .service-icon {
-        height: 50px;
-    }
-}
-
-/*------------------------------------*\
   #PRICING TABLE
 \*------------------------------------*/
 
@@ -780,7 +692,7 @@ footer {
     color: var(--link-color);
 }
 
-.social-icons {
+social-icons {
     display: flex;
     gap: 1rem;
     margin-top: 1.5rem;
@@ -804,7 +716,7 @@ footer {
     word-break: break-word;
 }
 
-.contact-info i {
+contact-info i {
     color: var(--link-color);
     margin-top: 0.25rem;
 }
@@ -1479,21 +1391,6 @@ h1, h2, h3 {
 }
 
 /*------------------------------------*\
-  #SERVICE ICONS
-\*------------------------------------*/
-
-.service-icon {
-    margin-top: 1.5rem;
-    font-size: 2.5rem;
-    color: var(--link-color);
-    transition: transform 0.3s ease;
-}
-
-.service-item:hover .service-icon {
-    transform: scale(1.1);
-}
-
-/*------------------------------------*\
   #GLOW ANIMATION
 \*------------------------------------*/
 
@@ -1813,7 +1710,6 @@ body.panel-active .services .container {
     font-size: 1.5rem;
     color: var(--text-color);
     cursor: pointer;
-    padding: 0.5rem;
 }
 
 .service-info-panel .panel-content {
@@ -1966,16 +1862,6 @@ body.panel-active .pricing-section .container {
   #CORE SERVICES
 \*------------------------------------*/
 
-.services:not(.services-page):not(.services-overview) .content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin: 0 auto;
-    padding: 0 20px;
-    max-width: 1400px;
-    justify-content: center;
-}
-
 .services-page .content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -1987,14 +1873,13 @@ body.panel-active .pricing-section .container {
 
 /* Responsive adjustments for index page */
 @media (max-width: 1200px) {
-    .services:not(.services-page):not(.services-overview) .content {
+    .services-page .content {
         grid-template-columns: repeat(2, 1fr);
         max-width: 800px;
     }
 }
 
 @media (max-width: 768px) {
-    .services:not(.services-page):not(.services-overview) .content,
     .services-page .content {
         grid-template-columns: 1fr;
         max-width: 400px;
@@ -2037,16 +1922,6 @@ body.panel-active .pricing-section .container {
     height: auto;
     max-width: 800px;
     margin-bottom: 0;
-}
-
-.services:not(.services-page):not(.services-overview) .content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    margin: 0 auto;
-    padding: 0 20px;
-    max-width: 1400px;
-    justify-content: center;
 }
 
 .services-page .content {
@@ -2161,28 +2036,6 @@ body.panel-active .pricing-section .container {
     .values-section .text-block p {
         font-size: 1em;
     }
-}
-
-/*------------------------------------*\
-  #SERVICE LINK
-\*------------------------------------*/
-
-.service-item .service-link {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    color: var(--text-color);
-    text-decoration: none;
-}
-
-.service-item .service-link:hover {
-    color: var(--text-color);
-}
-
-.service-item .service-link h3,
-.service-item .service-link p,
-.service-item .service-link .service-icon {
-    pointer-events: none;
 }
 
 /*------------------------------------*\
@@ -2714,39 +2567,6 @@ section.in-view h2::after,
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.services .container,
-.pricing-section .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-}
-
-.services .content,
-.pricing-section .content {
-    width: 100%;
-    margin-bottom: 2rem;
-}
-
-.services .btn,
-.pricing-section .btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: var(--link-color);
-    color: white;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.services .btn:hover,
-.pricing-section .btn:hover {
-    background: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
 /*------------------------------------*\
   #FORM STYLES
 \*------------------------------------*/
@@ -2772,16 +2592,6 @@ section.in-view h2::after,
 
 .form-status.success {
     display: block;
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-}
-
-.form-status.error {
-    display: block;
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
 }
 
 /* Dark theme adjustments */
@@ -2992,7 +2802,7 @@ section.in-view h2::after,
 
 .faq-item {
     background: var(--card-background);
-    border: 1px solid var(--card-border);
+    border: 1px solid var (--card-border);
     border-radius: 10px;
     padding: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -3999,8 +3809,7 @@ img {
     header nav {
         position: fixed;
         top: 0;
-        right: -80%; /* Start offscreen by the width of the nav */
-        left: auto;
+        left: -80%; /* Start offscreen by the width of the nav */
         width: 80%; /* Set width to 80% of viewport */
         max-width: 300px;
         height: 100vh;
@@ -4008,13 +3817,13 @@ img {
         box-shadow: -2px 0 10px rgba(0,0,0,0.1); /* Shadow on left side */
         padding: 2rem;
         z-index: 1000;
-        transition: right 0.3s ease-in-out;
+        transition: left 0.3s ease-in-out;
         overflow-y: auto;
     }
 
     header nav.active {
-        right: 0; /* Slide in fully */
-        left: auto; /* Ensure left is not set */
+        left: 0; /* Slide in fully */
+        right: auto; /* Ensure left is not set */
     }
 
     header nav ul {
@@ -4036,84 +3845,10 @@ img {
     header {
         padding: 10px 20px;
         position: relative;
-    }
-
-    .mobile-menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 24px;
-        color: var(--text-color);
-        cursor: pointer;
-        margin-left: auto;
-        padding: 10px;
-        z-index: 1001;
-    }
-
-    header nav {
-        display: none;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        height: 100vh;
-        background: var(--header-background);
-        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-        padding: 2rem;
-        z-index: 1000;
-        transition: right 0.3s ease;
-        overflow-y: auto;
-    }
-
-    header nav.active {
-        display: block;
-        right: 0;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    header nav ul li {
-        width: 100%;
-        margin: 0;
-        padding: 0.75rem 0;
-    }
-
-    header nav ul li a {
-        display: block;
-        width: 100%;
-        text-align: left;
-    }
-
-    header .call-us-btn {
-        margin: 1rem 0 0 0;
-        width: 100%;
-        text-align: center;
-    }
-}
-
-/* ...existing styles... */
-
-@media (max-width: 768px) {
-    header {
-        padding: 10px 20px;
-        position: relative;
-    }
-
-    .mobile-menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        font-size: 24px;
-        color: var(--text-color);
-        cursor: pointer;
-        margin-left: auto;
-        padding: 10px;
-        z-index: 1001;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
     }
 
     header nav {
@@ -4156,7 +3891,12 @@ img {
     header nav ul li {
         width: 100%;
         margin: 0;
-        padding: 0.75rem 0;
+        padding: 0.5rem 0; /* Reduce padding */
+        border-bottom: 1px solid var(--card-border); /* Add separator */
+    }
+
+    header nav ul li:last-child {
+        border-bottom: none; /* Remove border from last item */
     }
 
     header nav ul li a {
@@ -4170,6 +3910,7 @@ img {
         margin: 1rem 0 0 0;
         width: 100%;
         text-align: center;
+        border: 1px solid var(--card-border);
     }
 
     /* Toggle icon animation */
@@ -4545,3 +4286,79 @@ img {
 }
 
 /* ...existing styles... */
+
+.services .service-item {
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: var(--card-padding);
+    transition: transform var(--transition-speed) ease,
+                box-shadow var(--transition-speed) ease;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.services .service-item h3 {
+    color: var(--link-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.services .service-item p {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.services .service-button {
+    padding: 8px 16px;
+    background: var(--link-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    width: fit-content;
+    align-self: center;
+}
+
+.services .service-button:hover {
+    background: var(--link-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+[data-theme="dark"] .services .service-item {
+    box-shadow: 0 0 10px rgba(30,144,255,0.1),
+                0 0 20px rgba(30,144,255,0.05);
+}
+
+[data-theme="dark"] .services .service-item:hover {
+    box-shadow: 0 10px 20px rgba(30,144,255,0.2),
+                0 0 15px rgba(30,144,255,0.3),
+                0 0 30px rgba(30,144,255,0.2);
+}
+
+
+.services .service-icon {
+    font-size: 2.5rem;
+    color: var(--link-color);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.services .service-item:hover .service-icon {
+    transform: scale(1.1);
+}
+
+[data-theme="dark"] .services .service-icon {
+    text-shadow: 0 0 10px rgba(30,144,255,0.3),
+                 0 0 20px rgba(30,144,255,0.2);
+}
+
+/* ...existing code... */

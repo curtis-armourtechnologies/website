@@ -426,7 +426,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileMenu();
 });
 
-// Service Info Panel functionality
+/**
+ * Service Info Panel functionality
+ */
 const serviceDetails = {
     'Managed IT Support': {
         description: `Our comprehensive IT support service includes:<br><br>
@@ -564,77 +566,39 @@ const serviceDetails = {
     // Add similar detailed descriptions for other services...
 };
 
-function showPanel(title, content) {
-    const panel = document.querySelector('.service-info-panel');
-    panel.querySelector('h3').textContent = title;
-    panel.querySelector('.service-details').innerHTML = `
-        ${content}
-        <img src="../images/demo-logo-page.jpg" alt="Service illustration" class="panel-image" style="
-            max-width: 200px;
-            height: auto;
-            margin: 2rem auto 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            display: block;
-        ">
-    `;
-    panel.classList.add('active');
-    document.body.classList.add('panel-active');
-}
-
-let hoverTimer;
-
 function initializeServicePanel() {
     const panel = document.querySelector('.service-info-panel');
-    if (!panel) return;
-
-    // Check for service in URL hash when page loads
-    function checkUrlHash() {
-        const hash = window.location.hash.substring(1);
-        if (hash) {
-            // Map URL hash to service names
-            const hashToServiceMap = {
-                'managed-it-support': 'Managed IT Support',
-                'cybersecurity': 'Cybersecurity Services',
-                'cloud-computing': 'Cloud Computing',
-                'data-backup-recovery': 'Data Backup & Recovery',
-                'network-management': 'Network Management',
-                'it-consulting': 'IT Consulting',
-                'telephony-voip': 'Telephony/VOIP',
-                'infrastructure-management': 'Infrastructure Management',
-                'internet-connectivity': 'Internet Connectivity',
-                'hardware-software': 'Hardware & Software',
-                'disaster-recovery': 'Disaster Recovery',
-                'process-automation': 'Process Automation Services'
-            };
-
-            const serviceName = hashToServiceMap[hash];
-            
-            // Show panel if service exists
-            if (serviceName && serviceDetails[serviceName]) {
-                showPanel(serviceName, serviceDetails[serviceName].description);
-            }
-        }
-    }
-
-    // Run on page load and when hash changes
-    window.addEventListener('load', checkUrlHash);
-    window.addEventListener('hashchange', checkUrlHash);
-
     const closeBtn = panel.querySelector('.close-btn');
     const serviceItems = document.querySelectorAll('.service-item');
-    let currentTitle = '';
+
+    function showPanel(title, content) {
+        panel.querySelector('h3').textContent = title;
+        panel.querySelector('.service-details').innerHTML = content;
+        panel.classList.add('active');
+    }
 
     function hidePanel() {
         panel.classList.remove('active');
-        document.body.classList.remove('panel-active');
-        currentTitle = '';
     }
 
-    // Event listeners
+    // Add click event listener to the document
+    document.addEventListener('click', (e) => {
+        // Check if panel is active and click is outside panel and service items
+        if (panel.classList.contains('active') && 
+            !panel.contains(e.target) && 
+            !Array.from(serviceItems).some(item => item.contains(e.target))) {
+            hidePanel();
+        }
+    });
+
+    // Prevent panel from closing when clicking inside it
+    panel.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
     serviceItems.forEach(item => {
         item.addEventListener('click', (e) => {
-            e.preventDefault();
+            e.stopPropagation(); // Prevent document click from immediately closing
             const title = item.querySelector('h3').textContent;
             const details = serviceDetails[title] || {
                 description: 'Contact us for more information about this service.'
@@ -644,22 +608,6 @@ function initializeServicePanel() {
     });
 
     closeBtn.addEventListener('click', hidePanel);
-
-    // Close panel when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!panel.contains(e.target) && 
-            !e.target.closest('.service-item') && 
-            panel.classList.contains('active')) {
-            hidePanel();
-        }
-    });
-
-    // Close panel with Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && panel.classList.contains('active')) {
-            hidePanel();
-        }
-    });
 }
 
 // Initialize panel when DOM is loaded
