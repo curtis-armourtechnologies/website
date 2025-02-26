@@ -376,23 +376,27 @@ function initCarouselKeyboardNav() {
 // Mobile Menu Toggle
 function initMobileMenu() {
     const nav = document.querySelector('header nav');
-    const menuButton = document.createElement('button');
-    menuButton.className = 'mobile-menu-toggle';
-    menuButton.setAttribute('aria-label', 'Toggle navigation menu');
-    menuButton.innerHTML = '☰';
+    const menuButton = document.querySelector('.mobile-menu-toggle');
     
-    document.querySelector('header').insertBefore(menuButton, nav);
-    
-    menuButton.addEventListener('click', () => {
+    menuButton?.addEventListener('click', (e) => {
+        e.stopPropagation();
         nav.classList.toggle('active');
-        menuButton.innerHTML = nav.classList.contains('active') ? '×' : '☰';
+        document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
     });
 
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
+        if (nav?.classList.contains('active') && !nav.contains(e.target) && !menuButton.contains(e.target)) {
             nav.classList.remove('active');
-            menuButton.innerHTML = '☰';
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close menu with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav?.classList.contains('active')) {
+            nav.classList.remove('active');
+            document.body.style.overflow = '';
         }
     });
 }

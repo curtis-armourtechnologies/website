@@ -56,6 +56,9 @@
         <div class="logo">
             <a href="../index.html"><img src="../images/logo.jpeg" alt="Armour Technologies Logo" aria-label="Armour Technologies Logo"></a>
         </div>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <i class="fas fa-bars-staggered"></i>
+        </button>
         <nav>
             <ul>
                 <li><a href="../index.html" aria-label="Home">Home</a></li>
@@ -289,6 +292,36 @@
             script.defer = true;
             script.src = '//js.hs-scripts.com/49380791.js';
             document.body.appendChild(script);
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize mobile menu
+            const nav = document.querySelector('header nav');
+            const menuButton = document.querySelector('.mobile-menu-toggle');
+            
+            menuButton?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nav.classList.toggle('active');
+                document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (nav?.classList.contains('active') && !nav.contains(e.target) && !menuButton.contains(e.target)) {
+                    nav.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Close menu with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && nav?.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
         });
     </script>
 </body>
