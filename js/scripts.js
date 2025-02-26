@@ -240,138 +240,44 @@ document.addEventListener('DOMContentLoaded', initLazyLoading);
  * Testimonials Carousel
  * Manages the testimonial carousel functionality
  */
-function initTestimonialsCarousel() {
-    const track = document.querySelector('.testimonials-track');
-    const slides = Array.from(track.children);
-    const nextButton = document.querySelector('.carousel-button.next');
-    const prevButton = document.querySelector('.carousel-button.prev');
-    const dotsContainer = document.querySelector('.carousel-dots');
-    
-    // Determine number of visible slides based on viewport width
-    const getVisibleSlides = () => {
-        if (window.innerWidth > 1200) return 3;
-        if (window.innerWidth > 768) return 2;
-        return 1;
-    };
-
-    let slidesPerView = getVisibleSlides();
-    
-    // Recalculate on resize
-    window.addEventListener('resize', () => {
-        slidesPerView = getVisibleSlides();
-        const numberOfGroups = Math.ceil(slides.length / slidesPerView);
-        currentGroup = Math.min(currentGroup, numberOfGroups - 1);
-        moveToGroup(currentGroup);
-        updateDots();
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Swiper
+    const testimonialSwiper = new Swiper('.testimonials-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        keyboard: {
+            enabled: true,
+        },
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        speed: 700,
+        a11y: {
+            prevSlideMessage: 'Previous testimonial',
+            nextSlideMessage: 'Next testimonial',
+            firstSlideMessage: 'This is the first testimonial',
+            lastSlideMessage: 'This is the last testimonial',
+            paginationBulletMessage: 'Go to testimonial {{index}}',
+        },
     });
 
-    // Update dots based on current view
-    const updateDots = () => {
-        dotsContainer.innerHTML = '';
-        const numberOfGroups = Math.ceil(slides.length / slidesPerView);
-        
-        for (let i = 0; i < numberOfGroups; i++) {
-            const dot = document.createElement('button');
-            dot.classList.add('dot');
-            dot.setAttribute('aria-label', `Testimonial group ${i + 1}`);
-            if (i === currentGroup) dot.classList.add('active');
-            dotsContainer.appendChild(dot);
-        }
-    };
-
-    let currentGroup = 0;
-    updateDots();
-
-    let isTransitioning = false;
-
-    const moveToGroup = (groupIndex) => {
-        if (isTransitioning) return;
-        isTransitioning = true;
-
-        const slideWidth = slides[0].offsetWidth + 
-            (window.innerWidth > 768 ? parseInt(getComputedStyle(slides[0]).marginRight) : 0);
-        const offset = -(groupIndex * slideWidth);
-        
-        track.style.transform = `translateX(${offset}px)`;
-        
-        // Update dots
-        const dots = Array.from(dotsContainer.children);
-        dots.forEach((dot, i) => dot.classList.toggle('active', i === groupIndex));
-        currentGroup = groupIndex;
-
-        // Reset transition lock after animation
-        setTimeout(() => {
-            isTransitioning = false;
-        }, 500);
-    };
-
-    // Add touch support
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    track.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-    }, { passive: true });
-
-    track.addEventListener('touchmove', (e) => {
-        touchEndX = e.touches[0].clientX;
-    }, { passive: true });
-
-    track.addEventListener('touchend', () => {
-        const swipeDistance = touchStartX - touchEndX;
-        const threshold = 50; // minimum swipe distance
-
-        if (Math.abs(swipeDistance) > threshold) {
-            if (swipeDistance > 0) {
-                // Swipe left - next slide
-                moveToGroup((currentGroup + 1) % slides.length);
-            } else {
-                // Swipe right - previous slide
-                moveToGroup((currentGroup - 1 + slides.length) % slides.length);
-            }
-        }
-    });
-
-    // Event Listeners for buttons
-    nextButton.addEventListener('click', () => {
-        currentGroup = (currentGroup + 1) % numberOfGroups;
-        moveToGroup(currentGroup);
-    });
-
-    prevButton.addEventListener('click', () => {
-        currentGroup = (currentGroup - 1 + numberOfGroups) % numberOfGroups;
-        moveToGroup(currentGroup);
-    });
-
-    // Event Listener for dots
-    dotsContainer.addEventListener('click', e => {
-        if (!e.target.matches('.dot')) return;
-        const targetGroup = dots.indexOf(e.target);
-        moveToGroup(targetGroup);
-    });
-
-    // Auto-advance every 5 seconds
-    setInterval(() => {
-        if (!document.hidden) {
-            currentGroup = (currentGroup + 1) % numberOfGroups;
-            moveToGroup(currentGroup);
-        }
-    }, 5000);
-
-    // Initial position
-    moveToGroup(0);
-}
-
-// Add keyboard navigation for carousel
-function initCarouselKeyboardNav() {
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            document.querySelector('.carousel-button.prev').click();
-        } else if (e.key === 'ArrowRight') {
-            document.querySelector('.carousel-button.next').click();
-        }
-    });
-}
+    // ...rest of your DOMContentLoaded code...
+});
 
 // Mobile Menu Toggle
 function initMobileMenu() {
@@ -421,8 +327,6 @@ document.querySelectorAll('section:not(.hero)').forEach(section => {
 
 // Initialize carousel when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    initTestimonialsCarousel();
-    initCarouselKeyboardNav();
     initMobileMenu();
 });
 

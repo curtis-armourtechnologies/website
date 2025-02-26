@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="images/OIP.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <title>Armour Technologies Limited</title>
 </head>
@@ -175,35 +177,43 @@
         <section class="testimonials">
             <div class="container">
                 <h2 class="animate-on-scroll">What Our Clients Say</h2>
-                <div class="testimonials-carousel">
-                    <button class="carousel-button prev" aria-label="Previous testimonial">&#10094;</button>
-                    <div class="testimonials-container">
-                        <div class="testimonials-track">
+                <div class="swiper testimonials-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
                             <div class="testimonial animate-on-scroll">
                                 <blockquote>
-                                    <p>"Armour Technologies transformed our IT infrastructure, leading to increased efficiency and reduced costs. Their team is incredibly responsive and committed to our success."</p>
+                                    <p>"Working with Armour transformed the way we utilise technology. Before working with Armour, we were constantly enduring downtime, completely unable to work and really struggled with runaway IT costs to try and keep things working.</p>
+                                    <p>Now we don't have to worry as its all taken care of - Thank you Armour!" </p>
                                     <cite>— Luke Dalton, Founder of <a href="https://thisisgrowth.io/" target="_blank" aria-label="ThisIsGrowth">ThisIsGrowth</a></cite>
                                     <a href="https://thisisgrowth.io/" target="_blank" aria-label="Visit ThisIsGrowth website">
                                         <img src="images/testimonials/thisisgrowth-logo.png" alt="ThisIsGrowth Logo" class="testimonial-logo" loading="lazy">
                                     </a>
                                 </blockquote>
                             </div>
+                        </div>
+                        <div class="swiper-slide">
                             <div class="testimonial animate-on-scroll">
                                 <blockquote>
-                                    <p>"The team were able to assist us very quickly in getting our business back up and running after a cyber incident"</p>
+                                    <p>"I recently had the pleasure of working with the guys at Armour Technologies on a project, and I have to say, they were fantastic. I'm not very tech savvy, but they made everything so easy to understand. They took the time to explain things in simple terms and really listened to what we needed.</p>
+                                    <p>Throughout the project, they were always available to answer my questions and kept me updated on the progress. Their patience and clear communication made the whole process stress free. I felt confident that we were in good hands.</p>
+                                    <p>The final result was amazing! Our new system works perfectly, and it's made a huge difference in our day to day operations. The guys at Armour Technologies went above and beyond to ensure everything was just right. I highly recommend them to anyone looking for a reliable and supportive IT partner. They truly care about their clients and deliver outstanding results."</p>
                                     <cite>— Aimee D, Director of Aimee's Candles</cite>
                                 </blockquote>
                             </div>
+                        </div>
+                        <div class="swiper-slide">
                             <div class="testimonial animate-on-scroll">
                                 <blockquote>
-                                    <p>"Exceptional service and proactive IT support that keeps our systems running smoothly."</p>
-                                    <cite>— John Smith, CEO of Tech Solutions</cite>
+                                    <p>"As someone who recently started their own craft business, the idea of dealing with IT was honestly terrifying. I'd been managing everything from my personal laptop and really struggled with keeping track of orders and customer details. When I reached out to Armour Technologies, Curtis took the time to understand my business and actually explained things in a way that made sense - no technical jargon or pushy sales tactics.</p>
+                                    <p>He set up a system that's perfect for my needs, and now I can focus on creating rather than worrying about technology. The difference it's made to my business is incredible - from proper backups of my designs to a reliable system for managing customer orders. "</p>
+                                    <cite>— Sarah, Owner of Sarah's Crafts</cite>
                                 </blockquote>
                             </div>
                         </div>
                     </div>
-                    <button class="carousel-button next" aria-label="Next testimonial">&#10095;</button>
-                    <div class="carousel-dots"></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </div>
         </section>
