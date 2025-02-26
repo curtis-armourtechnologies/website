@@ -140,9 +140,7 @@ header {
     transition: all 0.3s ease;
 }
 
-/* Single header styles */
-header .logo { /* Keep existing logo styles */ }
-header nav { /* Keep existing nav styles */ }
+
 
 /* Remove duplicate nav styles */
 header a {
@@ -359,7 +357,12 @@ header .call-us-btn:hover {
     text-align: center;
     padding-top: 20vh;
     width: 100%;
+}
+
+.hero-content h1,
+.hero-content p {
     color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive adjustments */
@@ -2698,11 +2701,45 @@ section.in-view h2::after,
     align-items: flex-start;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.contact-card ul li div {
+    flex: 1;
+}
+
+.contact-card ul li strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    min-width: 80px; /* Set fixed width for labels */
 }
 
 .contact-card .icon {
     font-size: 1.5rem;
     color: var(--link-color);
+    width: 24px; /* Set fixed width for icons */
+    text-align: center;
+}
+
+.contact-card ul li div {
+    flex: 1;
+}
+
+.contact-card ul li strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    min-width: 80px; /* Set fixed width for labels */
+}
+
+.contact-card .icon {
+    font-size: 1.5rem;
+    color: var(--link-color);
+    width: 24px; /* Set fixed width for icons */
+    text-align: center;
+}
+
+.contact-card .icon.phone {
+    color: #4CAF50; /* Green color */
 }
 
 .contact-card strong {
@@ -3746,9 +3783,7 @@ img {
 /* ...existing styles... */
 
 @media (max-width: 768px) {
-    header {
-        /* ...existing header styles... */
-    }
+    
 
     .mobile-menu-toggle {
         display: block;
