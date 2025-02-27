@@ -6,19 +6,23 @@
         },
         {
             "route": "/about",
-            "serve": "/pages/about.html"
+            "serve": "/pages/about.html",
+            "statusCode": 200
         },
         {
             "route": "/contact",
-            "serve": "/pages/contact.html"
+            "serve": "/pages/contact.html",
+            "statusCode": 200
         },
         {
             "route": "/servicespricing",
-            "serve": "/pages/servicespricing.html"
+            "serve": "/pages/servicespricing.html",
+            "statusCode": 200
         },
         {
             "route": "/order-confirmation",
-            "serve": "/pages/order-confirmation.html"
+            "serve": "/pages/order-confirmation.html",
+            "statusCode": 200
         }
     ],
     "navigationFallback": {
@@ -38,13 +42,11 @@
         }
     },
     "globalHeaders": {
-        "content-security-policy": "default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self';",
+        "content-security-policy": "default-src 'self' https://*.hubspot.com https://*.hsforms.com https://*.hs-scripts.com; img-src 'self' data: https: https://*.hubspot.com; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://*.hubspot.com https://*.hs-scripts.com https://*.hsforms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; frame-src 'self' https://*.hubspot.com https://*.hsforms.com; connect-src 'self' https://*.hubspot.com https://*.hsforms.com",
         "X-Content-Type-Options": "nosniff",
-        "X-Frame-Options": "DENY",
+        "X-Frame-Options": "SAMEORIGIN",
         "X-XSS-Protection": "1; mode=block",
-        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-        "Referrer-Policy": "strict-origin-when-cross-origin",
-        "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+        "Referrer-Policy": "strict-origin-when-cross-origin"
     },
     "mimeTypes": {
         ".json": "text/json"
