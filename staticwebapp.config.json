@@ -1,39 +1,36 @@
 {
     "routes": [
         {
-            "route": "/servicespricing",
-            "serve": "/pages/servicespricing.html",
-            "statusCode": 200
+            "route": "/servicespricing/*",
+            "serve": "/pages/servicespricing.html"
         },
         {
-            "route": "/about",
-            "serve": "/pages/about.html",
-            "statusCode": 200
+            "route": "/about/*",
+            "serve": "/pages/about.html"
         },
         {
-            "route": "/contact",
-            "serve": "/pages/contact.html",
-            "statusCode": 200
+            "route": "/contact/*",
+            "serve": "/pages/contact.html"
         },
         {
-            "route": "/order-confirmation",
-            "serve": "/pages/order-confirmation.html",
-            "statusCode": 200
+            "route": "/order-confirmation/*",
+            "serve": "/pages/order-confirmation.html"
         },
         {
-            "route": "/",
-            "serve": "/index.html",
-            "statusCode": 200
-        }
-    ],
-    "platformErrorOverrides": [
-        {
-            "errorType": "NotFound",
-            "serve": "/pages/404.html"
+            "route": "/*",
+            "serve": "/index.html"
         }
     ],
     "navigationFallback": {
-        "rewrite": "/pages/404.html",
-        "exclude": ["/images/*", "/css/*", "/js/*"]
+        "rewrite": "/pages/404.html"
+    },
+    "globalHeaders": {
+        "cache-control": "no-cache",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        "X-Content-Type-Options": "nosniff"
+    },
+    "mimeTypes": {
+        ".html": "text/html",
+        ".json": "text/json"
     }
 }
