@@ -2,7 +2,8 @@
     "routes": [
         {
             "route": "/",
-            "serve": "/index.html"
+            "serve": "/index.html",
+            "statusCode": 200
         },
         {
             "route": "/about",
@@ -23,6 +24,11 @@
             "route": "/order-confirmation",
             "serve": "/pages/order-confirmation.html",
             "statusCode": 200
+        },
+        {
+            "route": "/pages/*",
+            "serve": "/pages/*.html",
+            "statusCode": 200
         }
     ],
     "navigationFallback": {
@@ -41,7 +47,6 @@
             "statusCode": 404
         }
     },
-    
     "mimeTypes": {
         ".json": "text/json"
     }
