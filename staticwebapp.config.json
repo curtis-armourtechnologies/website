@@ -1,8 +1,8 @@
 {
   "routes": [
     {
-      "route": "/servicespricing",
-      "serve": "pages/servicespricing.html",
+      "route": "/pages/servicespricing",
+      "serve": "/pages/servicespricing.html",
       "statusCode": 200
     },
     {
