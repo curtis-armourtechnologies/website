@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+
 <html lang="en">
 <head>
     <!-- Document Metadata -->
@@ -10,13 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Professional Managed IT Services by Armour Technologies Limited.">
     <meta name="keywords" content="managed IT services, cybersecurity, cloud computing, IT support, UK IT services, IT consultancy">
-    
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Armour Technologies Limited">
+    <meta name="theme-color" content="#007bff">
+
+    <!-- Canonical URLs -->
+    <link rel="canonical" href="https://armourtechnologies.co.uk/" />
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Armour Technologies - Professional IT Services">
     <meta property="og:description" content="Professional Managed IT Services by Armour Technologies Limited. Expert cybersecurity, cloud computing, and IT support solutions.">
-    <meta property="og:url" content="https://www.armourtechnologies.co.uk/">
-    
+    <meta property="og:url" content="https://armourtechnologies.co.uk/">
+    <meta property="og:image" content="https://armourtechnologies.co.uk/images/logo.jpeg">
+        
     <!-- Resources -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -34,17 +38,17 @@
     <!-- Header Navigation -->
     <header>
         <div class="logo">
-            <a href="index.html"><img src="images/logo.jpeg" alt="Armour Technologies Logo" aria-label="Armour Technologies Logo"></a>
+            <a href="/"><img src="images/logo.jpeg" alt="Armour Technologies Logo" aria-label="Armour Technologies Logo"></a>
         </div>
         <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
             <i class="fas fa-bars-staggered"></i>
         </button>
         <nav>
             <ul>
-                <li><a href="index.html" class="active" aria-label="Home">Home</a></li>
-                <li><a href="pages/servicespricing.html" aria-label="Services and Pricing">Services &amp; Pricing</a></li>
-                <li><a href="pages/about.html" aria-label="About Us">About Us</a></li>
-                <li><a href="pages/contact.html" aria-label="Contact Us">Contact Us</a></li>
+                <li><a href="/" class="active" aria-label="Home">Home</a></li>
+                <li><a href="/servicespricing" aria-label="Services and Pricing">Services &amp; Pricing</a></li>
+                <li><a href="/about" aria-label="About Us">About Us</a></li>
+                <li><a href="/contact" aria-label="Contact Us">Contact Us</a></li>
             </ul>
             <a href="tel:07404 451864" class="call-us-btn" aria-label="Call Us">Call Us</a>
         </nav>
@@ -72,7 +76,7 @@
                     <div class="text animate-on-scroll">
                         <p>At Armour Technologies Limited, we specialise in providing top-notch Managed IT Services for business. Our mission is to ensure your technology runs smoothly, securely, and efficiently. We empower small and medium sized businesses by transforming the way you leverage IT solutions, making innovation accessible and efficient.</p>
                         <p>Discover how we can be your shield in the digital world.</p>
-                        <a href="pages/about.html" class="btn" aria-label="Learn More About Us">Learn More About Us</a>
+                        <a href="/about" class="btn" aria-label="Learn More About Us">Learn More About Us</a>
                     </div>
                     <div class="image animate-on-scroll">
                         <img src="images/demo-logo-page.jpg" alt="About Armour Technologies" loading="lazy">
@@ -135,7 +139,7 @@
                         <button class="service-button" data-service="data-backup-recovery" aria-label="Learn more about Data Backup & Recovery">Learn More</button>
                     </div>
                 </div>
-                <a href="pages/servicespricing.html" class="btn animate-on-scroll" aria-label="View All Services">View All Services</a>
+                <a href="/servicespricing" class="btn animate-on-scroll" aria-label="View All Services">View All Services</a>
             </div>
         </section>
 
@@ -238,7 +242,7 @@
                     </div>
                 </div>
                 <div class="cta-button animate-on-scroll">
-                    <a href="pages/contact.html" class="btn btn-primary" aria-label="Get Started Now">Get Started Now</a>
+                    <a href="/contact" class="btn btn-primary" aria-label="Get Started Now">Get Started Now</a>
                 </div>
             </div>
         </section>
@@ -266,20 +270,20 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="pages/servicespricing.html">Services & Pricing</a></li>
-                        <li><a href="pages/about.html">About Us</a></li>
-                        <li><a href="pages/contact.html">Contact</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/servicespricing">Services & Pricing</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="pages/servicespricing.html#managed-it">Managed IT Support</a></li>
-                        <li><a href="pages/servicespricing.html#cybersecurity">Cybersecurity</a></li>
-                        <li><a href="pages/servicespricing.html#cloud">Cloud Solutions</a></li>
-                        <li><a href="pages/servicespricing.html#consulting">IT Consulting</a></li>
+                        <li><a href="/servicespricing#managed-it">Managed IT Support</a></li>
+                        <li><a href="/servicespricing#cybersecurity">Cybersecurity</a></li>
+                        <li><a href="/servicespricing#cloud">Cloud Solutions</a></li>
+                        <li><a href="/servicespricing#consulting">IT Consulting</a></li>
                     </ul>
                 </div>
 
@@ -317,7 +321,24 @@
 
     <!-- Core Scripts -->
     <script src="js/scripts.js"></script>
-    <script src="js/modals.js"></script>
+
+    <!-- Modal Scripts -->
+    <script>
+        // Simplified modal handling
+        document.querySelectorAll('[id$="-link"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modalId = link.id.replace('-link', '-modal');
+                document.getElementById(modalId).style.display = 'block';
+            });
+        });
+
+        document.querySelectorAll('.close-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.closest('.modal').style.display = 'none';
+            });
+        });
+    </script>
 
     <!-- HubSpot Integration -->
     <script>
@@ -329,5 +350,89 @@
             document.body.appendChild(script);
         });
     </script>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p>At Armour Technologies Limited, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information.</p>
+            <h3>Information We Collect</h3>
+            <p>We may collect the following types of information:</p>
+            <ul>
+                <li>Contact details (e.g., name, email address, phone number)</li>
+                <li>Business information (e.g., company name, job title)</li>
+                <li>Technical data (e.g., IP address, browser type, operating system)</li>
+                <li>Usage data (e.g., pages visited, time spent on the website)</li>
+            </ul>
+            <br>
+            <h3>How We Use Your Information</h3>
+            <p>We use your information for the following purposes:</p>
+            <ul>
+                <li>To provide and improve our services</li>
+                <li>To communicate with you</li>
+                <li>To personalise your experience</li>
+                <li>To analyse website usage</li>
+                <li>To comply with legal obligations</li>
+            </ul>
+            <br>
+            <h3>Sharing Your Information</h3>
+            <p>We do not sell, trade, or otherwise transfer your personal information to outside parties except as described in this Privacy Policy.</p>
+            <br>
+            <h3>Your Rights</h3>
+            <p>You have the right to access, correct, or delete your personal information. You can also object to the processing of your data and request data portability.</p>
+            <br>
+            <h3>Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a>.</p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-of-service-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Terms of Service</h2>
+            <p>Welcome to Armour Technologies Limited. By using our website, you agree to comply with and be bound by the following terms and conditions of use.</p>
+            <h3>Use of the Website</h3>
+            <p>You agree to use this website only for lawful purposes and in a way that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the website.</p>
+            <br>
+            <h3>Intellectual Property</h3>
+            <p>All content on this website, including text, graphics, logos, and images, is the property of Armour Technologies Limited and is protected by copyright and other intellectual property laws.</p>
+            <br>
+            <h3>Limitation of Liability</h3>
+            <p>Armour Technologies Limited will not be liable for any damages arising from the use of this website or the information provided on it.</p>
+            <br>
+            <h3>Changes to the Terms</h3>
+            <p>We may update these terms of service from time to time. Any changes will be posted on this page, and your continued use of the website constitutes acceptance of the updated terms.</p>
+            <br>
+            <h3>Contact Us</h3>
+            <p>If you have any questions about these terms of service, please contact us at <a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a>.</p>
+        </div>
+    </div>
+
+    <!-- Cookie Policy Modal -->
+    <div id="cookie-policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Cookie Policy</h2>
+            <div class="modal-body">
+                <p>This website uses cookies to enhance your browsing experience. By using our website, you agree to our use of cookies.</p>
+                
+                <h3>What are cookies?</h3>
+                <p>Cookies are small text files that are stored on your device when you visit a website. They help make websites work more efficiently and provide information to website owners.</p>
+                
+                <h3>How we use cookies</h3>
+                <ul>
+                    <li>Essential cookies: Required for basic website functionality</li>
+                    <li>Analytics cookies: Help us understand how visitors use our website</li>
+                    <li>Preference cookies: Remember your settings and preferences</li>
+                    <li>Marketing cookies: Used to deliver relevant advertisements</li>
+                </ul>
+                
+                <h3>Managing cookies</h3>
+                <p>You can control and/or delete cookies as you wish. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
