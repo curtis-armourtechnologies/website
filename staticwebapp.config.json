@@ -1,36 +1,46 @@
 {
     "routes": [
         {
-            "route": "/servicespricing/*",
-            "serve": "/pages/servicespricing.html"
+            "route": "/servicespricing",
+            "serve": "/pages/servicespricing.html",
+            "headers": {
+                "cache-control": "no-store, no-cache, must-revalidate"
+            }
         },
         {
-            "route": "/about/*",
-            "serve": "/pages/about.html"
+            "route": "/about",
+            "serve": "/pages/about.html",
+            "headers": {
+                "cache-control": "no-store, no-cache, must-revalidate"
+            }
         },
         {
-            "route": "/contact/*",
-            "serve": "/pages/contact.html"
+            "route": "/contact",
+            "serve": "/pages/contact.html",
+            "headers": {
+                "cache-control": "no-store, no-cache, must-revalidate"
+            }
         },
         {
-            "route": "/order-confirmation/*",
-            "serve": "/pages/order-confirmation.html"
+            "route": "/order-confirmation",
+            "serve": "/pages/order-confirmation.html",
+            "headers": {
+                "cache-control": "no-store, no-cache, must-revalidate"
+            }
         },
         {
-            "route": "/*",
+            "route": "/",
             "serve": "/index.html"
         }
     ],
     "navigationFallback": {
-        "rewrite": "/pages/404.html"
+        "rewrite": "/pages/404.html",
+        "exclude": ["/images/*", "/css/*", "/js/*"]
     },
-    "globalHeaders": {
-        "cache-control": "no-cache",
-        "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-        "X-Content-Type-Options": "nosniff"
-    },
-    "mimeTypes": {
-        ".html": "text/html",
-        ".json": "text/json"
+    "responseOverrides": {
+        "404": {
+            "rewrite": "/pages/404.html",
+            "statusCode": 404
+        }
     }
 }
