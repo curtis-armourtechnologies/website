@@ -5,9 +5,20 @@
             "serve": "/index.html"
         },
         {
-            "route": "/:page",
-            "serve": "/pages/:page.html",
-            "statusCode": 200
+            "route": "/about",
+            "serve": "/pages/about.html"
+        },
+        {
+            "route": "/contact",
+            "serve": "/pages/contact.html"
+        },
+        {
+            "route": "/servicespricing",
+            "serve": "/pages/servicespricing.html"
+        },
+        {
+            "route": "/order-confirmation",
+            "serve": "/pages/order-confirmation.html"
         }
     ],
     "navigationFallback": {
@@ -37,16 +48,5 @@
     },
     "mimeTypes": {
         ".json": "text/json"
-    },
-    "platformErrorOverrides": [
-        {
-            "errorType": "NotFound",
-            "serve": "/pages/404.html"
-        },
-        {
-            "errorType": "Unauthorized",
-            "statusCode": 404,
-            "serve": "/pages/404.html"
-        }
-    ]
+    }
 }
