@@ -3,39 +3,47 @@
         {
             "route": "/servicespricing",
             "serve": "/pages/servicespricing.html",
+            "statusCode": 200,
             "headers": {
-                "cache-control": "no-store, no-cache, must-revalidate"
+                "cache-control": "no-store, must-revalidate",
+                "Content-Type": "text/html; charset=UTF-8"
             }
         },
         {
             "route": "/about",
             "serve": "/pages/about.html",
+            "statusCode": 200,
             "headers": {
-                "cache-control": "no-store, no-cache, must-revalidate"
+                "cache-control": "no-store, must-revalidate",
+                "Content-Type": "text/html; charset=UTF-8"
             }
         },
         {
             "route": "/contact",
             "serve": "/pages/contact.html",
+            "statusCode": 200,
             "headers": {
-                "cache-control": "no-store, no-cache, must-revalidate"
+                "cache-control": "no-store, must-revalidate",
+                "Content-Type": "text/html; charset=UTF-8"
             }
         },
         {
             "route": "/order-confirmation",
             "serve": "/pages/order-confirmation.html",
+            "statusCode": 200,
             "headers": {
-                "cache-control": "no-store, no-cache, must-revalidate"
+                "cache-control": "no-store, must-revalidate",
+                "Content-Type": "text/html; charset=UTF-8"
             }
         },
         {
             "route": "/",
-            "serve": "/index.html"
+            "serve": "/index.html",
+            "statusCode": 200
         }
     ],
     "navigationFallback": {
-        "rewrite": "/pages/404.html",
-        "exclude": ["/images/*", "/css/*", "/js/*"]
+        "rewrite": "/pages/404.html"
     },
     "responseOverrides": {
         "404": {
