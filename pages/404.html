@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page not found - Armour Technologies Limited">
+    
+    <!-- Resources -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../images/OIP.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    
+    <title>404 - Page Not Found | Armour Technologies</title>
+
+    <style>
+        .error-container {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .error-icon {
+            font-size: 6rem;
+            color: var(--link-color);
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        .error-code {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--link-color);
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .error-description {
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: var(--secondary-text-color);
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .error-actions .btn {
+            min-width: 200px;
+            text-align: center;
+            animation: glowPulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .suggested-links {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--card-background);
+            border-radius: 10px;
+            border: 1px solid var(--card-border);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .suggested-links h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .suggested-link {
+            padding: 1rem;
+            background: var(--background-color);
+            border: 1px solid var(--card-border);
+            border-radius: 5px;
+            text-decoration: none;
+            color: var(--link-color);
+            transition: all 0.3s ease;
+        }
+
+        .suggested-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+    </style>
+</head>
+<body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <a href="../index.html"><img src="../images/logo.jpeg" alt="Armour Technologies Logo"></a>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+            <i class="fas fa-bars-staggered"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="servicespricing.html">Services &amp; Pricing</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <a href="tel:07404 451864" class="call-us-btn">Call Us</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <div class="error-container">
+            <i class="fas fa-shield-alt error-icon"></i>
+            <div class="error-code">404</div>
+            <h1 class="error-message">Page Not Found</h1>
+            <p class="error-description">
+                We apologize, but the page you're looking for seems to have gone missing. 
+                Don't worry though - we're here to help you find what you need.
+            </p>
+            <div class="error-actions">
+                <a href="../index.html" class="btn">
+                    <i class="fas fa-home"></i> Return Home
+                </a>
+                <a href="contact.html" class="btn">
+                    <i class="fas fa-envelope"></i> Contact Support
+                </a>
+            </div>
+
+            <div class="suggested-links">
+                <h2>Popular Pages</h2>
+                <div class="links-grid">
+                    <a href="servicespricing.html" class="suggested-link">
+                        <i class="fas fa-cogs"></i> Our Services
+                    </a>
+                    <a href="about.html" class="suggested-link">
+                        <i class="fas fa-info-circle"></i> About Us
+                    </a>
+                    <a href="contact.html" class="suggested-link">
+                        <i class="fas fa-phone"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container footer-grid">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <img src="../images/logo.jpeg" alt="Armour Technologies Logo" class="footer-logo">
+                <p>Providing expert IT services and cybersecurity solutions to businesses across the UK.</p>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="servicespricing.html">Services & Pricing</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="servicespricing.html#managed-it">Managed IT Support</a></li>
+                    <li><a href="servicespricing.html#cybersecurity">Cybersecurity</a></li>
+                    <li><a href="servicespricing.html#cloud">Cloud Solutions</a></li>
+                    <li><a href="servicespricing.html#consulting">IT Consulting</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:07404 451864">07404 451864</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@armourtechnologies.co.uk">info@armourtechnologies.co.uk</a>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <address>Buglawton<br>Congleton, Cheshire<br>CW12 3</address>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Armour Technologies Limited. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" id="privacy-policy-link">Privacy Policy</a>
+                    <a href="#" id="terms-of-service-link">Terms of Service</a>
+                    <a href="#" id="cookie-policy-link">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
