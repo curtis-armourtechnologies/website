@@ -1,10 +1,6 @@
 {
     "routes": [
         {
-            "route": "/*",
-            "serve": "/index.html"
-        },
-        {
             "route": "/servicespricing",
             "serve": "/pages/servicespricing.html"
         },
@@ -19,6 +15,10 @@
         {
             "route": "/order-confirmation",
             "serve": "/pages/order-confirmation.html"
+        },
+        {
+            "route": "/",
+            "serve": "/index.html"
         }
     ],
     "navigationFallback": {
