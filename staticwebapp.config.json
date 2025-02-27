@@ -2,23 +2,39 @@
     "routes": [
         {
             "route": "/servicespricing",
-            "serve": "/pages/servicespricing.html"
+            "serve": "/pages/servicespricing.html",
+            "methods": ["GET"],
+            "allowedRoles": ["anonymous"]
         },
         {
             "route": "/about",
-            "serve": "/pages/about.html"
+            "serve": "/pages/about.html",
+            "methods": ["GET"],
+            "allowedRoles": ["anonymous"]
         },
         {
             "route": "/contact",
-            "serve": "/pages/contact.html"
+            "serve": "/pages/contact.html",
+            "methods": ["GET"],
+            "allowedRoles": ["anonymous"]
         },
         {
             "route": "/order-confirmation",
-            "serve": "/pages/order-confirmation.html"
+            "serve": "/pages/order-confirmation.html",
+            "methods": ["GET"],
+            "allowedRoles": ["anonymous"]
+        },
+        {
+            "route": "/pages/*",
+            "serve": "/pages/*",
+            "methods": ["GET"],
+            "allowedRoles": ["anonymous"]
         },
         {
             "route": "/",
-            "serve": "/index.html"
+            "serve": "/index.html",
+            "methods": ["GET"],
+            "allowedRoles": ["anonymous"]
         }
     ],
     "navigationFallback": {
