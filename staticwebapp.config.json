@@ -1,33 +1,39 @@
 {
     "routes": [
         {
-            "route": "/",
-            "serve": "/index.html"
-        },
-        {
             "route": "/servicespricing",
-            "serve": "/pages/servicespricing.html"
+            "serve": "/pages/servicespricing.html",
+            "statusCode": 200
         },
         {
             "route": "/about",
-            "serve": "/pages/about.html"
+            "serve": "/pages/about.html",
+            "statusCode": 200
         },
         {
             "route": "/contact",
-            "serve": "/pages/contact.html"
+            "serve": "/pages/contact.html",
+            "statusCode": 200
         },
         {
             "route": "/order-confirmation",
-            "serve": "/pages/order-confirmation.html"
+            "serve": "/pages/order-confirmation.html",
+            "statusCode": 200
+        },
+        {
+            "route": "/",
+            "serve": "/index.html",
+            "statusCode": 200
+        }
+    ],
+    "platformErrorOverrides": [
+        {
+            "errorType": "NotFound",
+            "serve": "/pages/404.html"
         }
     ],
     "navigationFallback": {
-        "rewrite": "/pages/404.html"
-    },
-    "responseOverrides": {
-        "404": {
-            "rewrite": "/pages/404.html",
-            "statusCode": 404
-        }
+        "rewrite": "/pages/404.html",
+        "exclude": ["/images/*", "/css/*", "/js/*"]
     }
 }
