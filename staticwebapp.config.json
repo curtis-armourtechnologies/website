@@ -1,59 +1,33 @@
 {
     "routes": [
         {
+            "route": "/",
+            "serve": "/index.html"
+        },
+        {
             "route": "/servicespricing",
-            "serve": "/pages/servicespricing.html",
-            "methods": ["GET"],
-            "allowedRoles": ["anonymous"]
+            "serve": "/pages/servicespricing.html"
         },
         {
             "route": "/about",
-            "serve": "/pages/about.html",
-            "methods": ["GET"],
-            "allowedRoles": ["anonymous"]
+            "serve": "/pages/about.html"
         },
         {
             "route": "/contact",
-            "serve": "/pages/contact.html",
-            "methods": ["GET"],
-            "allowedRoles": ["anonymous"]
+            "serve": "/pages/contact.html"
         },
         {
             "route": "/order-confirmation",
-            "serve": "/pages/order-confirmation.html",
-            "methods": ["GET"],
-            "allowedRoles": ["anonymous"]
-        },
-        {
-            "route": "/pages/*",
-            "serve": "/pages/*",
-            "methods": ["GET"],
-            "allowedRoles": ["anonymous"]
-        },
-        {
-            "route": "/",
-            "serve": "/index.html",
-            "methods": ["GET"],
-            "allowedRoles": ["anonymous"]
+            "serve": "/pages/order-confirmation.html"
         }
     ],
     "navigationFallback": {
-        "rewrite": "/pages/404.html",
-        "exclude": [
-            "/images/*.{png,jpg,gif,ico,webm,jpeg}",
-            "/css/*",
-            "/js/*",
-            "/robots.txt",
-            "/sitemap.xml"
-        ]
+        "rewrite": "/pages/404.html"
     },
     "responseOverrides": {
         "404": {
             "rewrite": "/pages/404.html",
             "statusCode": 404
         }
-    },
-    "mimeTypes": {
-        ".json": "text/json"
     }
 }
