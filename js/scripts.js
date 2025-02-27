@@ -284,28 +284,36 @@ function initMobileMenu() {
     const nav = document.querySelector('header nav');
     const menuButton = document.querySelector('.mobile-menu-toggle');
     
-    menuButton?.addEventListener('click', (e) => {
-        e.stopPropagation();
-        nav.classList.toggle('active');
-        document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
-    });
+    if (!nav || !menuButton) return;
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (nav?.classList.contains('active') && !nav.contains(e.target) && !menuButton.contains(e.target)) {
+    // Remove any existing listeners
+    menuButton.removeEventListener('click', null);
+    
+    menuButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (nav.classList.contains('active')) {
             nav.classList.remove('active');
             document.body.style.overflow = '';
+        } else {
+            nav.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
     });
 
-    // Close menu with Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && nav?.classList.contains('active')) {
+    document.addEventListener('click', function(e) {
+        if (nav.classList.contains('active') && 
+            !nav.contains(e.target) && 
+            !menuButton.contains(e.target)) {
             nav.classList.remove('active');
             document.body.style.overflow = '';
         }
     });
 }
+
+// Run immediately and after DOM loads
+initMobileMenu();
+document.addEventListener('DOMContentLoaded', initMobileMenu);
 
 // Section Underline Animation
 const sectionObserver = new IntersectionObserver((entries) => {

@@ -245,32 +245,14 @@
     <!-- Scripts -->
     <script src="../js/scripts.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize mobile menu
-            const nav = document.querySelector('header nav');
-            const menuButton = document.querySelector('.mobile-menu-toggle');
-            
-            menuButton?.addEventListener('click', (e) => {
-                e.stopPropagation();
-                nav.classList.toggle('active');
-                document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (nav?.classList.contains('active') && !nav.contains(e.target) && !menuButton.contains(e.target)) {
-                    nav.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-
-            // Close menu with Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && nav?.classList.contains('active')) {
-                    nav.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
+        window.addEventListener('load', function() {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.id = 'hs-script-loader';
+            script.async = true;
+            script.defer = true;
+            script.src = '//js.hs-scripts.com/49380791.js';
+            document.body.appendChild(script);
         });
     </script>
 </body>

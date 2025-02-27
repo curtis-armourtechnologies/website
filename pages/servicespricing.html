@@ -417,59 +417,6 @@
     <!-- JavaScript -->
     <script src="../js/scripts.js"></script>
     <script>
-        // Privacy Policy Modal
-        const privacyPolicyLink = document.getElementById('privacy-policy-link');
-        const privacyPolicyModal = document.getElementById('privacy-policy-modal');
-        const termsOfServiceLink = document.getElementById('terms-of-service-link');
-        const termsOfServiceModal = document.getElementById('terms-of-service-modal');
-        const cookiePolicyLink = document.getElementById('cookie-policy-link');
-        const cookiePolicyModal = document.getElementById('cookie-policy-modal');
-        const closeBtns = document.querySelectorAll('.modal .close-btn');
-
-        privacyPolicyLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            privacyPolicyModal.style.display = 'block';
-        });
-
-        termsOfServiceLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            termsOfServiceModal.style.display = 'block';
-        });
-
-        cookiePolicyLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            cookiePolicyModal.style.display = 'block';
-        });
-
-        closeBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                btn.closest('.modal').style.display = 'none';
-            });
-        });
-
-        window.addEventListener('click', function(event) {
-            if (event.target === privacyPolicyModal) {
-                privacyPolicyModal.style.display = 'none';
-            }
-            if (event.target === termsOfServiceModal) {
-                termsOfServiceModal.style.display = 'none';
-            }
-            if (event.target === cookiePolicyModal) {
-                cookiePolicyModal.style.display = 'none';
-            }
-        });
-    </script>
-
-    <div class="service-info-panel">
-        <button class="close-btn" aria-label="Close panel">&times;</button>
-        <div class="panel-content">
-            <h3></h3>
-            <div class="service-details"></div>
-            <a href="contact.html" class="btn btn-primary">Enquire About This Service</a>
-        </div>
-    </div>
-
-    <script>
         window.addEventListener('load', function() {
             var script = document.createElement('script');
             script.type = 'text/javascript';
@@ -478,35 +425,6 @@
             script.defer = true;
             script.src = '//js.hs-scripts.com/49380791.js';
             document.body.appendChild(script);
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize mobile menu
-            const nav = document.querySelector('header nav');
-            const menuButton = document.querySelector('.mobile-menu-toggle');
-            
-            menuButton?.addEventListener('click', (e) => {
-                e.stopPropagation();
-                nav.classList.toggle('active');
-                document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (nav?.classList.contains('active') && !nav.contains(e.target) && !menuButton.contains(e.target)) {
-                    nav.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-
-            // Close menu with Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && nav?.classList.contains('active')) {
-                    nav.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
         });
     </script>
 </body>
