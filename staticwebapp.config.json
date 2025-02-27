@@ -1,34 +1,24 @@
 {
     "routes": [
         {
-            "route": "/",
-            "serve": "/index.html",
-            "statusCode": 200
-        },
-        {
-            "route": "/about",
-            "serve": "/pages/about.html",
-            "statusCode": 200
-        },
-        {
-            "route": "/contact",
-            "serve": "/pages/contact.html",
-            "statusCode": 200
+            "route": "/*",
+            "serve": "/index.html"
         },
         {
             "route": "/servicespricing",
-            "serve": "/pages/servicespricing.html",
-            "statusCode": 200
+            "serve": "/pages/servicespricing.html"
+        },
+        {
+            "route": "/about",
+            "serve": "/pages/about.html"
+        },
+        {
+            "route": "/contact",
+            "serve": "/pages/contact.html"
         },
         {
             "route": "/order-confirmation",
-            "serve": "/pages/order-confirmation.html",
-            "statusCode": 200
-        },
-        {
-            "route": "/pages/*",
-            "serve": "/pages/*.html",
-            "statusCode": 200
+            "serve": "/pages/order-confirmation.html"
         }
     ],
     "navigationFallback": {
