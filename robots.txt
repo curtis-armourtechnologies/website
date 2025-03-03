@@ -1,4 +1,16 @@
 User-agent: *
 Allow: /
+
+# Disallow admin and private paths
+Disallow: /admin/
+Disallow: /private/
+Disallow: /order-confirmation
+Disallow: /404.html
+
+# Allow static assets
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+Sitemap: https://armourtechnologies.co.uk/sitemap.xml
 Sitemap: https://www.armourtechnologies.co.uk/sitemap.xml
-<link rel="sitemap" href="/sitemap.xml" />

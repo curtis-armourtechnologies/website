@@ -9,19 +9,19 @@
 
     <!-- Home Page -->
     <url>
-        <loc>https://www.armourtechnologies.co.uk/</loc>
+        <loc>https://armourtechnologies.co.uk/</loc>
         <lastmod>2025-01-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://www.armourtechnologies.co.uk/images/logo.jpeg</image:loc>
+            <image:loc>https://armourtechnologies.co.uk/images/logo.jpeg</image:loc>
             <image:title>Armour Technologies Logo</image:title>
         </image:image>
     </url>
 
     <!-- Main Service Pages -->
     <url>
-        <loc>https://www.armourtechnologies.co.uk/pages/servicespricing.html</loc>
+        <loc>https://armourtechnologies.co.uk/servicespricing</loc>
         <lastmod>2025-01-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -29,29 +29,21 @@
 
     <!-- About Pages -->
     <url>
-        <loc>https://www.armourtechnologies.co.uk/pages/about.html</loc>
+        <loc>https://armourtechnologies.co.uk/about</loc>
         <lastmod>2025-01-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
         <image:image>
-            <image:loc>https://www.armourtechnologies.co.uk/images/demo-logo-page.jpg</image:loc>
+            <image:loc>https://armourtechnologies.co.uk/images/demo-logo-page.jpg</image:loc>
             <image:title>About Armour Technologies</image:title>
         </image:image>
     </url>
 
     <!-- Contact Page -->
     <url>
-        <loc>https://www.armourtechnologies.co.uk/pages/contact.html</loc>
+        <loc>https://armourtechnologies.co.uk/contact</loc>
         <lastmod>2025-01-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-    </url>
- 
-    <!-- Order Confirmation -->
-    <url>
-        <loc>https://www.armourtechnologies.co.uk/pages/order-confirmation.html</loc>
-        <lastmod>2025-01-02</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.1</priority>
     </url>
 </urlset>

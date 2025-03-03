@@ -1,48 +1,53 @@
 {
     "routes": [
         {
-            "route": "/",
-            "serve": "/index.html"
+            "route": "/servicespricing",
+            "rewrite": "/pages/servicespricing.html",
+            "headers": {
+                "cache-control": "no-store, must-revalidate",
+                "Content-Type": "text/html; charset=UTF-8"
+            }
         },
         {
             "route": "/about",
-            "serve": "/pages/about.html",
-            "statusCode": 200
+            "rewrite": "/pages/about.html",
+            "headers": {
+                "cache-control": "no-store, must-revalidate",
+                "Content-Type": "text/html; charset=UTF-8"
+            }
         },
         {
             "route": "/contact",
-            "serve": "/pages/contact.html",
-            "statusCode": 200
-        },
-        {
-            "route": "/servicespricing",
-            "serve": "/pages/servicespricing.html",
-            "statusCode": 200
+            "rewrite": "/pages/contact.html",
+            "headers": {
+                "cache-control": "no-store, must-revalidate",
+                "Content-Type": "text/html; charset=UTF-8"
+            }
         },
         {
             "route": "/order-confirmation",
-            "serve": "/pages/order-confirmation.html",
-            "statusCode": 200
+            "rewrite": "/pages/order-confirmation.html",
+            "headers": {
+                "cache-control": "no-store, must-revalidate",
+                "Content-Type": "text/html; charset=UTF-8"
+            }
+        },
+        {
+            "route": "/",
+            "rewrite": "/index.html"
         }
     ],
+    "defaultHeaders": {
+        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' https: data:; font-src 'self' https: data:;"
+    },
     "navigationFallback": {
         "rewrite": "/pages/404.html",
-        "exclude": [
-            "/images/*.{png,jpg,gif,ico,webm,jpeg}",
-            "/css/*",
-            "/js/*",
-            "/robots.txt",
-            "/sitemap.xml"
-        ]
+        "exclude": ["/images/*", "/css/*", "/js/*"]
     },
     "responseOverrides": {
         "404": {
             "rewrite": "/pages/404.html",
             "statusCode": 404
         }
-    },
-    
-    "mimeTypes": {
-        ".json": "text/json"
     }
 }
