@@ -3,7 +3,7 @@ const msalConfig = {
     auth: {
       clientId: '371b9466-6c79-433a-8328-4c641f9cedff', // Replace with your Azure App Registration Client ID
       authority: 'https://login.microsoftonline.com/common', // Common authority for all users
-      redirectUri: window.location.href // The URI to redirect back to (can be /dashboard)
+      redirectUri: 'https://armourtechnologies.co.uk/dashboard' // The URI to redirect back to (can be /dashboard)
     },
     cache: {
       cacheLocation: 'sessionStorage', // Stores the cache in sessionStorage (for session-based logins)
