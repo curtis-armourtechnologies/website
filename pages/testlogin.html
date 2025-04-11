@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Test Login</title>
+</head>
+<body>
+  <h1>Microsoft Login Test</h1>
+  <!-- Sign In Button -->
+  <a href="/.auth/login/aad?post_login_redirect_uri=/testlogin">
+    <button>Sign in with Microsoft</button>
+  </a>
+
+  <script>
+    // Fetch the logged-in user's info after redirect
+    fetch('/.auth/me')
+      .then(res => res.json())
+      .then(data => {
+        const div = document.createElement('div');
+        div.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        document.body.appendChild(div);
+      });
+  </script>
+</body>
+</html>
