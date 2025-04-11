@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Dashboard</title>
-  <!-- Link to external JavaScript file -->
+  
+  <!-- Link to MSAL.js from CDN -->
+  <script src="https://alcdn.msauth.net/browser/2.19.0/js/msal-browser.min.js"></script> <!-- Ensure MSAL.js is loaded first -->
+
+  <!-- Link to external JavaScript file (your auth.js) -->
   <script src="js/auth.js" defer></script> <!-- Use defer to load the script after HTML parsing -->
 </head>
 <body>
@@ -17,8 +21,6 @@
   <div id="org-info">
     <!-- Organization info will be displayed here -->
   </div>
-
-  <!-- Additional HTML content can go here -->
 
 </body>
 </html>
