@@ -1,61 +1,67 @@
 {
     "routes": [
-        {
-            "route": "/servicespricing",
-            "rewrite": "/pages/servicespricing.html",
-            "headers": {
-                "cache-control": "no-store, must-revalidate",
-                "Content-Type": "text/html; charset=UTF-8"
-            }
-        },
-        {
-            "route": "/about",
-            "rewrite": "/pages/about.html",
-            "headers": {
-                "cache-control": "no-store, must-revalidate",
-                "Content-Type": "text/html; charset=UTF-8"
-            }
-        },
-        {
-            "route": "/contact",
-            "rewrite": "/pages/contact.html",
-            "headers": {
-                "cache-control": "no-store, must-revalidate",
-                "Content-Type": "text/html; charset=UTF-8"
-            }
-        },
-        {
-            "route": "/order-confirmation",
-            "rewrite": "/pages/order-confirmation.html",
-            "headers": {
-                "cache-control": "no-store, must-revalidate",
-                "Content-Type": "text/html; charset=UTF-8"
-            }
-        },
-        {
-            "route": "/login",
-            "rewrite": "/pages/login.html",
-            "headers": {
-                "cache-control": "no-store, must-revalidate",
-                "Content-Type": "text/html; charset=UTF-8"
-            }
-        },
-        {
-            "route": "/",
-            "rewrite": "/index.html"
+      {
+        "route": "/servicespricing",
+        "rewrite": "/pages/servicespricing.html",
+        "headers": {
+          "cache-control": "no-store, must-revalidate",
+          "Content-Type": "text/html; charset=UTF-8"
         }
+      },
+      {
+        "route": "/about",
+        "rewrite": "/pages/about.html",
+        "headers": {
+          "cache-control": "no-store, must-revalidate",
+          "Content-Type": "text/html; charset=UTF-8"
+        }
+      },
+      {
+        "route": "/contact",
+        "rewrite": "/pages/contact.html",
+        "headers": {
+          "cache-control": "no-store, must-revalidate",
+          "Content-Type": "text/html; charset=UTF-8"
+        }
+      },
+      {
+        "route": "/order-confirmation",
+        "rewrite": "/pages/order-confirmation.html",
+        "headers": {
+          "cache-control": "no-store, must-revalidate",
+          "Content-Type": "text/html; charset=UTF-8"
+        }
+      },
+      {
+        "route": "/login",
+        "rewrite": "/pages/login.html",
+        "headers": {
+          "cache-control": "no-store, must-revalidate",
+          "Content-Type": "text/html; charset=UTF-8"
+        }
+      },
+      {
+        "route": "/.auth/login/aad",
+        "statusCode": 302,
+        "redirect": "/login"
+      },
+      {
+        "route": "/",
+        "rewrite": "/index.html"
+      }
     ],
     "defaultHeaders": {
-        "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' https: data:; font-src 'self' https: data:;"
+      "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' https: data:; font-src 'self' https: data:;"
     },
     "navigationFallback": {
-        "rewrite": "/pages/404.html",
-        "exclude": ["/images/*", "/css/*", "/js/*"]
+      "rewrite": "/pages/404.html",
+      "exclude": ["/images/*", "/css/*", "/js/*"]
     },
     "responseOverrides": {
-        "404": {
-            "rewrite": "/pages/404.html",
-            "statusCode": 404
-        }
+      "404": {
+        "rewrite": "/pages/404.html",
+        "statusCode": 404
+      }
     }
-}
+  }
+  
