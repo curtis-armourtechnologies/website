@@ -40,7 +40,6 @@
           "Content-Type": "text/html; charset=UTF-8"
         }
       },
-      
       {
         "route": "/dashboard",
         "rewrite": "/pages/dashboard.html",
