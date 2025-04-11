@@ -25,11 +25,9 @@ msalInstance.handleRedirectPromise().then(response => {
             fetchUserData();
         } else {
             // No accounts found, initiate login flow
-            const loginRequest = {
-                scopes: ['User.Read', 'Directory.Read.All'], // Add the necessary permissions (scopes)
-                prompt: 'admin_consent' // Request admin consent during the login flow
-            };
-            msalInstance.loginRedirect(loginRequest); // Redirects the user to Microsoft login
+            msalInstance.loginRedirect({ 
+                scopes: ['User.Read', 'Directory.Read.All'] // Scopes needed for consent
+            });
         }
     }
 }).catch(error => {
@@ -72,4 +70,13 @@ function fetchUserData(accessToken) {
         console.error('Error fetching organization data from Graph API:', err);
         document.getElementById('org-info').innerHTML = '<p>Failed to load organization data.</p>';
     });
+}
+
+// Function to redirect to the Admin Consent URL
+function redirectToAdminConsent() {
+    const tenantId = "your-tenant-id"; // Replace with the tenant ID of the customer
+    const clientId = "371b9466-6c79-433a-8328-4c641f9cedff"; // Your app's client ID
+    const adminConsentUrl = `https://login.microsoftonline.com/${tenantId}/adminconsent?client_id=${clientId}`;
+    
+    window.location.href = adminConsentUrl; // Redirect to the admin consent page
 }
