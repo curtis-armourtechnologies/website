@@ -33,6 +33,14 @@
             }
         },
         {
+            "route": "/login",
+            "rewrite": "/pages/login.html",
+            "headers": {
+                "cache-control": "no-store, must-revalidate",
+                "Content-Type": "text/html; charset=UTF-8"
+            }
+        },
+        {
             "route": "/",
             "rewrite": "/index.html"
         }
