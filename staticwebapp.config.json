@@ -46,6 +46,10 @@
         "redirect": "/login"
       },
       {
+        "route": "/testlogin",
+        "rewrite": "/pages/testlogin.html"
+      },
+      {
         "route": "/",
         "rewrite": "/index.html"
       }
