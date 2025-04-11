@@ -40,11 +40,7 @@
           "Content-Type": "text/html; charset=UTF-8"
         }
       },
-      {
-        "route": "/.auth/login/aad",
-        "statusCode": 302,
-        "redirect": "/dashboard"
-      },
+      
       {
         "route": "/dashboard",
         "rewrite": "/pages/dashboard.html",
