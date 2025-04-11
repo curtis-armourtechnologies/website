@@ -163,6 +163,37 @@
             script.defer = true;
             document.body.appendChild(script);
         });
+        
     </script>
+
+    <!--user auth -->
+    <script>
+        fetch('/.auth/me')
+          .then(res => res.json())
+          .then(authData => {
+            const user = authData.clientPrincipal;
+            if (!user) {
+              document.body.innerHTML += "<p>You are not signed in.</p>";
+              return;
+            }
+      
+            // Now fetch the Graph data using the user's session
+            fetch('/api/getUserInfo')
+              .then(res => res.json())
+              .then(data => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                  <h3>Welcome, ${data.user.displayName}</h3>
+                  <p><strong>Email:</strong> ${data.user.mail}</p>
+                  <p><strong>Organization:</strong> ${data.organization.displayName}</p>
+                `;
+                document.body.appendChild(div);
+              })
+              .catch(err => {
+                document.body.innerHTML += `<p>Graph call failed: ${err.message}</p>`;
+              });
+          });
+      </script>
+      
 </body>
 </html>
