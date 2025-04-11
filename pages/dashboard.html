@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Dashboard</title>
+  <!-- Link to external JavaScript file -->
+  <script src="js/auth.js" defer></script> <!-- Use defer to load the script after HTML parsing -->
 </head>
 <body>
   <h1>Welcome to Your Dashboard</h1>
@@ -16,67 +18,7 @@
     <!-- Organization info will be displayed here -->
   </div>
 
-  <script>
-    // Fetch the authenticated user's data from /auth/me
-    fetch('/.auth/me')
-      .then(res => res.json())
-      .then(data => {
-        if (data.clientPrincipal) {
-          // If authenticated, get the user's info from Microsoft Graph API
-          const accessToken = data.clientPrincipal.accessToken;
+  <!-- Additional HTML content can go here -->
 
-          // Log the access token to verify it
-          console.log('Access Token:', accessToken);
-
-          // Proceed with the API request only if the token is valid
-          if (accessToken) {
-            // Make a Graph API call to fetch user data
-            fetch('https://graph.microsoft.com/v1.0/me', {
-              method: 'GET',
-              headers: {
-                'Authorization': `Bearer ${accessToken}`,
-                'Content-Type': 'application/json'
-              }
-            })
-            .then(response => response.json())
-            .then(userData => {
-              // Display user data on the dashboard
-              const userDiv = document.getElementById('user-info');
-              userDiv.innerHTML = `<h2>User Info</h2><pre>${JSON.stringify(userData, null, 2)}</pre>`;
-            })
-            .catch(err => {
-              console.error('Error fetching user data from Graph API:', err);
-              document.getElementById('user-info').innerHTML = '<p>Failed to load user data.</p>';
-            });
-
-            // Make a Graph API call to fetch organization data
-            fetch('https://graph.microsoft.com/v1.0/organization', {
-              method: 'GET',
-              headers: {
-                'Authorization': `Bearer ${accessToken}`,
-                'Content-Type': 'application/json'
-              }
-            })
-            .then(response => response.json())
-            .then(orgData => {
-              // Display organization data on the dashboard
-              const orgDiv = document.getElementById('org-info');
-              orgDiv.innerHTML = `<h2>Organization Info</h2><pre>${JSON.stringify(orgData, null, 2)}</pre>`;
-            })
-            .catch(err => {
-              console.error('Error fetching organization data from Graph API:', err);
-              document.getElementById('org-info').innerHTML = '<p>Failed to load organization data.</p>';
-            });
-          } else {
-            document.getElementById('user-info').innerHTML = '<p>No access token found.</p>';
-          }
-        } else {
-          document.getElementById('user-info').innerHTML = '<p>You are not authenticated.</p>';
-        }
-      })
-      .catch(err => {
-        console.error('Error fetching /auth/me:', err);
-      });
-  </script>
 </body>
 </html>
